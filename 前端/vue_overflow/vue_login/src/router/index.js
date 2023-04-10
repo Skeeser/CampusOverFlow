@@ -1,8 +1,6 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
+import Router from './router'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
 const routes = []
 
