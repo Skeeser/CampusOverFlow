@@ -7,23 +7,33 @@ const routes = [
   { path: '/', redirect: '/login' },
   {
     path: '/login',
+    meta: { title: '登录' },
     component: (resolve) => require(['@/components/Login'], resolve)
   },
   {
     path: '/home',
-    component: (resolve) => require(['@/components/Home'], resolve)
-    // redirect: '/Welcome',
-    // children: [
-    //   { path: '/home', component: Welcome },
-    //   { path: '/users', component: Users },
-    //   { path: '/rights', component: Rights },
-    //   { path: '/roles', component: Roles },
-    //   { path: '/categories', component: Cate },
-    //   { path: '/params', component: Params },
-    //   { path: '/goods', component: GoodsList },
-    //   { path: '/goods/add', component: Add },
-    //   { path: '/orders', component: Order },
-    //   { path: '/reports', component: Report }
+    meta: { title: '主页' },
+    component: (resolve) => require(['@/components/Home'], resolve),
+    redirect: '/Welcome',
+    children: [
+      {
+        path: '/home',
+        component: (resolve) => require(['@/components/Welcome'], resolve)
+      },
+
+      {
+        path: '/users',
+        component: (resolve) => require(['@/components/user/User'], resolve)
+      }
+      //   { path: '/rights', component: Rights },
+      //   { path: '/roles', component: Roles },
+      //   { path: '/categories', component: Cate },
+      //   { path: '/params', component: Params },
+      //   { path: '/goods', component: GoodsList },
+      //   { path: '/goods/add', component: Add },
+      //   { path: '/orders', component: Order },
+      //   { path: '/reports', component: Report }
+    ]
   }
 ]
 

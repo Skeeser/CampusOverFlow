@@ -22,12 +22,8 @@
           type="text"
           auto-complete="off"
           placeholder="账号"
+          prefix-icon="iconfont icon-user"
         >
-          <svg-icon
-            slot="prefix"
-            icon-class="user"
-            class="el-input__icon input-icon"
-          />
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
@@ -37,25 +33,19 @@
           type="password"
           auto-complete="off"
           placeholder="密码"
+          prefix-icon="iconfont icon-3702mima"
           @keyup.enter.native="handleLogin"
         >
-          <svg-icon
-            slot="prefix"
-            icon-class="password"
-            class="el-input__icon input-icon"
-          />
         </el-input>
       </el-form-item>
       <el-form-item style="width: 100%">
         <el-button
-          :loading="loading"
           size="medium"
           type="primary"
           style="width: 100%"
           @click.native.prevent="handleLogin"
         >
-          <span v-if="!loading">登 录</span>
-          <span v-else>登 录 中...</span>
+          <span>登 录</span>
         </el-button>
       </el-form-item>
     </el-form>
@@ -64,6 +54,7 @@
 
 <script>
 import Background from '@/assets/images/background_arknights01.jpg'
+
 // 下面是具体的行为区
 export default {
   name: 'Login',
@@ -86,6 +77,22 @@ export default {
       }
     }
   },
+  watch: {
+    $route: {
+      handler: function (route) {
+        const data = route.query
+        if (data && data.redirect) {
+          this.redirect = data.redirect
+          delete data.redirect
+          if (JSON.stringify(data) !== '{}') {
+            this.redirect =
+              this.redirect + '&' + qs.stringify(data, { indices: false })
+          }
+        }
+      },
+      immediate: true
+    }
+  },
   methods: {
     handleLogin() {
       // 数据预验证
@@ -97,7 +104,7 @@ export default {
           // this.$http.post('login', this.loginForm): 返回值为promise
           // 返回值为promise，可加await简化操作 相应的也要加async
           const { data: res } = await this.$http.post('login', this.loginForm)
-          // console.log(res)
+          console.log(res)
           if (res.meta.status !== 200) return this.$message.error('登录失败')
           this.$message.success('登录成功')
           // 1、将登陆成功之后的token, 保存到客户端的sessionStorage中; localStorage中是持久化的保存
