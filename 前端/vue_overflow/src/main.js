@@ -9,7 +9,7 @@ import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 
 // 导入表格树
-// import TreeTable from 'vue-table-with-tree-grid'
+import TreeTable from 'vue-table-with-tree-grid'
 // 导入富文本编辑器
 // import VueQuillEditor from 'vue-quill-editor'
 // 导入富文本编辑器样式
@@ -47,6 +47,9 @@ Vue.config.productionTip = false
 
 // 挂在到Vue实例，后面可通过this调用
 Vue.prototype.$http = axios
+
+// 组件全局注册 表格树
+Vue.component('tree-table', TreeTable)
 
 new Vue({
   router,

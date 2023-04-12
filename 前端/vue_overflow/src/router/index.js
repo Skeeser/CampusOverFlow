@@ -32,8 +32,11 @@ const routes = [
       {
         path: '/roles',
         component: (resolve) => require(['@/components/power/Roles'], resolve)
+      },
+      {
+        path: '/categories',
+        component: (resolve) => require(['@/components/goods/Cate'], resolve)
       }
-      //   { path: '/categories', component: Cate },
       //   { path: '/params', component: Params },
       //   { path: '/goods', component: GoodsList },
       //   { path: '/goods/add', component: Add },
