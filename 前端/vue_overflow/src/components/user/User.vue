@@ -37,7 +37,7 @@
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="username" label="姓名"></el-table-column>
         <el-table-column prop="email" label="班级"></el-table-column>
-        <el-table-column prop="mobile" label="密码"></el-table-column>
+        <el-table-column prop="mobile" label="学号"></el-table-column>
         <el-table-column prop="role_name" label="角色"></el-table-column>
         <el-table-column label="状态">
           <template slot-scope="scope">
@@ -88,7 +88,7 @@
         :current-page="queryInfo.pagenum"
         :page-sizes="[2, 5, 10, 15]"
         :page-size="queryInfo.pagesize"
-        layout="total, sizes, prev, pager, next, jumper"
+        layout="sizes, prev, pager, next, jumper"
         :total="totle"
       ></el-pagination>
     </el-card>
@@ -107,16 +107,16 @@
         :rules="addUserFormRules"
         label-width="100px"
       >
-        <el-form-item label="用户名" prop="username">
+        <el-form-item label="姓名" prop="username">
           <el-input v-model="addUserForm.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input v-model="addUserForm.password"></el-input>
         </el-form-item>
-        <el-form-item label="邮箱" prop="email">
+        <el-form-item label="班级" prop="email">
           <el-input v-model="addUserForm.email"></el-input>
         </el-form-item>
-        <el-form-item label="手机" prop="mobile">
+        <el-form-item label="学号" prop="mobile">
           <el-input v-model="addUserForm.mobile"></el-input>
         </el-form-item>
       </el-form>
@@ -216,6 +216,7 @@ export default {
     return {
       // 获取用户列表查询参数对象
       queryInfo: {
+        // 搜索的字符串
         query: '',
         // 当前页数
         pagenum: 1,
@@ -332,10 +333,12 @@ export default {
     addUser() {
       // 提交请求前，表单预验证
       this.$refs.addUserFormRef.validate(async (valid) => {
-        // console.log(valid)
+        console.log(valid)
         // 表单预校验失败
+        console.log(this.addUserForm)
         if (!valid) return
         const { data: res } = await this.$http.post('users', this.addUserForm)
+
         if (res.meta.status !== 201) {
           this.$message.error('添加用户失败！')
         }

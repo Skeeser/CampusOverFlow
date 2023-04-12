@@ -24,8 +24,11 @@ const routes = [
       {
         path: '/users',
         component: (resolve) => require(['@/components/user/User'], resolve)
+      },
+      {
+        path: '/rights',
+        component: (resolve) => require(['@/components/power/Rights'], resolve)
       }
-      //   { path: '/rights', component: Rights },
       //   { path: '/roles', component: Roles },
       //   { path: '/categories', component: Cate },
       //   { path: '/params', component: Params },
