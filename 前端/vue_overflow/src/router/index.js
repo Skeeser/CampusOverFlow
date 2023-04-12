@@ -28,8 +28,11 @@ const routes = [
       {
         path: '/rights',
         component: (resolve) => require(['@/components/power/Rights'], resolve)
+      },
+      {
+        path: '/roles',
+        component: (resolve) => require(['@/components/power/Roles'], resolve)
       }
-      //   { path: '/roles', component: Roles },
       //   { path: '/categories', component: Cate },
       //   { path: '/params', component: Params },
       //   { path: '/goods', component: GoodsList },
