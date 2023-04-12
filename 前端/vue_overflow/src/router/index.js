@@ -36,8 +36,11 @@ const routes = [
       {
         path: '/categories',
         component: (resolve) => require(['@/components/goods/Cate'], resolve)
+      },
+      {
+        path: '/params',
+        component: (resolve) => require(['@/components/goods/Params'], resolve)
       }
-      //   { path: '/params', component: Params },
       //   { path: '/goods', component: GoodsList },
       //   { path: '/goods/add', component: Add },
       //   { path: '/orders', component: Order },
