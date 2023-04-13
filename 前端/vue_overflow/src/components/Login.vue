@@ -77,6 +77,9 @@ export default {
       }
     }
   },
+  created() {
+    document.title = '登录页面'
+  },
   watch: {
     $route: {
       handler: function (route) {

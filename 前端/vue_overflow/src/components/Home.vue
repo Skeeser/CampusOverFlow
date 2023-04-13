@@ -92,6 +92,7 @@ export default {
     }
   },
   created() {
+    document.title = '主页面'
     this.getMenuList()
     this.activePath = window.sessionStorage.getItem('activePath')
   },
