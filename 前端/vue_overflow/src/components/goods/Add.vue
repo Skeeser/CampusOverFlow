@@ -9,9 +9,20 @@
     <!-- 卡片视图 -->
     <el-card>
       <!-- 提示 -->
-      <el-alert title="添加商品信息" type="info" center show-icon :closable="false"></el-alert>
+      <el-alert
+        title="添加商品信息"
+        type="info"
+        center
+        show-icon
+        :closable="false"
+      ></el-alert>
       <!-- 步骤条 -->
-      <el-steps :space="200" :active="activeIndex - 0" finish-status="success" align-center>
+      <el-steps
+        :space="200"
+        :active="activeIndex - 0"
+        finish-status="success"
+        align-center
+      >
         <el-step title="基本信息"></el-step>
         <el-step title="商品参数"></el-step>
         <el-step title="商品属性"></el-step>
@@ -59,20 +70,27 @@
           <el-tab-pane label="商品参数" name="1">
             <!-- 渲染表单的Item项 -->
             <el-form-item
-              v-for="item in manyTableData
-
-            "
+              v-for="item in manyTableData"
               :key="item.attr_id"
               :label="item.attr_name"
             >
               <!-- 复选框组 -->
               <el-checkbox-group v-model="item.attr_vals">
-                <el-checkbox :label="cb" v-for="(cb, i) in item.attr_vals" :key="i" border></el-checkbox>
+                <el-checkbox
+                  :label="cb"
+                  v-for="(cb, i) in item.attr_vals"
+                  :key="i"
+                  border
+                ></el-checkbox>
               </el-checkbox-group>
             </el-form-item>
           </el-tab-pane>
           <el-tab-pane label="商品属性" name="2">
-            <el-form-item :label="item.attr_name" v-for="item in onlyTableData" :key="item.attr_id">
+            <el-form-item
+              :label="item.attr_name"
+              v-for="item in onlyTableData"
+              :key="item.attr_id"
+            >
               <el-input v-model="item.attr_vals"></el-input>
             </el-form-item>
           </el-tab-pane>
@@ -93,13 +111,19 @@
             <!-- 富文本编辑器 -->
             <quill-editor v-model="addForm.goods_introduce"></quill-editor>
             <!-- 添加商品 -->
-            <el-button type="primary" class="btnAdd" @click="addGoods">添加商品</el-button>
+            <el-button type="primary" class="btnAdd" @click="addGoods"
+              >添加商品</el-button
+            >
           </el-tab-pane>
         </el-tabs>
       </el-form>
     </el-card>
-    <el-dialog title="图片预览" :visible.sync="previewDialogVisible" width="50%">
-      <img :src="picPreviewPath" alt="" class="previewImg">
+    <el-dialog
+      title="图片预览"
+      :visible.sync="previewDialogVisible"
+      width="50%"
+    >
+      <img :src="picPreviewPath" alt="" class="previewImg" />
     </el-dialog>
   </div>
 </template>
@@ -107,7 +131,7 @@
 <script>
 import _ from 'lodash'
 export default {
-  data () {
+  data() {
     return {
       // 步骤条默认激活 与左侧Tab联动
       activeIndex: '0',
@@ -166,11 +190,11 @@ export default {
       previewDialogVisible: false
     }
   },
-  created () {
+  created() {
     this.getCateList()
   },
   computed: {
-    getCateId () {
+    getCateId() {
       if (this.addForm.goods_cat.length === 3) {
         return this.addForm.goods_cat[2]
       }
@@ -179,7 +203,7 @@ export default {
   },
   methods: {
     // 获取商品分类数据列表
-    async getCateList () {
+    async getCateList() {
       const { data: res } = await this.$http.get('categories')
       if (res.meta.status !== 200) {
         return this.$message.error('获取商品列表失败！')
@@ -187,12 +211,12 @@ export default {
       this.cateList = res.data
     },
     // 级联选择器选中项变化时出发
-    handleChange () {
+    handleChange() {
       if (this.addForm.goods_cat.length !== 3) {
         this.addForm.goods_cat = []
       }
     },
-    beforeTabLeave (activeName, odlActiveName) {
+    beforeTabLeave(activeName, odlActiveName) {
       // 未选中商品分类阻止Tab标签跳转
       if (odlActiveName === '0' && this.addForm.goods_cat.length !== 3) {
         this.$message.error('请先选择商品分类')
@@ -200,7 +224,7 @@ export default {
       }
     },
     // Tab标签被选中时触发
-    async tabClicked () {
+    async tabClicked() {
       // 访问动态参数面板
       if (this.activeIndex === '1') {
         const { data: res } = await this.$http.get(
@@ -212,7 +236,7 @@ export default {
         if (res.meta.status !== 200) {
           return this.$message.error('获取动态参数列表失败！')
         }
-        res.data.forEach(item => {
+        res.data.forEach((item) => {
           item.attr_vals =
             item.attr_vals.length === 0 ? [] : item.attr_vals.split(' ')
         })
@@ -231,29 +255,29 @@ export default {
       }
     },
     // 处理图片预览
-    handlePreview (file) {
+    handlePreview(file) {
       this.picPreviewPath = file.response.data.url
       this.previewDialogVisible = true
     },
     // 处理移除图片的操作
-    handleRemove (file) {
+    handleRemove(file) {
       // 1.获取将要删除图片的临时路径
       const filePath = file.response.data.tmp_path
       // 2.从pics数组中，找到图片对应的索引值
-      const i = this.addForm.pics.findIndex(x => x.pic === filePath)
+      const i = this.addForm.pics.findIndex((x) => x.pic === filePath)
       // 3.调用splice方法，移除图片信息
       this.addForm.splice(i, 1)
     },
     // 监听图片上传成功事件
-    handleSuccess (response) {
+    handleSuccess(response) {
       // 1.拼接得到一个图片信息对象 临时路径
       const picInfo = { pic: response.data.tmp_path }
       // 2.将图片信息对象，push到pics数组中
       this.addForm.pics.push(picInfo)
     },
     // 添加商品
-    addGoods () {
-      this.$refs.addFormRef.validate(async valid => {
+    addGoods() {
+      this.$refs.addFormRef.validate(async (valid) => {
         if (!valid) return this.$message.error('请填写必要的表单项！')
         // 发送请求前：需对提交的表单进行处理goods_cat attrs
         // this.addForm.goods_cat = this.addForm.goods_cat.join(',')
@@ -265,7 +289,7 @@ export default {
         form.goods_cat = form.goods_cat.join(',')
 
         // 处理动态参数
-        this.manyTableData.forEach(item => {
+        this.manyTableData.forEach((item) => {
           const newInfo = {
             attr_id: item.attr_id,
             attr_value: item.attr_vals.join(' ')
@@ -273,7 +297,7 @@ export default {
           this.addForm.attrs.push(newInfo)
         })
         // 处理静态属性
-        this.onlyTableData.forEach(item => {
+        this.onlyTableData.forEach((item) => {
           const newInfo = {
             attr_id: item.attr_id,
             attr_value: item.attr_vals
@@ -284,7 +308,8 @@ export default {
         // 发起请求添加商品
         // 商品名称必须是唯一的
         const { data: res } = await this.$http.post('goods', form)
-        if (res.meta.status !== 201) return this.$message.error('添加商品失败！')
+        if (res.meta.status !== 201)
+          return this.$message.error('添加商品失败！')
         this.$message.success('添加商品成功!')
         this.$router.push('/goods')
       })
@@ -293,14 +318,14 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .el-checkbox {
   margin: 0 8px 0 0 !important;
 }
-.previewImg{
+.previewImg {
   width: 100%;
 }
-.btnAdd{
-  margin-top: 15px
+.btnAdd {
+  margin-top: 15px;
 }
 </style>
