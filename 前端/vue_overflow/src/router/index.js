@@ -48,8 +48,11 @@ const routes = [
       {
         path: '/goods/add',
         component: (resolve) => require(['@/components/goods/Add'], resolve)
+      },
+      {
+        path: '/orders',
+        component: (resolve) => require(['@/components/order/Order'], resolve)
       }
-      //   { path: '/orders', component: Order },
       //   { path: '/reports', component: Report }
     ]
   }
