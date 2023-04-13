@@ -10,8 +10,17 @@
     <el-card>
       <el-row :gutter="20">
         <el-col :span="6">
-          <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getGoodsList">
-            <el-button slot="append" icon="el-icon-search" @click="getGoodsList"></el-button>
+          <el-input
+            placeholder="请输入内容"
+            v-model="queryInfo.query"
+            clearable
+            @clear="getGoodsList"
+          >
+            <el-button
+              slot="append"
+              icon="el-icon-search"
+              @click="getGoodsList"
+            ></el-button>
           </el-input>
         </el-col>
         <el-col :span="4">
@@ -22,15 +31,33 @@
       <el-table :data="goodsList" border stripe>
         <el-table-column type="index"></el-table-column>
         <el-table-column label="商品名称" prop="goods_name"></el-table-column>
-        <el-table-column label="商品价格(元)" prop="goods_price" width="100px"></el-table-column>
-        <el-table-column label="商品重量" prop="goods_weight" width="70px"></el-table-column>
-        <el-table-column label="商品数量" prop="goods_number" width="70px"></el-table-column>
+        <el-table-column
+          label="商品价格(元)"
+          prop="goods_price"
+          width="100px"
+        ></el-table-column>
+        <el-table-column
+          label="商品重量"
+          prop="goods_weight"
+          width="70px"
+        ></el-table-column>
+        <el-table-column
+          label="商品数量"
+          prop="goods_number"
+          width="70px"
+        ></el-table-column>
         <el-table-column label="创建时间" prop="add_time" width="140px">
-          <template slot-scope="scope">{{scope.row.add_time | dataFormat }}</template>
+          <template slot-scope="scope">{{
+            scope.row.add_time | dataFormat
+          }}</template>
         </el-table-column>
         <el-table-column label="操作" width="130px">
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" size="mini"></el-button>
+            <el-button
+              type="primary"
+              icon="el-icon-edit"
+              size="mini"
+            ></el-button>
             <el-button
               type="danger"
               icon="el-icon-delete"
@@ -57,7 +84,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       queryInfo: {
         query: '',
@@ -70,12 +97,12 @@ export default {
       total: 0
     }
   },
-  created () {
+  created() {
     this.getGoodsList()
   },
   methods: {
     // 根据分页获取对应的商品列表
-    async getGoodsList () {
+    async getGoodsList() {
       const { data: res } = await this.$http.get('goods', {
         params: this.queryInfo
       })
@@ -86,16 +113,16 @@ export default {
       //   console.log(this.goodsList)
       this.total = res.data.total
     },
-    handleSizeChange (newSize) {
+    handleSizeChange(newSize) {
       this.queryInfo.pagesize = newSize
       this.getGoodsList()
     },
-    handleCurrentChange (newSize) {
+    handleCurrentChange(newSize) {
       this.queryInfo.pagenum = newSize
       this.getGoodsList()
     },
     // 通过Id删除商品
-    async removeById (id) {
+    async removeById(id) {
       const confirmResult = await this.$confirm(
         '此操作将永久删除该商品, 是否继续?',
         '提示',
@@ -104,7 +131,7 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }
-      ).catch(err => err)
+      ).catch((err) => err)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除！')
       }
@@ -115,12 +142,11 @@ export default {
       this.$message.success('删除商品成功！')
       this.getGoodsList()
     },
-    goAddPage () {
+    goAddPage() {
       this.$router.push('/goods/add')
     }
   }
 }
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>
