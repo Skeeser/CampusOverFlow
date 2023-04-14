@@ -1,5 +1,5 @@
 const express = require("express");
-const compression = require();
+const compression = require("compression");
 
 const app = express();
 
