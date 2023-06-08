@@ -4,7 +4,7 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>师生管理</el-breadcrumb-item>
-      <el-breadcrumb-item>师生列表</el-breadcrumb-item>
+      <el-breadcrumb-item>学生列表</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 卡片视图 -->
     <el-card>
@@ -36,12 +36,28 @@
         border：边框-->
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="username" label="姓名"></el-table-column>
-        <el-table-column prop="email" label="班级"></el-table-column>
         <el-table-column
-          prop="mobile"
+          prop="grade"
+          label="年级"
+          sortable="custom"
+        ></el-table-column>
+        <el-table-column
+          prop="college"
+          label="学院"
+          sortable="custom"
+        ></el-table-column>
+        <el-table-column
+          prop="class"
+          label="班级"
+          sortable="custom"
+        ></el-table-column>
+        <el-table-column
+          prop="stuid"
           label="学号"
           sortable="custom"
         ></el-table-column>
+        <el-table-column prop="email" label="邮箱"></el-table-column>
+        <el-table-column prop="mobile" label="电话"></el-table-column>
         <el-table-column prop="role_name" label="角色"></el-table-column>
         <!-- <el-table-column label="状态">
           <template slot-scope="scope">
@@ -117,10 +133,19 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="addUserForm.password"></el-input>
         </el-form-item>
-        <el-form-item label="班级" prop="email">
-          <el-input v-model="addUserForm.email"></el-input>
+        <el-form-item label="年级" prop="grade">
+          <el-input v-model="addUserForm.grade"></el-input>
         </el-form-item>
-        <el-form-item label="学号" prop="mobile">
+        <el-form-item label="学院" prop="college">
+          <el-input v-model="addUserForm.college"></el-input>
+        </el-form-item>
+        <el-form-item label="班级" prop="class">
+          <el-input v-model="addUserForm.class"></el-input>
+        </el-form-item>
+        <el-form-item label="学号" prop="stuid">
+          <el-input v-model="addUserForm.stuid"></el-input>
+        </el-form-item>
+        <el-form-item label="电话" prop="mobile">
           <el-input v-model="addUserForm.mobile"></el-input>
         </el-form-item>
       </el-form>
@@ -226,6 +251,8 @@ export default {
         pagenum: 1,
         // 每页显示多少数据
         pagesize: 5,
+        // 是否是学生
+        isstu: 1,
         // 排序参数
         sortprop: '',
         // 排序顺序
@@ -239,8 +266,13 @@ export default {
       addUserForm: {
         username: '',
         password: '',
+        grade: '',
+        college: '', // 学院名称
+        class: '',
+        stuid: '',
         email: '',
-        mobile: ''
+        mobile: '',
+        isstu: 1 // 是否是学生
       },
       // 用户添加表单验证规则
       addUserFormRules: {

@@ -21,9 +21,19 @@ const routes = [
         component: (resolve) => require(['@/components/Welcome'], resolve)
       },
 
+      // {
+      //   path: '/users',
+      //   component: (resolve) => require(['@/components/user/User'], resolve)
+      // },
+
       {
-        path: '/users',
-        component: (resolve) => require(['@/components/user/User'], resolve)
+        path: '/students',
+        component: (resolve) => require(['@/components/user/Students'], resolve)
+      },
+
+      {
+        path: '/teachers',
+        component: (resolve) => require(['@/components/user/Teachers'], resolve)
       },
       {
         path: '/rights',

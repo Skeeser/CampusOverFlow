@@ -24,7 +24,7 @@ import NProgress from 'nprogress'
 import axios from 'axios'
 // 配置请求根路径
 // 本机地址
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://127.0.0.1:9006/api/'
 
 // 在request 拦截器中, 展示进度条 NProgress.start()
 // 请求在到达服务器之前，先会调用use中的这个回调函数来添加请求头信息

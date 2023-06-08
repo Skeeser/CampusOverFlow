@@ -117,10 +117,10 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="addUserForm.password"></el-input>
         </el-form-item>
-        <el-form-item label="班级" prop="email">
+        <el-form-item label="邮箱" prop="email">
           <el-input v-model="addUserForm.email"></el-input>
         </el-form-item>
-        <el-form-item label="学号" prop="mobile">
+        <el-form-item label="手机号" prop="mobile">
           <el-input v-model="addUserForm.mobile"></el-input>
         </el-form-item>
       </el-form>
@@ -226,6 +226,8 @@ export default {
         pagenum: 1,
         // 每页显示多少数据
         pagesize: 5,
+        // 是否是学生
+        isstu: 0,
         // 排序参数
         sortprop: '',
         // 排序顺序
