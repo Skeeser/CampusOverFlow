@@ -462,7 +462,7 @@ http_conn::HTTP_CODE http_conn::do_request()
             if (*m_url != '\0')
             {
                 m_url++;
-                LOG_DEBUG("url1=>%s", m_url);
+                // LOG_DEBUG("url1=>%s", m_url);
                 auto *p = strchr(m_url, '/');
                 // 如果后面没有别的数字
                 if (p == nullptr)
@@ -491,6 +491,27 @@ http_conn::HTTP_CODE http_conn::do_request()
                     logic_func->addUserLogic(m_string);
             }
 
+            LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
+        }
+        else if (strncasecmp(m_url, "/rights", 7) == 0)
+        {
+            m_url += 7;
+            // 如果是 /:id的情况
+            if (*m_url != '\0')
+            {
+                m_url++;
+                // LOG_DEBUG("url1=>%s", m_url);
+                auto *p = strchr(m_url, '/');
+                if (p == nullptr)
+                {
+                    if (m_method == GET)
+                        logic_func->getRightsLogic(m_url);
+                }
+                else
+                {
+                    LOG_DEBUG("is not nullptr");
+                }
+            }
             LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
         }
     }

@@ -37,8 +37,11 @@ public:
     }
     ~Logic() = default;
     std::string getToken(int mg_id);
+
     void loginLogic(char *user_data);
     void menuLogic();
+
+    // 班级管理
 
     // 用户管理
     void getUsersLogic(char *input_data);
@@ -46,6 +49,9 @@ public:
     void getUserByIdLogic(char *id);
     void putUserByIdLogic(char *id, char *input_data);
     void deleteUserByIdLogic(char *id);
+
+    // 权限管理
+    void getRightsLogic(char *input_data);
 
 private:
     MYSQL *mysql_;
