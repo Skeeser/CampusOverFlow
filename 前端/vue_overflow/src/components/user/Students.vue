@@ -148,6 +148,9 @@
         <el-form-item label="电话" prop="mobile">
           <el-input v-model="addUserForm.mobile"></el-input>
         </el-form-item>
+        <el-form-item label="邮箱" prop="email">
+          <el-input v-model="addUserForm.email"></el-input>
+        </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addDialogVisible = false">取 消</el-button>
@@ -171,6 +174,18 @@
       >
         <el-form-item label="用户名">
           <el-input v-model="editUserForm.username" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="年级" prop="grade">
+          <el-input v-model="editUserForm.grade"></el-input>
+        </el-form-item>
+        <el-form-item label="学院" prop="coollege">
+          <el-input v-model="editUserForm.college"></el-input>
+        </el-form-item>
+        <el-form-item label="班级" prop="class">
+          <el-input v-model="editUserForm.class"></el-input>
+        </el-form-item>
+        <el-form-item label="学号" prop="stuid">
+          <el-input v-model="editUserForm.stuid"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="editUserForm.email"></el-input>
@@ -293,29 +308,29 @@ export default {
             message: '用户密码的长度在6～18个字',
             trigger: 'blur'
           }
-        ],
-        email: [
-          { required: true, message: '请输入邮箱', trigger: 'blur' }
-          // { validator: checkEmail, trigger: 'blur' }
-        ],
-        mobile: [
-          { required: true, message: '请输入手机号码', trigger: 'blur' }
-          // { validator: checkMobile, trigger: 'blur' }
         ]
+        // email: [
+        //   { required: true, message: '请输入邮箱', trigger: 'blur' }
+        //   // { validator: checkEmail, trigger: 'blur' }
+        // ],
+        // mobile: [
+        //   { required: true, message: '请输入手机号码', trigger: 'blur' }
+        //   // { validator: checkMobile, trigger: 'blur' }
+        // ]
       },
       // 修改用户
       editDialogVisible: false,
       editUserForm: {},
       // 编辑用户表单验证
       editUserFormRules: {
-        email: [
-          { required: true, message: '请输入邮箱', trigger: 'blur' }
-          // { validator: checkEmail, trigger: 'blur' }
-        ],
-        mobile: [
-          { required: true, message: '请输入手机号码', trigger: 'blur' }
-          // { validator: checkMobile, trigger: 'blur' }
-        ]
+        // email: [
+        //   { required: true, message: '请输入邮箱', trigger: 'blur' }
+        //   // { validator: checkEmail, trigger: 'blur' }
+        // ],
+        // mobile: [
+        //   { required: true, message: '请输入手机号码', trigger: 'blur' }
+        //   // { validator: checkMobile, trigger: 'blur' }
+        // ]
       },
       // 分配角色对话框
       setRoleDialogVisible: false,
