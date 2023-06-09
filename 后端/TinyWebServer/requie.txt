@@ -1,0 +1,13 @@
+create database serversql;
+mysql -u root -p mydatabase < /path/to/myfile.sql
+
+sudo mysql -u root -p serversql > ./db/server.sql
+
+sudo apt-get install libjsoncpp-dev
+
+git clone https://github.com/Thalhammer/jwt-cpp.git
+cd jwt-cpp
+mkdir build && cd build
+cmake ..
+make
+sudo make install
