@@ -32,6 +32,7 @@
 #include "../logic/user.h"
 #include "../logic/menus.h"
 #include "../logic/login.h"
+#include "../logic/rights.h"
 
 class http_conn
 {

@@ -43,20 +43,6 @@ public:
     };
     std::string getToken(int mg_id);
 
-    void loginLogic(char *user_data);
-
-    // 班级管理
-
-    // void getUsersLogic(char *input_data);
-    // void addUserLogic(char *input_data);
-    // void getUserByIdLogic(char *id);
-    // void putUserByIdLogic(char *id, char *input_data);
-    // void deleteUserByIdLogic(char *id);
-
-    // 权限管理
-    void getRightsLogic(char *input_data);
-    void getRoles();
-
     char *getData()
     {
         return temp_buff_;

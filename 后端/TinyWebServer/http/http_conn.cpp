@@ -442,15 +442,21 @@ http_conn::HTTP_CODE http_conn::do_request()
         // 登录选项
         if (strncasecmp(m_url, "/login", 6) == 0)
         {
-            std::shared_ptr<Login> logic_func = std::make_shared<Login>(mysql, m_close_log, &json_len, token);
+            std::shared_ptr<Login> logic_func = std::make_shared<Login>(mysql, m_close_log, &json_len);
             if (m_string)
                 logic_func->login(m_string);
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
         }
         else if (strncasecmp(m_url, "/menus", 6) == 0)
         {
             std::shared_ptr<Menus> logic_func = std::make_shared<Menus>(mysql, m_close_log, &json_len, token);
             logic_func->getMenus(m_string);
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
         }
         else if (strncasecmp(m_url, "/users", 6) == 0)
         {
@@ -490,10 +496,14 @@ http_conn::HTTP_CODE http_conn::do_request()
             }
 
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
         }
         else if (strncasecmp(m_url, "/rights", 7) == 0)
         {
             m_url += 7;
+            std::shared_ptr<Rights> logic_func = std::make_shared<Rights>(mysql, m_close_log, &json_len, token);
             // 如果是 /:id的情况
             if (*m_url != '\0')
             {
@@ -502,7 +512,7 @@ http_conn::HTTP_CODE http_conn::do_request()
                 auto *p = strchr(m_url, '/');
                 if (p == nullptr)
                 {
-                    if (m_method == GET)
+                    // if (m_method == GET)
                     // logic_func->getRightsLogic(m_url);
                 }
                 else
@@ -510,10 +520,10 @@ http_conn::HTTP_CODE http_conn::do_request()
                     LOG_DEBUG("is not nullptr");
                 }
             }
+            // temp_buf = new char[json_len + 1];
+            // strncpy(temp_buf, logic_func->getData(), json_len);
+            // temp_buf[json_len] = '\0';
         }
-        temp_buf = new char[json_len + 1];
-        strncpy(temp_buf, logic_func->getData(), json_len);
-        temp_buf[json_len] = '\0';
     }
     else
         strncpy(m_real_file + len, m_url, FILENAME_LEN - len - 1);
