@@ -131,7 +131,7 @@ void http_conn::init()
     m_mmap_flag = IS_MMAP;
     m_send_size = 0;
     m_token_str = 0;
-
+    temp_buf = 0;
     memset(m_read_buf, '\0', READ_BUFFER_SIZE);
     memset(m_write_buf, '\0', WRITE_BUFFER_SIZE);
     memset(m_real_file, '\0', FILENAME_LEN);
@@ -438,25 +438,23 @@ http_conn::HTTP_CODE http_conn::do_request()
     else if (strncasecmp(m_url, "/api", 4) == 0)
     {
         m_url += 4;
-        std::shared_ptr<Logic> logic_func;
+
         // 登录选项
         if (strncasecmp(m_url, "/login", 6) == 0)
         {
-            logic_func = std::make_shared<Logic>(mysql, m_close_log, temp_buf, &json_len);
+            std::shared_ptr<Login> logic_func = std::make_shared<Login>(mysql, m_close_log, &json_len, token);
             if (m_string)
-                logic_func->loginLogic(m_string);
+                logic_func->login(m_string);
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
         }
-        else
-            logic_func = std::make_shared<Logic>(mysql, m_close_log, temp_buf, &json_len, token);
-
-        if (strncasecmp(m_url, "/menus", 6) == 0)
+        else if (strncasecmp(m_url, "/menus", 6) == 0)
         {
-
-            logic_func->menuLogic();
+            std::shared_ptr<Menus> logic_func = std::make_shared<Menus>(mysql, m_close_log, &json_len, token);
+            logic_func->getMenus(m_string);
         }
         else if (strncasecmp(m_url, "/users", 6) == 0)
         {
+            std::shared_ptr<User> logic_func = std::make_shared<User>(mysql, m_close_log, &json_len, token);
             m_url += 6;
             // 如果是 /:id的情况
             if (*m_url != '\0')
@@ -469,11 +467,11 @@ http_conn::HTTP_CODE http_conn::do_request()
                 {
 
                     if (m_method == GET)
-                        logic_func->getUserByIdLogic(m_url);
+                        logic_func->getUserById(m_url);
                     else if (m_method == PUT)
-                        logic_func->putUserByIdLogic(m_url, m_string);
+                        logic_func->putUserById(m_url, m_string);
                     else if (m_method == DELETE)
-                        logic_func->deleteUserByIdLogic(m_url);
+                        logic_func->deleteUserById(m_url);
                 }
                 else
                 {
@@ -484,14 +482,14 @@ http_conn::HTTP_CODE http_conn::do_request()
             {
                 if (m_method == GET && m_string)
 
-                    logic_func->getUsersLogic(m_string);
+                    logic_func->getUsers(m_string);
 
                 else if (m_method == POST && m_string)
 
-                    logic_func->addUserLogic(m_string);
+                    logic_func->addUser(m_string);
             }
 
-            LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
+            // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
         }
         else if (strncasecmp(m_url, "/rights", 7) == 0)
         {
@@ -505,15 +503,17 @@ http_conn::HTTP_CODE http_conn::do_request()
                 if (p == nullptr)
                 {
                     if (m_method == GET)
-                        logic_func->getRightsLogic(m_url);
+                    // logic_func->getRightsLogic(m_url);
                 }
                 else
                 {
                     LOG_DEBUG("is not nullptr");
                 }
             }
-            LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
         }
+        temp_buf = new char[json_len + 1];
+        strncpy(temp_buf, logic_func->getData(), json_len);
+        temp_buf[json_len] = '\0';
     }
     else
         strncpy(m_real_file + len, m_url, FILENAME_LEN - len - 1);
@@ -540,6 +540,7 @@ http_conn::HTTP_CODE http_conn::do_request()
         m_file_address = temp_buf;
         LOG_INFO("LEN: %d", json_len);
         m_send_size = json_len;
+        LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
     }
 
     return FILE_REQUEST;

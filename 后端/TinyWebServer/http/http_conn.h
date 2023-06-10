@@ -22,12 +22,16 @@
 #include <map>
 #include <memory>
 #include <jsoncpp/json/json.h>
+#include <vector>
 
 #include "../lock/locker.h"
 #include "../CGImysql/sql_connection_pool.h"
 #include "../timer/lst_timer.h"
 #include "../log/log.h"
 #include "../logic/logic.h"
+#include "../logic/user.h"
+#include "../logic/menus.h"
+#include "../logic/login.h"
 
 class http_conn
 {
@@ -151,7 +155,7 @@ private:
     IF_MMAP m_mmap_flag;
     size_t m_send_size;
 
-    char temp_buf[TEMP_BUFFER_SIZE]; // TODO: 之后用专门的可扩展的buff类优化
+    char *temp_buf; // TODO: 之后用专门的可扩展的buff类优化
     char *m_token_str;
 
     map<string, string>
