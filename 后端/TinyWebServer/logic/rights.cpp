@@ -1,6 +1,5 @@
 #include "rights.h"
 
-
 void Rights::getRightsLogic(char *input_data)
 {
     LOG_DEBUG("input_data=>%s", input_data);
@@ -53,5 +52,3 @@ void Rights::getRightsLogic(char *input_data)
 
     cpyJson2Buff(&ret_root);
 }
-
-void Rights::getRoles();

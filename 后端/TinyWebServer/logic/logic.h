@@ -15,7 +15,6 @@
 #include "../lock/locker.h"
 #include "../log/log.h"
 
-
 class Logic
 {
 public:
@@ -58,7 +57,7 @@ protected:
 
     // 常见sql操作
     std::string findByKey(std::string table_name, std::string ret_name, std::string col_name, std::string key);
-
+    void getTableResult(std::string table_name, MYSQL_RES *result);
     bool checkToken(std::string token, int &mg_id);
     std::shared_ptr<std::vector<std::string>> key_vector_;
     void getTableKey(string table_name);
@@ -68,4 +67,7 @@ protected:
     int indexOf(string key_name);
     std::shared_ptr<std::unordered_map<std::string, std::string>> parseGetData(char *input_data);
     int getUsersCountByKey(std::string table_name, std::string col_name, std::string key);
+
+    // Json操作
+    Json::Value &findChildrenJsonByMember(Json::Value &parent, std::string key, std::string value);
 };

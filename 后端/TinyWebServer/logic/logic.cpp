@@ -124,7 +124,6 @@ std::shared_ptr<std::unordered_map<std::string, std::string>> Logic::parseGetDat
     return param_hash;
 }
 
-
 // 获取表的所有键的名字
 void Logic::getTableKey(string table_name)
 {
@@ -152,6 +151,34 @@ void Logic::getTableKey(string table_name)
     }
     else
     {
+        return;
+    }
+}
+
+// 获取某个表的所有数据
+void Logic::getTableResult(std::string table_name, MYSQL_RES *result)
+{
+    std::string sql_string("SELECT * FROM " + table_name + " ;");
+
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    // 在获取前先清除
+    clearTableKey();
+    getTableKey(table_name);
+
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret) // 查询成功
+    {
+        // 从表中检索完整的结果集
+        result = mysql_store_result(mysql_);
+    }
+    else
+    {
+        result = nullptr;
+        errorLogic(404, "查询失败");
         return;
     }
 }
@@ -207,4 +234,16 @@ int Logic::indexOf(string key_name)
     }
     // 默认返回第一个
     return 0;
+}
+
+// 根据父json中的子成员是否匹配来查找子Json, 若相同则返回第一个匹配的
+Json::Value &Logic::findChildrenJsonByMember(Json::Value &parent, std::string key, std::string value)
+{
+    Json::Value val = value;
+    for (Json::Value &json_value : parent)
+    {
+
+        if (json_value[key] == val)
+            return json_value;
+    }
 }

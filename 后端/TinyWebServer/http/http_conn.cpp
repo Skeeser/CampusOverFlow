@@ -520,9 +520,20 @@ http_conn::HTTP_CODE http_conn::do_request()
                     LOG_DEBUG("is not nullptr");
                 }
             }
-            // temp_buf = new char[json_len + 1];
-            // strncpy(temp_buf, logic_func->getData(), json_len);
-            // temp_buf[json_len] = '\0';
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
+        }
+        else if (strncasecmp(m_url, "/roles", 6) == 0)
+        {
+            std::shared_ptr<Roles> logic_func = std::make_shared<Roles>(mysql, m_close_log, &json_len, token);
+            if (m_method == GET)
+            {
+                logic_func->getRoles();
+            }
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
         }
     }
     else

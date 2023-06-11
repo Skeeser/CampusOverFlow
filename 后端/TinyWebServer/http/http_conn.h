@@ -33,7 +33,7 @@
 #include "../logic/menus.h"
 #include "../logic/login.h"
 #include "../logic/rights.h"
-
+#include "../logic/roles.h"
 class http_conn
 {
 public:
