@@ -324,7 +324,7 @@ void Roles::putRoleById(char *id, char *input_data)
     std::string sql_string("UPDATE sp_role SET ");
     sql_string += " role_name = '" + root["roleName"].asString() + "', ";
     sql_string += " role_desc = '" + root["roleDesc"].asString() + "'  ";
-    sql_string += " WHERE mg_id = '" + std::string(id) + "';";
+    sql_string += " WHERE role_id = '" + std::string(id) + "';";
 
     Json::Value ret_root;
     Json::Value data;
