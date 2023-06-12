@@ -268,3 +268,42 @@ void Roles::addRoles(char *input_data)
 
     cpyJson2Buff(&ret_root);
 }
+
+void Roles::getRoleById(char *id)
+{
+    LOG_DEBUG("id=>%s", id);
+    clearTableKey();
+    getTableKey("sp_role");
+
+    std::string sql_string("SELECT * FROM sp_role WHERE role_id = '" + std::string(id) + "';");
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+        MYSQL_ROW row = mysql_fetch_row(result);
+        data["id"] = id;
+        data["roleName"] = row[indexOf("role_name")];
+        data["roleDesc"] = row[indexOf("role_desc")];
+
+        meta["msg"] = "查询成功";
+        meta["status"] = 200;
+        ret_root["data"] = data;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "用户查询失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}

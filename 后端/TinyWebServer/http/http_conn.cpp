@@ -546,6 +546,10 @@ http_conn::HTTP_CODE http_conn::do_request()
                 }
                 else
                 {
+                    if (m_method == GET)
+                    {
+                        logic_func->getRoleById(m_url);
+                    }
                 }
             }
             else if (m_method == GET)

@@ -1225,3 +1225,145 @@
 2023-06-13 01:57:36.273593 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
 2023-06-13 01:57:36.273598 [info]: parse_test=>
 2023-06-13 01:57:36.273606 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-13 02:06:34.139022 [info]: deal with the client(127.0.0.1)
+2023-06-13 02:06:34.314476 [info]: adjust timer once
+2023-06-13 02:06:34.314564 [info]: parse_test=>GET /api/roles/1 HTTP/1.1
+2023-06-13 02:06:34.314615 [info]: url=> /api/roles/1
+2023-06-13 02:06:34.314625 [info]: parse_test=>Host: 127.0.0.1:9006
+2023-06-13 02:06:34.314633 [info]: parse_test=>Connection: keep-alive
+2023-06-13 02:06:34.314641 [info]: parse_test=>sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"
+2023-06-13 02:06:34.314649 [info]: oop!unknow header: sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"
+2023-06-13 02:06:34.314657 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-13 02:06:34.314664 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-13 02:06:34.314671 [info]: parse_test=>sec-ch-ua-mobile: ?0
+2023-06-13 02:06:34.314679 [info]: oop!unknow header: sec-ch-ua-mobile: ?0
+2023-06-13 02:06:34.314686 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-13 02:06:34.314695 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-13 02:06:34.314729 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-13 02:06:34.314751 [info]: parse_test=>sec-ch-ua-platform: "Windows"
+2023-06-13 02:06:34.314759 [info]: oop!unknow header: sec-ch-ua-platform: "Windows"
+2023-06-13 02:06:34.314766 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-13 02:06:34.314773 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-13 02:06:34.314780 [info]: parse_test=>Sec-Fetch-Site: cross-site
+2023-06-13 02:06:34.314787 [info]: oop!unknow header: Sec-Fetch-Site: cross-site
+2023-06-13 02:06:34.314795 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-13 02:06:34.314802 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-13 02:06:34.314809 [info]: parse_test=>Sec-Fetch-Dest: empty
+2023-06-13 02:06:34.314816 [info]: oop!unknow header: Sec-Fetch-Dest: empty
+2023-06-13 02:06:34.314823 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-13 02:06:34.314830 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-13 02:06:34.314837 [info]: parse_test=>Accept-Encoding: gzip, deflate, br
+2023-06-13 02:06:34.314879 [info]: oop!unknow header: Accept-Encoding: gzip, deflate, br
+2023-06-13 02:06:34.314904 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-13 02:06:34.314913 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-13 02:06:34.314920 [info]: parse_test=>
+2023-06-13 02:06:34.314938 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-13 02:06:34.315112 [debug]: id=>1
+2023-06-13 02:06:34.997521 [debug]: json_string = %, len = 134
+2023-06-13 02:06:34.997628 [info]: LEN: 134
+2023-06-13 02:06:34.997653 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"id" : "1",
+		"roleDesc" : "1",
+		"roleName" : "1"
+	},
+	"meta" : 
+	{
+		"msg" : "查询成功",
+		"status" : 200
+	}
+}, 54
+2023-06-13 02:06:34.997782 [info]: send data to the client(127.0.0.1)
+2023-06-13 02:06:34.997815 [info]: adjust timer once
+2023-06-13 02:06:38.295244 [info]: timer tick
+2023-06-13 02:06:40.619682 [info]: deal with the client(127.0.0.1)
+2023-06-13 02:06:40.619754 [info]: adjust timer once
+2023-06-13 02:06:40.619825 [info]: parse_test=>OPTIONS /api/roles/151 HTTP/1.1
+2023-06-13 02:06:40.619881 [info]: url=> /api/roles/151
+2023-06-13 02:06:40.619893 [info]: parse_test=>Host: 127.0.0.1:9006
+2023-06-13 02:06:40.619897 [info]: parse_test=>Connection: keep-alive
+2023-06-13 02:06:40.619901 [info]: parse_test=>Accept: */*
+2023-06-13 02:06:40.619904 [info]: oop!unknow header: Accept: */*
+2023-06-13 02:06:40.619908 [info]: parse_test=>Access-Control-Request-Method: GET
+2023-06-13 02:06:40.619911 [info]: oop!unknow header: Access-Control-Request-Method: GET
+2023-06-13 02:06:40.619914 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-13 02:06:40.619918 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-13 02:06:40.619921 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-13 02:06:40.619924 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-13 02:06:40.619927 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-13 02:06:40.619931 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-13 02:06:40.619934 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-13 02:06:40.619937 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-13 02:06:40.619940 [info]: parse_test=>Sec-Fetch-Site: cross-site
+2023-06-13 02:06:40.619944 [info]: oop!unknow header: Sec-Fetch-Site: cross-site
+2023-06-13 02:06:40.619947 [info]: parse_test=>Sec-Fetch-Dest: empty
+2023-06-13 02:06:40.619953 [info]: oop!unknow header: Sec-Fetch-Dest: empty
+2023-06-13 02:06:40.619956 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-13 02:06:40.619959 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-13 02:06:40.619963 [info]: parse_test=>Accept-Encoding: gzip, deflate, br
+2023-06-13 02:06:40.619966 [info]: oop!unknow header: Accept-Encoding: gzip, deflate, br
+2023-06-13 02:06:40.619972 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-13 02:06:40.619975 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-13 02:06:40.619978 [info]: parse_test=>
+2023-06-13 02:06:40.620052 [info]: send data to the client(127.0.0.1)
+2023-06-13 02:06:40.620084 [info]: adjust timer once
+2023-06-13 02:06:43.295337 [info]: timer tick
+2023-06-13 02:06:48.295433 [info]: timer tick
+2023-06-13 02:06:53.295502 [info]: timer tick
+2023-06-13 02:06:58.295645 [info]: timer tick
+2023-06-13 02:06:58.326047 [info]: deal with the client(127.0.0.1)
+2023-06-13 02:06:58.326122 [info]: adjust timer once
+2023-06-13 02:06:58.326208 [info]: parse_test=>GET /api/roles/151 HTTP/1.1
+2023-06-13 02:06:58.326296 [info]: url=> /api/roles/151
+2023-06-13 02:06:58.326348 [info]: parse_test=>Host: 127.0.0.1:9006
+2023-06-13 02:06:58.326369 [info]: parse_test=>Connection: keep-alive
+2023-06-13 02:06:58.326379 [info]: parse_test=>sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"
+2023-06-13 02:06:58.326387 [info]: oop!unknow header: sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"
+2023-06-13 02:06:58.326400 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-13 02:06:58.326408 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-13 02:06:58.326446 [info]: parse_test=>sec-ch-ua-mobile: ?0
+2023-06-13 02:06:58.326473 [info]: oop!unknow header: sec-ch-ua-mobile: ?0
+2023-06-13 02:06:58.326481 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-13 02:06:58.326490 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-13 02:06:58.326498 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-13 02:06:58.326522 [info]: parse_test=>sec-ch-ua-platform: "Windows"
+2023-06-13 02:06:58.326530 [info]: oop!unknow header: sec-ch-ua-platform: "Windows"
+2023-06-13 02:06:58.326537 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-13 02:06:58.326545 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-13 02:06:58.326552 [info]: parse_test=>Sec-Fetch-Site: cross-site
+2023-06-13 02:06:58.326559 [info]: oop!unknow header: Sec-Fetch-Site: cross-site
+2023-06-13 02:06:58.326566 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-13 02:06:58.326573 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-13 02:06:58.326581 [info]: parse_test=>Sec-Fetch-Dest: empty
+2023-06-13 02:06:58.326588 [info]: oop!unknow header: Sec-Fetch-Dest: empty
+2023-06-13 02:06:58.326595 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-13 02:06:58.326602 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-13 02:06:58.326610 [info]: parse_test=>Accept-Encoding: gzip, deflate, br
+2023-06-13 02:06:58.326617 [info]: oop!unknow header: Accept-Encoding: gzip, deflate, br
+2023-06-13 02:06:58.326624 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-13 02:06:58.326632 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-13 02:06:58.326639 [info]: parse_test=>
+2023-06-13 02:06:58.326660 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-13 02:06:58.326814 [debug]: id=>151
+2023-06-13 02:06:59.072036 [debug]: json_string = %, len = 140
+2023-06-13 02:06:59.072103 [info]: LEN: 140
+2023-06-13 02:06:59.072114 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"id" : "151",
+		"roleDesc" : "151",
+		"roleName" : "151"
+	},
+	"meta" : 
+	{
+		"msg" : "查询成功",
+		"status" : 200
+	}
+}, 54
+2023-06-13 02:06:59.072275 [info]: send data to the client(127.0.0.1)
+2023-06-13 02:06:59.072339 [info]: adjust timer once
+2023-06-13 02:07:03.295757 [info]: timer tick
+2023-06-13 02:07:08.295887 [info]: timer tick
+2023-06-13 02:07:13.295977 [info]: timer tick
+2023-06-13 02:07:18.296132 [info]: timer tick
