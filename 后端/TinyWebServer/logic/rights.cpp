@@ -3,11 +3,11 @@
 void Rights::getRightsLogic(char *input_data)
 {
     LOG_DEBUG("input_data=>%s", input_data);
-    if (strncasecmp(input_data, "list", 4))
+    if (strncasecmp(input_data, "list", 4) == 0)
     {
         rightList();
     }
-    else if (strncasecmp(input_data, "tree", 4))
+    else if (strncasecmp(input_data, "tree", 4) == 0)
     {
         rightTree();
     }
@@ -104,14 +104,15 @@ void Rights::rightTree()
             // 处理0级权限
             if (strncasecmp(row[indexOf("ps_level")], "0", 1) == 0)
             {
-                temp["id"] = row[indexOf("ps_id")];
+                int pid = std::stoi(row[indexOf("ps_id")]);
+                temp["id"] = pid;
                 temp["authName"] = row[indexOf("ps_name")];
                 temp["level"] = "0";
                 temp["path"] = row[indexOf("ps_api_path")];
-                // temp["pid"] = row[indexOf("ps_pid")];
+                temp["pid"] = row[indexOf("ps_pid")];
                 child_par_ids[pid] = std::stoi(row[indexOf("ps_pid")]);
                 // temp["children"] = {}; // debug: 要用[]?
-                json_value["children"].append(temp);
+                ret_root["data"].append(temp);
                 temp.clear();
             }
         }
@@ -121,14 +122,15 @@ void Rights::rightTree()
             // 处理1级权限
             if (strncasecmp(row[indexOf("ps_level")], "1", 1) == 0)
             {
-                temp["id"] = row[indexOf("ps_id")];
+                int pid = std::stoi(row[indexOf("ps_id")]);
+                temp["id"] = pid;
                 temp["authName"] = row[indexOf("ps_name")];
                 temp["level"] = "1";
                 temp["path"] = row[indexOf("ps_api_path")];
                 auto parent_id = row[indexOf("ps_pid")];
-                // temp["pid"] = parent_id;
+                temp["pid"] = parent_id;
                 child_par_ids[pid] = std::stoi(parent_id);
-                auto &level1_json = findChildrenJsonByMember(json_value["children"], "id", parent_id);
+                auto &level1_json = findChildrenJsonByMember(ret_root["data"], "id", parent_id);
                 level1_json["children"].append(temp);
                 temp.clear();
             }
@@ -138,14 +140,15 @@ void Rights::rightTree()
             // 处理2级权限
             if (strncasecmp(row[indexOf("ps_level")], "2", 1) == 0)
             {
-                temp["id"] = row[indexOf("ps_id")];
+                int pid = std::stoi(row[indexOf("ps_id")]);
+                temp["id"] = pid;
                 temp["authName"] = row[indexOf("ps_name")];
                 temp["level"] = "2";
                 temp["path"] = row[indexOf("ps_api_path")];
                 auto parent_id = row[indexOf("ps_pid")];
-                temp["pid"] = parent_id;
+                temp["pid"] = std::string(parent_id) + "," + std::to_string(child_par_ids[std::stoi(parent_id)]);
 
-                auto &parent_json = findChildrenJsonByMember(json_value["children"], "id", std::to_string(child_par_ids[std::stoi(parent_id)]))["children"];
+                auto &parent_json = findChildrenJsonByMember(ret_root["data"], "id", std::to_string(child_par_ids[std::stoi(parent_id)]))["children"];
                 auto &level2_json = findChildrenJsonByMember(parent_json, "id", parent_id);
                 level2_json["children"].append(temp);
                 temp.clear();

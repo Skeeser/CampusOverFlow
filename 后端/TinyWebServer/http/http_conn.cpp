@@ -512,8 +512,8 @@ http_conn::HTTP_CODE http_conn::do_request()
                 auto *p = strchr(m_url, '/');
                 if (p == nullptr)
                 {
-                    // if (m_method == GET)
-                    // logic_func->getRightsLogic(m_url);
+                    if (m_method == GET)
+                        logic_func->getRightsLogic(m_url);
                 }
                 else
                 {
@@ -526,10 +526,35 @@ http_conn::HTTP_CODE http_conn::do_request()
         }
         else if (strncasecmp(m_url, "/roles", 6) == 0)
         {
+            m_url += 6;
             std::shared_ptr<Roles> logic_func = std::make_shared<Roles>(mysql, m_close_log, &json_len, token);
-            if (m_method == GET)
+            if (*m_url != '\0')
+            {
+                m_url++;
+                // LOG_DEBUG("url1=>%s", m_url);
+                char *p = strchr(m_url, '/');
+
+                if ((p != nullptr) && (strncasecmp(p, "/rights", 7) == 0))
+                {
+                    char *id = strtok(m_url, "/");
+                    strncpy(id, m_url, p - m_url);
+
+                    if (m_method == POST)
+                    {
+                        logic_func->giveRole(id, m_string);
+                    }
+                }
+                else
+                {
+                }
+            }
+            else if (m_method == GET)
             {
                 logic_func->getRoles();
+            }
+            else if (m_method == POST)
+            {
+                logic_func->addRoles(m_string);
             }
             temp_buf = new char[json_len + 1];
             strncpy(temp_buf, logic_func->getData(), json_len);

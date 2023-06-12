@@ -97,9 +97,12 @@ void Roles::getRoles()
         {
             int id = stoi(json_value["id"].asString().c_str());
             auto vec = roles_map[id];
+
             // LOG_DEBUG("getAllRoles%d", id);
             for (auto ps_id : vec)
             {
+                if (ps_id == "")
+                    continue;
                 int pid = std::stoi(ps_id);
                 auto row = rows[pid];
                 // 处理0级权限
@@ -118,6 +121,8 @@ void Roles::getRoles()
 
             for (auto ps_id : vec)
             {
+                if (ps_id == "")
+                    continue;
                 int pid = std::stoi(ps_id);
                 auto row = rows[pid];
                 // 处理1级权限
@@ -136,6 +141,8 @@ void Roles::getRoles()
             }
             for (auto ps_id : vec)
             {
+                if (ps_id == "")
+                    continue;
                 int pid = std::stoi(ps_id);
                 auto row = rows[pid];
                 // 处理2级权限
@@ -162,6 +169,100 @@ void Roles::getRoles()
     else
     {
         errorLogic(404, "获取目录列表失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void Roles::giveRole(char *id, char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+    std::string json_string(input_data);
+
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
+
+    std::string sql_string("UPDATE sp_role SET ");
+    sql_string += " ps_ids = '" + root["rids"].asString() + "'";
+    sql_string += " WHERE role_id = '" + std::string(id) + "';";
+
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret)
+    {
+        meta["msg"] = "更新成功";
+        meta["status"] = 200;
+        ret_root["data"] = "";
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "更新失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void Roles::addRoles(char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+
+    std::string json_string(input_data);
+
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
+
+    std::string sql_string("INSERT INTO sp_role (role_name, role_desc)");
+    sql_string += " VALUES ('" + root["roleName"].asString();
+    sql_string += "','" + root["roleDesc"].asString() + "');";
+
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // m_lock.unlock();
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        std::string id = findByKey("sp_role", "role_id", "role_name", root["roleName"].asString());
+        root["roleId"] = id;
+        root["roleName"] = root["roleName"];
+        root["roleDesc"] = root["roleDesc"];
+        meta["msg"] = "用户创建成功";
+        meta["status"] = 201;
+        ret_root["data"] = root;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "用户创建失败");
         return;
     }
 

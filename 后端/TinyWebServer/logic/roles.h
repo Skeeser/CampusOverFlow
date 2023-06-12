@@ -11,6 +11,9 @@ public:
     }
 
     void getRoles();
+    void giveRole(char *id, char *input_data);
+    void addRoles(char* input_data);
+    void getRoleById(char* id);
 
 private:
     // 存储的哈希表，存储每个权限人拥有的所有权限
@@ -18,5 +21,5 @@ private:
 
     void getAllRoleList(Json::Value &ret_root);
 
-    // void addRoles();
+    
 };
