@@ -12,14 +12,13 @@ public:
 
     void getRoles();
     void giveRole(char *id, char *input_data);
-    void addRoles(char* input_data);
-    void getRoleById(char* id);
+    void addRoles(char *input_data);
+    void getRoleById(char *id);
+    void putRoleById(char *id, char *input_data);
 
 private:
     // 存储的哈希表，存储每个权限人拥有的所有权限
     std::unordered_map<int, std::vector<std::string>> roles_map;
 
     void getAllRoleList(Json::Value &ret_root);
-
-    
 };
