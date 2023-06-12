@@ -239,11 +239,10 @@ int Logic::indexOf(string key_name)
 // 根据父json中的子成员是否匹配来查找子Json, 若相同则返回第一个匹配的
 Json::Value &Logic::findChildrenJsonByMember(Json::Value &parent, std::string key, std::string value)
 {
-    Json::Value val = value;
+
     for (Json::Value &json_value : parent)
     {
-
-        if (json_value[key] == val)
+        if (json_value[key].asString() == value)
             return json_value;
     }
 }

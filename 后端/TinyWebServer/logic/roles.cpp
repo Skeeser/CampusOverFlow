@@ -97,7 +97,7 @@ void Roles::getRoles()
         {
             int id = stoi(json_value["id"].asString().c_str());
             auto vec = roles_map[id];
-            LOG_DEBUG("getAllRoles%d", id);
+            // LOG_DEBUG("getAllRoles%d", id);
             for (auto ps_id : vec)
             {
                 int pid = std::stoi(ps_id);
@@ -129,17 +129,16 @@ void Roles::getRoles()
                     auto parent_id = row[indexOf("ps_pid")];
                     // temp["pid"] = parent_id;
                     child_par_ids[pid] = std::stoi(parent_id);
-                    auto level1_json = findChildrenJsonByMember(json_value["children"], "id", parent_id);
+                    auto &level1_json = findChildrenJsonByMember(json_value["children"], "id", parent_id);
                     level1_json["children"].append(temp);
                     temp.clear();
                 }
             }
-            LOG_DEBUG("getAllRoles5");
             for (auto ps_id : vec)
             {
                 int pid = std::stoi(ps_id);
                 auto row = rows[pid];
-                // 处理1级权限
+                // 处理2级权限
                 if (strncasecmp(row[indexOf("ps_level")], "2", 1) == 0)
                 {
                     temp["id"] = pid;
@@ -147,17 +146,18 @@ void Roles::getRoles()
                     temp["path"] = row[indexOf("ps_api_path")];
                     auto parent_id = row[indexOf("ps_pid")];
                     temp["pid"] = parent_id;
-                    auto level2_json = findChildrenJsonByMember(findChildrenJsonByMember(json_value["children"], "id", std::to_string(child_par_ids[std::stoi(parent_id)])), "id", parent_id);
+
+                    auto &parent_json = findChildrenJsonByMember(json_value["children"], "id", std::to_string(child_par_ids[std::stoi(parent_id)]))["children"];
+                    auto &level2_json = findChildrenJsonByMember(parent_json, "id", parent_id);
                     level2_json["children"].append(temp);
                     temp.clear();
                 }
             }
         }
-        LOG_DEBUG("getAllRoles6");
+
         meta["msg"] = "登录成功";
         meta["status"] = 200;
         ret_root["meta"] = meta;
-        LOG_DEBUG("getAllRoles4");
     }
     else
     {

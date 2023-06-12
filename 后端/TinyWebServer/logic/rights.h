@@ -12,4 +12,6 @@ public:
   void getRightsLogic(char *input_data);
 
 private:
+  void rightList();
+  void rightTree();
 };
