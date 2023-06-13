@@ -536,15 +536,17 @@ http_conn::HTTP_CODE http_conn::do_request()
 
                 if ((p != nullptr) && (strncasecmp(p, "/rights", 7) == 0))
                 {
-                    
+
                     char *id = strtok(m_url, "/");
                     // strncpy(id, m_url, p - m_url);
-                    p  += 8;
+                    p += 8;
                     if (m_method == POST)
                     {
                         logic_func->giveRole(id, m_string);
-                    }else if(m_method == DELETE && strchr(p, '/') != nullptr){
-                        
+                    }
+                    else if (m_method == DELETE && strchr(p, '/') != nullptr)
+                    {
+                        logic_func->deleteRoleidById(id, p);
                     }
                 }
                 else
@@ -752,13 +754,13 @@ bool http_conn::process_write(HTTP_CODE ret)
     {
         add_status_line(200, ok_200_title);
         add_content("Access-Control-Allow-Origin: *\r\n");
-        add_content("Access-Control-Allow-Headers:Authorization, mytoken\r\n"); // X-Requested-With,
-        // add_content("Access-Control-Allow-Headers:  \r\n");// X-Requested-With,
-        // add_content("Content-Type: application/json;charset=utf-8\r\n");
-        add_content("Access-Control-Allow-Headers: Content-Type,Content-Length, Authorization, Accept\r\n"); // ,X-Requested-With
+        add_content("Access-Control-Allow-Headers: X-Requested-With,mytoken\r\n");       //
+        add_content("Access-Control-Allow-Headers: X-Requested-With,Authorization\r\n"); //
+        add_content("Content-Type: application/json;charset=utf-8\r\n");
+        add_content("Access-Control-Allow-Headers: Content-Type,Content-Length,Authorization,Accept,X_Requested-With,X-Requested-With\r\n"); //
         add_content("Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS\r\n");
         add_content("Access-Control-Max-Age: 86400\r\n");
-        // add_content("X-Powered-By: 3.2.1\r\n");
+        add_content("X-Powered-By: 3.2.1\r\n");
         if (m_send_size != 0)
         {
             add_headers(m_send_size);

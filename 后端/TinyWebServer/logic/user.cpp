@@ -7,6 +7,11 @@ void User::getUsers(char *input_data)
     int page_size = -1;
     std::string is_stu = "-1";
     std::string query = "";
+    // 排序的参数
+    std::string sort_prop = "";
+    // 排序的顺序
+    std::string sort_order = "";
+
     // 获取请求的数据
     auto ret_hash_ptr = parseGetData(input_data);
     if (ret_hash_ptr != nullptr)
@@ -25,6 +30,15 @@ void User::getUsers(char *input_data)
         }
         query = param_hash["query"];
         is_stu = param_hash["isstu"];
+        // 参数 grade stuid
+        sort_prop = param_hash["sortprop"];
+        if (sort_prop == "grade")
+            sort_prop = "class.class_grade";
+        else if (sort_prop == "stuid")
+            sort_prop = "mgr.mg_stuid";
+        //  'asc' : 'desc'
+        sort_order = param_hash["sortorder"];
+        // todo 实现排序
     }
     else
         return;
@@ -46,7 +60,11 @@ void User::getUsers(char *input_data)
 
     std::string sql_string = "SELECT * FROM sp_manager as mgr LEFT JOIN sp_role as role ON mgr.role_id = role.role_id LEFT JOIN sp_class as class ON mgr.class_id = class.class_id";
     sql_string += " WHERE mg_isstu = " + is_stu;
-    sql_string += " AND mg_name LIKE '%" + query + "%' LIMIT " + std::to_string(offset) + "," + std::to_string(page_size) + ";";
+    sql_string += " AND mg_name LIKE '%" + query + "%'";
+    if (sort_prop != "" && sort_order != "")
+        sql_string += " ORDER BY " + sort_prop + " " + sort_order;
+
+    sql_string += " LIMIT " + std::to_string(offset) + "," + std::to_string(page_size) + ";";
     LOG_DEBUG("SQL:\n%s", sql_string.c_str());
     if (mysql_ == NULL)
     {
