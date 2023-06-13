@@ -4,7 +4,7 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>师生管理</el-breadcrumb-item>
-      <el-breadcrumb-item>师生列表</el-breadcrumb-item>
+      <el-breadcrumb-item>老师列表</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 卡片视图 -->
     <el-card>
@@ -36,12 +36,13 @@
         border：边框-->
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="username" label="姓名"></el-table-column>
-        <el-table-column prop="email" label="班级"></el-table-column>
         <el-table-column
-          prop="mobile"
-          label="学号"
+          prop="college"
+          label="学院"
           sortable="custom"
         ></el-table-column>
+        <el-table-column prop="email" label="邮箱"></el-table-column>
+        <el-table-column prop="mobile" label="电话"></el-table-column>
         <el-table-column prop="role_name" label="角色"></el-table-column>
         <!-- <el-table-column label="状态">
           <template slot-scope="scope">
@@ -117,11 +118,14 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="addUserForm.password"></el-input>
         </el-form-item>
+        <el-form-item label="学院" prop="college">
+          <el-input v-model="addUserForm.college"></el-input>
+        </el-form-item>
+        <el-form-item label="电话" prop="mobile">
+          <el-input v-model="addUserForm.mobile"></el-input>
+        </el-form-item>
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="addUserForm.email"></el-input>
-        </el-form-item>
-        <el-form-item label="手机号" prop="mobile">
-          <el-input v-model="addUserForm.mobile"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -146,6 +150,9 @@
       >
         <el-form-item label="用户名">
           <el-input v-model="editUserForm.username" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="学院" prop="coollege">
+          <el-input v-model="editUserForm.college"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="editUserForm.email"></el-input>
@@ -241,8 +248,10 @@ export default {
       addUserForm: {
         username: '',
         password: '',
+        college: '', // 学院名称
         email: '',
-        mobile: ''
+        mobile: '',
+        isstu: 0
       },
       // 用户添加表单验证规则
       addUserFormRules: {
@@ -263,29 +272,29 @@ export default {
             message: '用户密码的长度在6～18个字',
             trigger: 'blur'
           }
-        ],
-        email: [
-          { required: true, message: '请输入邮箱', trigger: 'blur' }
-          // { validator: checkEmail, trigger: 'blur' }
-        ],
-        mobile: [
-          { required: true, message: '请输入手机号码', trigger: 'blur' }
-          // { validator: checkMobile, trigger: 'blur' }
         ]
+        // email: [
+        //   { required: true, message: '请输入邮箱', trigger: 'blur' }
+        //   // { validator: checkEmail, trigger: 'blur' }
+        // ],
+        // mobile: [
+        //   { required: true, message: '请输入手机号码', trigger: 'blur' }
+        //   // { validator: checkMobile, trigger: 'blur' }
+        // ]
       },
       // 修改用户
       editDialogVisible: false,
       editUserForm: {},
       // 编辑用户表单验证
       editUserFormRules: {
-        email: [
-          { required: true, message: '请输入邮箱', trigger: 'blur' }
-          // { validator: checkEmail, trigger: 'blur' }
-        ],
-        mobile: [
-          { required: true, message: '请输入手机号码', trigger: 'blur' }
-          // { validator: checkMobile, trigger: 'blur' }
-        ]
+        // email: [
+        //   { required: true, message: '请输入邮箱', trigger: 'blur' }
+        //   // { validator: checkEmail, trigger: 'blur' }
+        // ],
+        // mobile: [
+        //   { required: true, message: '请输入手机号码', trigger: 'blur' }
+        //   // { validator: checkMobile, trigger: 'blur' }
+        // ]
       },
       // 分配角色对话框
       setRoleDialogVisible: false,

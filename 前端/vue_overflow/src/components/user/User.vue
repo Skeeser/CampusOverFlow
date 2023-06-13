@@ -4,7 +4,7 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>师生管理</el-breadcrumb-item>
-      <el-breadcrumb-item>师生列表</el-breadcrumb-item>
+      <el-breadcrumb-item>学生列表</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 卡片视图 -->
     <el-card>
