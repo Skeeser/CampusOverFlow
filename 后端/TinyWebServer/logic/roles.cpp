@@ -175,6 +175,115 @@ void Roles::getRoles()
     cpyJson2Buff(&ret_root);
 }
 
+void Roles::getSingleRole(std::string ids)
+{
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value temp;
+    Json::Value meta;
+
+    auto vec = Utils::split(ids, ",");
+
+    std::string sql_string("SELECT * FROM sp_permission_api as api LEFT JOIN sp_permission as main ON main.ps_id = api.ps_id WHERE main.ps_id is not null;");
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    // std::shared_ptr<std::map<int, Json::Value>> level1_data = std::make_shared<std::map<int, Json::Value>>();
+    std::unordered_map<int, MYSQL_ROW> rows;
+    std::unordered_map<int, int> child_par_ids;
+    // 在获取前先清除
+    clearTableKey();
+    getTableKey("sp_permission_api");
+    getTableKey("sp_permission");
+
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    if (!ret) // 查询成功
+    {
+
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+
+        while (MYSQL_ROW row = mysql_fetch_row(result))
+        {
+            rows[std::stoi(row[indexOf("ps_id")])] = row;
+        }
+
+        // todo 三重循环，怎么优化？
+        for (auto ps_id : vec)
+        {
+            if (ps_id == "")
+                continue;
+            int pid = std::stoi(ps_id);
+            auto row = rows[pid];
+            // 处理0级权限
+            if (strncasecmp(row[indexOf("ps_level")], "0", 1) == 0)
+            {
+                temp["id"] = pid;
+                temp["authName"] = row[indexOf("ps_name")];
+                temp["path"] = row[indexOf("ps_api_path")];
+                // temp["pid"] = row[indexOf("ps_pid")];
+                child_par_ids[pid] = std::stoi(row[indexOf("ps_pid")]);
+                ret_root["data"].append(temp);
+                temp.clear();
+            }
+        }
+
+        for (auto ps_id : vec)
+        {
+            if (ps_id == "")
+                continue;
+            int pid = std::stoi(ps_id);
+            auto row = rows[pid];
+            // 处理1级权限
+            if (strncasecmp(row[indexOf("ps_level")], "1", 1) == 0)
+            {
+                temp["id"] = pid;
+                temp["authName"] = row[indexOf("ps_name")];
+                temp["path"] = row[indexOf("ps_api_path")];
+                auto parent_id = row[indexOf("ps_pid")];
+                // temp["pid"] = parent_id;
+                child_par_ids[pid] = std::stoi(parent_id);
+                auto &level1_json = findChildrenJsonByMember(ret_root["data"], "id", parent_id);
+                level1_json["children"].append(temp);
+                temp.clear();
+            }
+        }
+        for (auto ps_id : vec)
+        {
+            if (ps_id == "")
+                continue;
+            int pid = std::stoi(ps_id);
+            auto row = rows[pid];
+            // 处理2级权限
+            if (strncasecmp(row[indexOf("ps_level")], "2", 1) == 0)
+            {
+                temp["id"] = pid;
+                temp["authName"] = row[indexOf("ps_name")];
+                temp["path"] = row[indexOf("ps_api_path")];
+                auto parent_id = row[indexOf("ps_pid")];
+                temp["pid"] = parent_id;
+
+                auto &parent_json = findChildrenJsonByMember(ret_root["data"], "id", std::to_string(child_par_ids[std::stoi(parent_id)]))["children"];
+                auto &level2_json = findChildrenJsonByMember(parent_json, "id", parent_id);
+                level2_json["children"].append(temp);
+                temp.clear();
+            }
+        }
+
+        meta["msg"] = "获取成功";
+        meta["status"] = 200;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "获取失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
 void Roles::giveRole(char *id, char *input_data)
 {
     // 创建 JSON 对象
@@ -195,7 +304,6 @@ void Roles::giveRole(char *id, char *input_data)
     Json::Value ret_root;
     Json::Value data;
     Json::Value meta;
-    int mg_id = -1;
     // m_lock.lock();
     if (mysql_ == NULL)
         LOG_INFO("mysql is NULL!");
@@ -351,6 +459,86 @@ void Roles::putRoleById(char *id, char *input_data)
     else
     {
         errorLogic(500, "更新失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+// 通过id删除权限
+void Roles::deleteRoleById(char *id)
+{
+
+    Json::Value ret_root;
+    Json::Value meta;
+    std::string sql_string("DELETE FROM sp_role WHERE role_id = '" + std::string(id) + "';");
+
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    if (!ret)
+    {
+        meta["msg"] = "删除成功";
+        meta["status"] = 200;
+        ret_root["data"] = "";
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "删除失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+// 通过id删除某个权限id
+void Roles::deleteRoleidById(char *id, char *rid)
+{
+
+    // 创建 JSON 对象
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    Json::StreamWriterBuilder writer;
+
+    auto ids = findByKey("sp_role", "ps_ids", "role_id", id);
+    std::string delete_rid = std::string(rid);
+    auto pos = ids.find(delete_rid);
+    if (pos != -1)
+    {
+        int size = delete_rid.size();
+        // 当在第一个时
+        if (pos == 0)
+        {
+            ids.erase(pos, size + 1);
+        }
+        else
+        {
+            ids.erase(pos - 1, size + 1);
+        }
+    }
+
+    std::string sql_string("UPDATE sp_role SET ");
+    sql_string += " ps_ids = '" + ids + "'";
+    sql_string += " WHERE role_id = '" + std::string(id) + "';";
+
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret)
+    {
+        getSingleRole(ids);
+    }
+    else
+    {
+        errorLogic(500, "删除失败");
         return;
     }
 

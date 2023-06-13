@@ -34,6 +34,7 @@
 #include "../logic/login.h"
 #include "../logic/rights.h"
 #include "../logic/roles.h"
+#include "../logic/class.h"
 class http_conn
 {
 public:

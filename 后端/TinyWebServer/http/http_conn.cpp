@@ -536,12 +536,17 @@ http_conn::HTTP_CODE http_conn::do_request()
 
                 if ((p != nullptr) && (strncasecmp(p, "/rights", 7) == 0))
                 {
-                    char *id = strtok(m_url, "/");
-                    strncpy(id, m_url, p - m_url);
 
+                    char *id = strtok(m_url, "/");
+                    // strncpy(id, m_url, p - m_url);
+                    p += 8;
                     if (m_method == POST)
                     {
                         logic_func->giveRole(id, m_string);
+                    }
+                    else if (m_method == DELETE && strchr(p, '/') != nullptr)
+                    {
+                        logic_func->deleteRoleidById(id, p);
                     }
                 }
                 else
@@ -549,6 +554,14 @@ http_conn::HTTP_CODE http_conn::do_request()
                     if (m_method == GET)
                     {
                         logic_func->getRoleById(m_url);
+                    }
+                    else if (m_method == PUT)
+                    {
+                        logic_func->putRoleById(m_url, m_string);
+                    }
+                    else if (m_method == DELETE)
+                    {
+                        logic_func->deleteRoleById(m_url);
                     }
                 }
             }
@@ -560,6 +573,52 @@ http_conn::HTTP_CODE http_conn::do_request()
             {
                 logic_func->addRoles(m_string);
             }
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
+        }
+        else if (strncasecmp(m_url, "/class", 6) == 0)
+        {
+            std::shared_ptr<Class> logic_func = std::make_shared<Class>(mysql, m_close_log, &json_len, token);
+            m_url += 6;
+            // 如果是 /:id的情况
+            if (*m_url != '\0')
+            {
+                m_url++;
+                // LOG_DEBUG("url1=>%s", m_url);
+                auto *p = strchr(m_url, '/');
+                // 如果后面没有别的数字
+                if (p == nullptr)
+                {
+
+                    if (m_method == GET)
+                        ;
+                    // logic_func->getUserById(m_url);
+                    else if (m_method == PUT)
+                        ;
+
+                    // logic_func->putUserById(m_url, m_string);
+                    else if (m_method == DELETE)
+                        ;
+                    // logic_func->deleteUserById(m_url);
+                }
+                else
+                {
+                    LOG_DEBUG("is not nullptr");
+                }
+            }
+            else
+            {
+                if (m_method == GET && m_string)
+
+                    logic_func->getClass(m_string);
+
+                else if (m_method == POST && m_string)
+                    ;
+                // logic_func->addUser(m_string);
+            }
+
+            // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
             temp_buf = new char[json_len + 1];
             strncpy(temp_buf, logic_func->getData(), json_len);
             temp_buf[json_len] = '\0';
@@ -741,13 +800,13 @@ bool http_conn::process_write(HTTP_CODE ret)
     {
         add_status_line(200, ok_200_title);
         add_content("Access-Control-Allow-Origin: *\r\n");
-        add_content("Access-Control-Allow-Headers:Authorization, mytoken\r\n"); // X-Requested-With,
-        // add_content("Access-Control-Allow-Headers:  \r\n");// X-Requested-With,
-        // add_content("Content-Type: application/json;charset=utf-8\r\n");
-        add_content("Access-Control-Allow-Headers: Content-Type,Content-Length, Authorization, Accept\r\n"); // ,X-Requested-With
+        add_content("Access-Control-Allow-Headers: X-Requested-With,mytoken\r\n");       //
+        add_content("Access-Control-Allow-Headers: X-Requested-With,Authorization\r\n"); //
+        add_content("Content-Type: application/json;charset=utf-8\r\n");
+        add_content("Access-Control-Allow-Headers: Content-Type,Content-Length,Authorization,Accept,X_Requested-With,X-Requested-With\r\n"); //
         add_content("Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS\r\n");
         add_content("Access-Control-Max-Age: 86400\r\n");
-        // add_content("X-Powered-By: 3.2.1\r\n");
+        add_content("X-Powered-By: 3.2.1\r\n");
         if (m_send_size != 0)
         {
             add_headers(m_send_size);
