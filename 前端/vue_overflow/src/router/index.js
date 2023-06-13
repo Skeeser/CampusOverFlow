@@ -59,9 +59,18 @@ const routes = [
         path: '/goods/add',
         component: (resolve) => require(['@/components/goods/Add'], resolve)
       },
+      // {
+      //   path: '/orders',
+      //   component: (resolve) => require(['@/components/order/Order'], resolve)
+      // },
       {
-        path: '/orders',
-        component: (resolve) => require(['@/components/order/Order'], resolve)
+        path: '/courses',
+        component: (resolve) =>
+          require(['@/components/courses/Course'], resolve)
+      },
+      {
+        path: '/class',
+        component: (resolve) => require(['@/components/class/Class'], resolve)
       },
       {
         path: '/reports',

@@ -41,16 +41,8 @@
           label="年级"
           sortable="custom"
         ></el-table-column>
-        <el-table-column
-          prop="college"
-          label="学院"
-          sortable="custom"
-        ></el-table-column>
-        <el-table-column
-          prop="class"
-          label="班级"
-          sortable="custom"
-        ></el-table-column>
+        <el-table-column prop="college" label="学院"></el-table-column>
+        <el-table-column prop="class" label="班级"></el-table-column>
         <el-table-column
           prop="stuid"
           label="学号"
