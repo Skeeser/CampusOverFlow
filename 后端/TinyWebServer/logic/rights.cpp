@@ -72,7 +72,6 @@ void Rights::rightTree()
 
     std::string sql_string("SELECT * FROM sp_permission_api as api LEFT JOIN sp_permission as main ON main.ps_id = api.ps_id WHERE main.ps_id is not null;");
 
-    int mg_id = -1;
     // m_lock.lock();
     if (mysql_ == NULL)
         LOG_INFO("mysql is NULL!");
@@ -158,7 +157,6 @@ void Rights::rightTree()
         meta["msg"] = "登录成功";
         meta["status"] = 200;
         ret_root["meta"] = meta;
-        LOG_DEBUG("getAllRoles4");
     }
     else
     {

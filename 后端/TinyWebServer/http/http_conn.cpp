@@ -536,12 +536,15 @@ http_conn::HTTP_CODE http_conn::do_request()
 
                 if ((p != nullptr) && (strncasecmp(p, "/rights", 7) == 0))
                 {
+                    
                     char *id = strtok(m_url, "/");
-                    strncpy(id, m_url, p - m_url);
-
+                    // strncpy(id, m_url, p - m_url);
+                    p  += 8;
                     if (m_method == POST)
                     {
                         logic_func->giveRole(id, m_string);
+                    }else if(m_method == DELETE && strchr(p, '/') != nullptr){
+                        
                     }
                 }
                 else
@@ -549,6 +552,14 @@ http_conn::HTTP_CODE http_conn::do_request()
                     if (m_method == GET)
                     {
                         logic_func->getRoleById(m_url);
+                    }
+                    else if (m_method == PUT)
+                    {
+                        logic_func->putRoleById(m_url, m_string);
+                    }
+                    else if (m_method == DELETE)
+                    {
+                        logic_func->deleteRoleById(m_url);
                     }
                 }
             }
