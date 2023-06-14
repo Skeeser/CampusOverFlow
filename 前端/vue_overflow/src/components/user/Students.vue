@@ -159,15 +159,15 @@
         <el-form-item label="用户名">
           <el-input v-model="editUserForm.username" disabled></el-input>
         </el-form-item>
-        <el-form-item label="年级" prop="grade">
+        <!-- <el-form-item label="年级" prop="grade">
           <el-input v-model="editUserForm.grade"></el-input>
-        </el-form-item>
-        <el-form-item label="学院" prop="coollege">
+        </el-form-item> -->
+        <el-form-item label="学院" prop="college">
           <el-input v-model="editUserForm.college"></el-input>
         </el-form-item>
-        <el-form-item label="班级" prop="class">
+        <!-- <el-form-item label="班级" prop="class">
           <el-input v-model="editUserForm.class"></el-input>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="学号" prop="stuid">
           <el-input v-model="editUserForm.stuid"></el-input>
         </el-form-item>
@@ -420,6 +420,8 @@ export default {
         const { data: res } = await this.$http.put(
           'users/' + this.editUserForm.id,
           {
+            college: this.editUserForm.college,
+            stuid: this.editUserForm.stuid,
             email: this.editUserForm.email,
             mobile: this.editUserForm.mobile
           }

@@ -25,7 +25,14 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="getCollegeList">添加班级</el-button>
+          <el-button
+            type="primary"
+            @click="
+              getCollegeList()
+              this.addDialogVisible = true
+            "
+            >添加班级</el-button
+          >
         </el-col>
       </el-row>
       <!-- 班级列表区域 -->
@@ -140,26 +147,31 @@
     >
       <!-- 内容主体 -->
       <el-form :model="editClassForm" ref="editClassFormRef" label-width="70px">
-        <el-form-item label="用户名">
-          <el-input v-model="editClassForm.classname" disabled></el-input>
+        <el-form-item label="班级名称">
+          <el-input
+            v-model="editClassForm.classname"
+            style="width: 90%"
+            disabled
+          ></el-input>
         </el-form-item>
         <el-form-item label="年级" prop="grade">
-          <el-input v-model="editClassForm.grade"></el-input>
+          <el-input v-model="editClassForm.grade" style="width: 90%"></el-input>
         </el-form-item>
-        <el-form-item label="学院" prop="coollege">
-          <el-input v-model="editClassForm.college"></el-input>
-        </el-form-item>
-        <el-form-item label="班级" prop="class">
-          <el-input v-model="editClassForm.class"></el-input>
-        </el-form-item>
-        <el-form-item label="学号" prop="stuid">
-          <el-input v-model="editClassForm.stuid"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱" prop="email">
-          <el-input v-model="editClassForm.email"></el-input>
-        </el-form-item>
-        <el-form-item label="手机" prop="mobile">
-          <el-input v-model="editClassForm.mobile"></el-input>
+        <el-form-item label="学院" prop="college">
+          <el-select
+            v-model="editClassForm.id"
+            filterable
+            allow-create
+            default-first-option
+            style="width: 90%"
+          >
+            <el-option
+              v-for="item in collegeList"
+              :key="item.id"
+              :label="item.collegename"
+              :value="item.id"
+            ></el-option>
+          </el-select>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -306,9 +318,10 @@ export default {
     },
     // 编辑用户信息
     async showEditDialog(id) {
-      const { data: res } = await this.$http.get('classs/' + id)
+      this.getCollegeList()
+      const { data: res } = await this.$http.get('class/' + id)
       if (res.meta.status !== 200) {
-        return this.$message.error('查询用户信息失败！')
+        return this.$message.error('查询班级信息失败！')
       }
       this.editClassForm = res.data
       this.editDialogVisible = true
@@ -327,8 +340,9 @@ export default {
         const { data: res } = await this.$http.put(
           'classs/' + this.editClassForm.id,
           {
-            email: this.editClassForm.email,
-            mobile: this.editClassForm.mobile
+            classname: this.editClassForm.classname,
+            grade: this.editClassForm.grade,
+            college: this.editClassForm.college
           }
         )
         if (res.meta.status !== 200) {
@@ -381,7 +395,6 @@ export default {
         return this.$message.error('获取学院列表失败！')
       }
       this.collegeList = res.data
-      this.addDialogVisible = true
     },
     // 分配角色
     async saveRoleInfo() {
