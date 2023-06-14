@@ -43,28 +43,28 @@ const routes = [
         path: '/roles',
         component: (resolve) => require(['@/components/power/Roles'], resolve)
       },
+      // {
+      //   path: '/categories',
+      //   component: (resolve) => require(['@/components/goods/Cate'], resolve)
+      // },
+      // {
+      //   path: '/params',
+      //   component: (resolve) => require(['@/components/goods/Params'], resolve)
+      // },
       {
-        path: '/categories',
-        component: (resolve) => require(['@/components/goods/Cate'], resolve)
+        path: '/score',
+        component: (resolve) => require(['@/components/courses/Score'], resolve)
       },
       {
-        path: '/params',
-        component: (resolve) => require(['@/components/goods/Params'], resolve)
-      },
-      {
-        path: '/goods',
-        component: (resolve) => require(['@/components/goods/List'], resolve)
-      },
-      {
-        path: '/goods/add',
-        component: (resolve) => require(['@/components/goods/Add'], resolve)
+        path: '/courselist',
+        component: (resolve) => require(['@/components/courses/List'], resolve)
       },
       // {
       //   path: '/orders',
       //   component: (resolve) => require(['@/components/order/Order'], resolve)
       // },
       {
-        path: '/courses',
+        path: '/course',
         component: (resolve) =>
           require(['@/components/courses/Course'], resolve)
       },
