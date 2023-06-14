@@ -209,7 +209,7 @@ void Class::putClassById(char *id, char *input_data)
     sql_string += " class_name = '" + root["classname"].asString() + "', ";
     sql_string += " class_grade = '" + root["grade"].asString() + "'  ";
     sql_string += " cge_id = '" + root["collegeid"].asString() + "'  ";
-    sql_string += " WHERE mg_id = '" + std::string(id) + "';";
+    sql_string += " WHERE class_id = '" + std::string(id) + "';";
 
     Json::Value ret_root;
     Json::Value data;
@@ -244,4 +244,27 @@ void Class::putClassById(char *id, char *input_data)
 
 void ClassdeleteClassById(char *id)
 {
+
+    Json::Value ret_root;
+    Json::Value meta;
+    std::string sql_string("DELETE FROM sp_class WHERE class_id = '" + std::string(id) + "';");
+
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    if (!ret)
+    {
+        meta["msg"] = "删除成功";
+        meta["status"] = 200;
+        ret_root["data"] = "";
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "删除失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
 }
