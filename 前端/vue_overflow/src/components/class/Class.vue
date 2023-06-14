@@ -25,25 +25,23 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="addDialogVisible = true"
-            >添加班级</el-button
-          >
+          <el-button type="primary" @click="getCollegeList">添加班级</el-button>
         </el-col>
       </el-row>
       <!-- 班级列表区域 -->
-      <el-table :data="classlist" @sort_change="handleSortChange" border stripe>
+      <el-table :data="classlist" border @sort-change="handleSortChange" stripe>
         <!-- stripe: 斑马条纹
         border：边框-->
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column
           prop="classname"
           label="班级"
-          sortable="custom"
+          :sortable="'custom'"
         ></el-table-column>
         <el-table-column
           prop="grade"
           label="年级"
-          sortable="custom"
+          :sortable="'custom'"
         ></el-table-column>
         <el-table-column prop="college" label="学院"></el-table-column>
         <el-table-column label="操作">
@@ -101,29 +99,30 @@
     >
       <!-- 内容主体 -->
       <el-form :model="addClassForm" ref="addClassFormRef" label-width="100px">
-        <el-form-item label="姓名" prop="classname">
-          <el-input v-model="addClassForm.classname"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input v-model="addClassForm.password"></el-input>
+        <el-form-item label="班级名称" prop="classname">
+          <el-input
+            v-model="addClassForm.classname"
+            style="width: 90%"
+          ></el-input>
         </el-form-item>
         <el-form-item label="年级" prop="grade">
-          <el-input v-model="addClassForm.grade"></el-input>
+          <el-input v-model="addClassForm.grade" style="width: 90%"></el-input>
         </el-form-item>
         <el-form-item label="学院" prop="college">
-          <el-input v-model="addClassForm.college"></el-input>
-        </el-form-item>
-        <el-form-item label="班级" prop="class">
-          <el-input v-model="addClassForm.class"></el-input>
-        </el-form-item>
-        <el-form-item label="学号" prop="stuid">
-          <el-input v-model="addClassForm.stuid"></el-input>
-        </el-form-item>
-        <el-form-item label="电话" prop="mobile">
-          <el-input v-model="addClassForm.mobile"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱" prop="email">
-          <el-input v-model="addClassForm.email"></el-input>
+          <el-select
+            v-model="addClassForm.collegeid"
+            filterable
+            allow-create
+            default-first-option
+            style="width: 90%"
+          >
+            <el-option
+              v-for="item in collegeList"
+              :key="item.id"
+              :label="item.collegename"
+              :value="item.id"
+            ></el-option>
+          </el-select>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -231,24 +230,20 @@ export default {
       // 班级添加
       addClassForm: {
         classname: '',
-        password: '',
         grade: '',
-        college: '', // 学院名称
-        class: '',
-        stuid: '',
-        email: '',
-        mobile: '',
-        isstu: 1 // 是否是学生
+        collegeid: '' // 学院id
       },
       // 修改用户
       editDialogVisible: false,
       editClassForm: {},
       // 分配角色对话框
       setRoleDialogVisible: false,
-      // 当前需要被分配角色的用户
+      // 当前需要被角色的班级
       classInfo: {},
       // 所有角色数据列表
       rolesLsit: [],
+      // 学院列表
+      collegeList: [],
       // 已选中的角色Id值
       selectRoleId: ''
     }
@@ -270,8 +265,8 @@ export default {
     },
     // 监听排序改变的时间
     handleSortChange({ prop, order }) {
-      this.sortprop = prop
-      this.sortorder = order === 'ascending' ? 'asc' : 'desc' // 排序顺序，可以根据需要进行适配
+      this.queryInfo.sortprop = prop
+      this.queryInfo.sortorder = order === 'ascending' ? 'asc' : 'desc' // 排序顺序，可以根据需要进行适配
       this.getClassList()
     },
     // 监听 pagesize改变的事件
@@ -298,12 +293,12 @@ export default {
         // 表单预校验失败
         console.log(this.addClassForm)
         if (!valid) return
-        const { data: res } = await this.$http.post('classs', this.addClassForm)
+        const { data: res } = await this.$http.post('class', this.addClassForm)
 
         if (res.meta.status !== 201) {
-          this.$message.error('添加用户失败！')
+          this.$message.error('添加班级失败！')
         }
-        this.$message.success('添加用户成功！')
+        this.$message.success('添加班级成功！')
         // 隐藏添加用户对话框
         this.addDialogVisible = false
         this.getClassList()
@@ -376,6 +371,17 @@ export default {
       }
       this.rolesLsit = res.data
       this.setRoleDialogVisible = true
+    },
+    // 获取学院列表
+    async getCollegeList() {
+      // this.classInfo = classinfo
+      // 展示对话框之前，获取所有角色列表
+      const { data: res } = await this.$http.get('college')
+      if (res.meta.status !== 200) {
+        return this.$message.error('获取学院列表失败！')
+      }
+      this.collegeList = res.data
+      this.addDialogVisible = true
     },
     // 分配角色
     async saveRoleInfo() {
