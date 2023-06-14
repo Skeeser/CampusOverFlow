@@ -125,6 +125,7 @@ void User::addUser(char *input_data)
     std::string json_string(input_data);
     std::string role_id = "-1";
     std::string class_id = "-1";
+    std::string stu_id = "-1";
     // 获取当前时间的时间戳
     std::time_t currentTime = std::time(nullptr);
     // 使用字符串流构建时间字符串
@@ -135,10 +136,6 @@ void User::addUser(char *input_data)
     {
         LOG_INFO("sorry, json reader failed");
     }
-    if (root["isstu"].asString() == "1")
-        role_id = findByKey("sp_role", "role_id", "role_name", "学生");
-    else if (root["isstu"].asString() == "0")
-        role_id = findByKey("sp_role", "role_id", "role_name", "老师");
 
     // 先插入班级表中
     std::string sql_insert_class("INSERT INTO sp_class (class_name, class_grade) ");
@@ -157,6 +154,17 @@ void User::addUser(char *input_data)
     LOG_DEBUG("insert class_id:%s", class_id.c_str());
     LOG_INFO("sql_string=>%s", sql_insert_class.c_str());
 
+    stu_id = root["stuid"].asString();
+    // 插入学生表中
+    if (root["isstu"].asString() == "1")
+        role_id = findByKey("sp_role", "role_id", "role_name", "学生");
+    else if (root["isstu"].asString() == "0")
+    {
+        role_id = findByKey("sp_role", "role_id", "role_name", "老师");
+        stu_id = "0";
+        class_id = "3";
+    }
+
     std::string sql_string("INSERT INTO sp_manager (mg_name, mg_pwd, mg_mobile, mg_email, mg_time, role_id, mg_college, mg_stuid, class_id, mg_isstu)");
     sql_string += " VALUES ('" + root["username"].asString();
     sql_string += "','" + root["password"].asString();
@@ -165,7 +173,7 @@ void User::addUser(char *input_data)
     sql_string += "','" + ss.str();
     sql_string += "','" + role_id;
     sql_string += "','" + root["college"].asString();
-    sql_string += "','" + root["stuid"].asString();
+    sql_string += "','" + stu_id;
     sql_string += "','" + class_id;
     sql_string += "','" + root["isstu"].asString() + "');";
 
@@ -315,6 +323,48 @@ void User::deleteUserById(char *id)
     else
     {
         errorLogic(500, "删除失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void User::putUserRole(char *id, char *rid)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::StreamWriterBuilder writer;
+
+    std::string sql_string("UPDATE sp_manager SET ");
+    sql_string += " role_id = '" + std::string(rid) + "'";
+    sql_string += " WHERE mg_id = '" + std::string(id) + "';";
+
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret)
+    {
+        root["id"] = id;
+        root["role_id"] = rid;
+        // root["mobile"] = root["mobile"];
+        // root["email"] = root["email"];
+
+        meta["msg"] = "设置角色成功";
+        meta["status"] = 200;
+        ret_root["data"] = root;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "设置角色失败");
         return;
     }
 

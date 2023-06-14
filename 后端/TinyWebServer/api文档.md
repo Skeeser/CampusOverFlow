@@ -432,8 +432,7 @@ type=tree
 | ------- | -------- | ---- |
 | id      | 用户 ID  |      |
 | role_id | 角色 ID  |      |
-| mobile  | 手机号   |      |
-| email   | 邮箱     |      |
+
 
 - 响应数据
 
@@ -441,10 +440,7 @@ type=tree
 {
     "data": {
         "id": 508,
-        "rid": "30",
-        "username": "asdf1",
-        "mobile": "123123",
-        "email": "adfsa@qq.com"
+        "rid": "30"
     },
     "meta": {
         "msg": "设置角色成功",
@@ -705,8 +701,6 @@ type=tree
   }
   ```
 
-
-
 ## 1.6. 班级管理
 
 ### 1.6.1. 班级数据列表
@@ -742,7 +736,6 @@ type=tree
 | id | 班级id |      |
 | collegeid | 学院id |      |
 
-- 
 - 响应数据
 
 ```json
@@ -770,38 +763,26 @@ type=tree
 }
 ```
 
-### 1.4.2. 添加用户
+### 1.6.2. 添加班级
 
-- 请求路径：users
+- 请求路径：class
 - 请求方法：post
 - 请求参数
 
 | 参数名   | 参数说明   | 备注     |
 | -------- | ---------- | -------- |
-| username | 用户名称   | 不能为空 |
-| password | 用户密码   | 不能为空 |
-| isstu    | 是否是学生 | 不能为空 |
-| grade    | 年级       | 可以为空 |
-| college  | 学院       | 不能为空 |
-| stuid    | 学号       | 可以为空 |
-| class    | 班级       | 可以为空 |
-| email    | 邮箱       | 可以为空 |
-| mobile   | 手机号     | 可以为空 |
+| classname | 班级名称   | 不能为空 |
+| grade    | 年级       | 不为空 |
+| collegeid | 学院id      | 不能为空 |
 
 - 响应参数
 
 | 参数名   | 参数说明    | 备注 |
 | -------- | ----------- | ---- |
-| id       | 用户 ID     |      |
-| rid      | 用户角色 ID |      |
-| username | 用户名      |      |
-| isstu    | 是否是学生  |      |
-| grade    | 年级        |      |
-| college  | 学院        |      |
-| stuid    | 学号        |      |
-| class    | 班级        |      |
-| email    | 邮箱        |      |
-| mobile   | 手机号      |      |
+| classname | 班级名称   | 不能为空 |
+| grade    | 年级       | 不能为空 |
+| collegeid | 学院id      | 不能为空 |
+
 
 - 响应数据
 
@@ -977,3 +958,29 @@ type=tree
 }
 ```
 
+
+
+## 1.7. 学院管理
+
+### 1.5.1. 学院列表
+
+- 请求路径：college
+- 请求方法：get
+- 响应数据
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "collegename": "计算机学院",
+        }
+    ],
+    "meta": {
+        "msg": "获取成功",
+        "status": 200
+    }
+}
+```
+
+### 

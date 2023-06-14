@@ -458,6 +458,15 @@ http_conn::HTTP_CODE http_conn::do_request()
             strncpy(temp_buf, logic_func->getData(), json_len);
             temp_buf[json_len] = '\0';
         }
+        else if (strncasecmp(m_url, "/college", 8) == 0)
+        {
+            std::shared_ptr<College> logic_func = std::make_shared<College>(mysql, m_close_log, &json_len, token);
+            if (m_method == GET)
+                logic_func->getColleges();
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
+        }
         else if (strncasecmp(m_url, "/users", 6) == 0)
         {
             std::shared_ptr<User> logic_func = std::make_shared<User>(mysql, m_close_log, &json_len, token);
@@ -823,6 +832,7 @@ bool http_conn::process_write(HTTP_CODE ret)
         {
             if (cgi == 2)
             {
+                add_headers(0);
                 m_iv[0].iov_base = m_write_buf;
                 m_iv[0].iov_len = m_write_idx;
                 m_iv_count = 1;
