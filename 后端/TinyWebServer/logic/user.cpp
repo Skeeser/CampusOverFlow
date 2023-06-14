@@ -94,10 +94,13 @@ void User::getUsers(char *input_data)
             temp["mobile"] = row[indexOf("mg_mobile")];
             temp["email"] = row[indexOf("mg_email")];
             temp["isstu"] = row[indexOf("mg_isstu")];
-            temp["grade"] = row[indexOf("class_grade")];
             temp["college"] = row[indexOf("mg_college")];
-            temp["class"] = row[indexOf("class_name")];
-            temp["stuid"] = row[indexOf("mg_stuid")];
+            if (is_stu == "1")
+            {
+                temp["grade"] = row[indexOf("class_grade")];
+                temp["class"] = row[indexOf("class_name")];
+                temp["stuid"] = row[indexOf("mg_stuid")];
+            }
             data["users"].append(temp);
             temp.clear();
         }
@@ -162,7 +165,7 @@ void User::addUser(char *input_data)
     {
         role_id = findByKey("sp_role", "role_id", "role_name", "老师");
         stu_id = "0";
-        class_id = "3";
+        class_id = "";
     }
 
     std::string sql_string("INSERT INTO sp_manager (mg_name, mg_pwd, mg_mobile, mg_email, mg_time, role_id, mg_college, mg_stuid, class_id, mg_isstu)");
@@ -212,7 +215,7 @@ void User::addUser(char *input_data)
 // 通过id获取用户信息
 void User::getUserById(char *id)
 {
-    LOG_DEBUG("id=>%s", id);
+    // LOG_DEBUG("id=>%s", id);
     getTableKey("sp_manager");
 
     std::string sql_string("SELECT * FROM sp_manager WHERE mg_id = '" + std::string(id) + "';");
@@ -235,6 +238,8 @@ void User::getUserById(char *id)
         data["role_id"] = row[indexOf("role_id")];
         data["mobile"] = row[indexOf("mg_mobile")];
         data["email"] = row[indexOf("mg_email")];
+        data["stuid"] = row[indexOf("mg_stuid")];
+        data["college"] = row[indexOf("mg_college")];
         meta["msg"] = "查询成功";
         meta["status"] = 200;
         ret_root["data"] = data;
@@ -268,6 +273,8 @@ void User::putUserById(char *id, char *input_data)
     std::string sql_string("UPDATE sp_manager SET ");
     sql_string += " mg_mobile = '" + root["mobile"].asString() + "', ";
     sql_string += " mg_email = '" + root["email"].asString() + "'  ";
+    sql_string += " mg_college = '" + root["college"].asString() + "'  ";
+    sql_string += " mg_stuid = '" + root["stuid"].asString() + "'  ";
     sql_string += " WHERE mg_id = '" + std::string(id) + "';";
 
     Json::Value ret_root;

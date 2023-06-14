@@ -553,7 +553,7 @@ http_conn::HTTP_CODE http_conn::do_request()
                     {
                         logic_func->giveRole(id, m_string);
                     }
-                    else if (m_method == DELETE && strchr(p, '/') != nullptr)
+                    else if (m_method == DELETE && strchr(p, '/') == nullptr)
                     {
                         logic_func->deleteRoleidById(id, p);
                     }
@@ -599,17 +599,12 @@ http_conn::HTTP_CODE http_conn::do_request()
                 // 如果后面没有别的数字
                 if (p == nullptr)
                 {
-
                     if (m_method == GET)
-                        ;
-                    // logic_func->getUserById(m_url);
+                        logic_func->getClassById(m_url);
                     else if (m_method == PUT)
-                        ;
-
-                    // logic_func->putUserById(m_url, m_string);
+                        logic_func->putClassById(m_url, m_string);
                     else if (m_method == DELETE)
-                        ;
-                    // logic_func->deleteUserById(m_url);
+                        logic_func->deleteClassById(m_url);
                 }
                 else
                 {
@@ -619,12 +614,48 @@ http_conn::HTTP_CODE http_conn::do_request()
             else
             {
                 if (m_method == GET && m_string)
-
                     logic_func->getClass(m_string);
-
                 else if (m_method == POST && m_string)
-                    ;
-                // logic_func->addUser(m_string);
+                    logic_func->addClass(m_string);
+            }
+
+            // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
+        }
+        else if (strncasecmp(m_url, "/courses", 8) == 0)
+        {
+            std::shared_ptr<Course> logic_func = std::make_shared<Course>(mysql, m_close_log, &json_len, token);
+            m_url += 8;
+            // 如果是 /:id的情况
+            if (*m_url != '\0')
+            {
+                m_url++;
+                // LOG_DEBUG("url1=>%s", m_url);
+                auto *p = strchr(m_url, '/');
+                // 如果后面没有别的数字
+                if (p == nullptr)
+                {
+
+                    if (m_method == GET)
+                        logic_func->getCourseById(m_url);
+                    else if (m_method == PUT)
+                        logic_func->putCourseById(m_url, m_string);
+                    else if (m_method == DELETE)
+                        logic_func->deleteCourseById(m_url);
+                }
+                else
+                {
+                    LOG_DEBUG("is not nullptr");
+                }
+            }
+            else
+            {
+                if (m_method == GET && m_string)
+                    logic_func->getCourse(m_string);
+                else if (m_method == POST && m_string)
+                    logic_func->addCourse(m_string);
             }
 
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);

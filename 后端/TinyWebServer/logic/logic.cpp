@@ -214,7 +214,7 @@ void Logic::cpyJson2Buff(Json::Value *ret_root)
     std::string jsonString = Json::writeString(writer, *ret_root);
 
     *len_ = jsonString.size();
-    LOG_DEBUG("json_string = %, len = %d", *len_); // , jsonString.c_str()
+    // LOG_DEBUG("json_string = %, len = %d", *len_); // , jsonString.c_str()
 
     temp_buff_ = new char[*len_ + 1];
     strncpy(temp_buff_, jsonString.c_str(), *len_);

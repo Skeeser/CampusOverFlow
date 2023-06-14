@@ -535,6 +535,7 @@ void Roles::deleteRoleidById(char *id, char *rid)
     if (!ret)
     {
         getSingleRole(ids);
+        return;
     }
     else
     {
@@ -542,5 +543,5 @@ void Roles::deleteRoleidById(char *id, char *rid)
         return;
     }
 
-    cpyJson2Buff(&ret_root);
+    // cpyJson2Buff(&ret_root);
 }

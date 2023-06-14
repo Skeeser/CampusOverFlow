@@ -168,24 +168,27 @@ type=tree
 
 ```json
 {
-    "data":
-        {
-            "id": 101,
-            "authName": "商品管理",
-            "path": null,
-            "children": [
-                {
-                    "id": 104,
-                    "authName": "商品列表",
-                    "path": null,
-                    "children": []
-                }
-            ]
-        }
-    "meta": {
-        "msg": "获取菜单列表成功",
-        "status": 200
-    }
+	"data" : 
+	[
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"id" : "107",
+					"path" : "class"
+				}
+			],
+			"id" : "102",
+			"path" : "class"
+		}
+	],
+	"meta" : 
+	{
+		"msg" : "登录成功",
+		"status" : 200
+	}
 }
 ```
 
@@ -220,29 +223,32 @@ type=tree
 
 ```json
 {
-    "data": {
-        "total": 5,
-        "pagenum": 4,
-        "users": [
-            {
-                "class" : "计科1班",
-				"college" : "软件学院",
-				"create_time" : "1486720211",
-				"email" : "114514f@qq.com",
+	"data" : 
+	{
+		"pagenum" : 1,
+		"total" : 4,
+		"users" : 
+		[
+			{
+				"class" : "计科2班",
+				"college" : "计算机学院",
+				"create_time" : "2023-06-04 12:26:22",
+				"email" : "1231313@sa.com",
 				"grade" : "21",
-				"id" : "502",
+				"id" : "510",
 				"isstu" : "1",
-				"mobile" : "1213213123",
+				"mobile" : "202130241241",
 				"role_name" : "学生",
-				"stu_id" : "202130241241",
-				"username" : "linken"
-            }
-        ]
-    },
-    "meta": {
-        "msg": "获取成功",
-        "status": 200
-    }
+				"stuid" : "202130241242",
+				"username" : "银灰"
+			}
+		]
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
 }
 ```
 
@@ -357,12 +363,9 @@ type=tree
 | id     | 用户 id  | 不能为空 `参数是url参数:id` |
 | email  | 邮箱     | 可以为空                    |
 | mobile | 手机号   | 可以为空                    |
-| grade    | 年级       | 可以为空 |
 | college  | 学院       | 不能为空 |
 | stuid    | 学号       | 可以为空 |
-| class    | 班级       | 可以为空 |
-| email    | 邮箱       | 可以为空 |
-| mobile   | 手机号     | 可以为空 |
+
 
 - 响应参数
 
@@ -372,6 +375,8 @@ type=tree
 | role_id | 角色 ID  |      |
 | mobile  | 手机号   |      |
 | email   | 邮箱     |      |
+| college  | 学院       | 不能为空 |
+| stuid    | 学号       | 可以为空 |
 
 - 响应数据
 
@@ -670,28 +675,27 @@ type=tree
   {
       "data": [
           {
-              "id": 101,
-              "authName": "商品管理",
-              "path": null,
-              "children": [
+              "authName" : "课程管理",
+              "children" : 
+              [
                   {
-                      "id": 104,
-                      "authName": "商品列表",
-                      "path": null,
-                      "children": [
-                          {
-                              "id": 105,
-                              "authName": "添加商品",
-                              "path": null
-                          },
-                          {
-                              "id": 116,
-                              "authName": "修改",
-                              "path": null
-                          }
-                      ]
+                      "authName" : "课程列表",
+                      "id" : "104",
+                      "path" : "courselist"
+                  },
+                  {
+                      "authName" : "选课管理",
+                      "id" : "115",
+                      "path" : "cource"
+                  },
+                  {
+                      "authName" : "成绩查询",
+                      "id" : "121",
+                      "path" : "categories"
                   }
-              ]
+              ],
+              "id" : "101",
+              "path" : "course"
           }
       ],
       "meta": {
@@ -730,8 +734,7 @@ type=tree
 
 | 参数名    | 参数说明     | 备注 |
 | --------- | ------------ | ---- |
-| classname |   班级名字   |      |
-| grade | 年级 |      |
+| coursename |   课程名字   |      |
 | college | 学院 |      |
 | id | 班级id |      |
 | collegeid | 学院id |      |
@@ -779,10 +782,255 @@ type=tree
 
 | 参数名   | 参数说明    | 备注 |
 | -------- | ----------- | ---- |
+| id | 班级id   | 不能为空 |
 | classname | 班级名称   | 不能为空 |
 | grade    | 年级       | 不能为空 |
 | collegeid | 学院id      | 不能为空 |
 
+
+- 响应数据
+
+```json
+{
+    "data": {
+        	"class" : "计类1班",
+            "college" : "软件学院",
+            "create_time" : "1486720211",
+            "email" : "114514f@qq.com",
+            "grade" : "20",
+            "id" : "502",
+            "isstu" : "1",
+            "mobile" : "1213213123",
+            "role_name" : "学生",
+            "stuid" : "202130241241",
+            "username" : "linken"
+    },
+    "meta": {
+        "msg": "用户创建成功",
+        "status": 201
+    }
+}
+```
+
+
+
+### 1.6.3. 根据 ID 查询班级信息
+
+- 请求路径：users/:id
+- 请求方法：get
+- 请求参数
+
+| 参数名 | 参数说明 | 备注                  |
+| ------ | -------- | --------------------- |
+| id     | 用户 ID  | 不能为空`携带在url中` |
+
+- 响应参数
+
+| 参数名  | 参数说明 | 备注 |
+| ------- | -------- | ---- |
+| id | 班级id   | 不能为空 |
+| classname | 班级名称   | 不能为空 |
+
+
+- 响应数据
+
+```json
+{
+    "data": {
+        "id": 503,
+        "username": "admin3",
+        "role_id": 0,
+        "mobile": "00000",
+        "email": "new@new.com"
+    },
+    "meta": {
+        "msg": "查询成功",
+        "status": 200
+    }
+}
+```
+
+### 1.6.4. 编辑班级提交
+
+- 请求路径：class/:id
+- 请求方法：put
+- 请求参数
+
+| 参数名   | 参数说明   | 备注     |
+| -------- | ---------- | -------- |
+| classname | 班级名称   | 不能为空 |
+| grade    | 年级       | 不为空 |
+| collegeid | 学院id      | 不能为空 |
+
+- 响应参数
+
+| 参数名   | 参数说明    | 备注 |
+| -------- | ----------- | ---- |
+| id | 班级id   | 不能为空 |
+| classname | 班级名称   | 不能为空 |
+| grade    | 年级       | 不能为空 |
+| collegeid | 学院id      | 不能为空 |
+
+- 响应数据
+
+```json
+/* 200表示成功，500表示失败 */
+{
+    "data": {
+        "id": 503,
+        "username": "admin3",
+        "role_id": 0,
+        "mobile": "111",
+        "email": "123@123.com"
+    },
+    "meta": {
+        "msg": "更新成功",
+        "status": 200
+    }
+}
+```
+
+
+
+### 1.4.5. 删除单个班级
+
+- 请求路径：class/:id
+- 请求方法：delete
+- 请求参数
+
+| 参数名 | 参数说明 | 备注                       |
+| ------ | -------- | -------------------------- |
+| id     | 用户 id  | 不能为空`参数是url参数:id` |
+
+- 响应参数
+- 响应数据
+
+```json
+{
+    "data": null,
+    "meta": {
+        "msg": "删除成功",
+        "status": 200
+    }
+}
+```
+
+
+
+## 1.7. 学院管理
+
+### 1.7.1. 学院列表
+
+- 请求路径：college
+- 请求方法：get
+- 响应数据
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "collegename": "计算机学院",
+        }
+    ],
+    "meta": {
+        "msg": "获取成功",
+        "status": 200
+    }
+}
+```
+
+
+
+## 1.8. 课程管理
+
+### 1.8.1. 课程列表
+
+- 请求路径：cources
+- 请求方法：get
+- 请求参数
+
+| 参数名    | 参数说明     | 备注     |
+| --------- | ------------ | -------- |
+| query     | 查询参数     | 可以为空 |
+| pagenum   | 当前页码     | 不能为空 |
+| pagesize  | 每页显示条数 | 不能为空 |
+| sortprop  | 排序的参数   | 可以为空 |
+| sortorder | 排序的顺序   | 可以为空 |
+
+- 响应参数
+
+| 参数名    | 参数说明     | 备注 |
+| --------- | ------------ | ---- |
+| totalpage | 总记录数     |      |
+| pagenum   | 当前页码     |      |
+| cources     | 课程数据集合 |      |
+
+- 响应数据
+
+```json
+{
+	"data" : 
+	{"courses" : 
+		[
+			{
+				"college" : "3",
+				"collegeid" : "1",
+				"coursename" : "计算机网络",
+				"coursenum" : "3",
+				"id" : "3"
+			},
+			{
+				"college" : "2",
+				"collegeid" : "1",
+				"coursename" : "计算机组成原理",
+				"coursenum" : "3.5",
+				"id" : "2"
+			}
+		],
+		"pagenum" : 1,
+		"total" : 4
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}
+```
+
+### 1.4.2. 添加用户
+
+- 请求路径：users
+- 请求方法：post
+- 请求参数
+
+| 参数名   | 参数说明   | 备注     |
+| -------- | ---------- | -------- |
+| username | 用户名称   | 不能为空 |
+| password | 用户密码   | 不能为空 |
+| isstu    | 是否是学生 | 不能为空 |
+| grade    | 年级       | 可以为空 |
+| college  | 学院       | 不能为空 |
+| stuid    | 学号       | 可以为空 |
+| class    | 班级       | 可以为空 |
+| email    | 邮箱       | 可以为空 |
+| mobile   | 手机号     | 可以为空 |
+
+- 响应参数
+
+| 参数名   | 参数说明    | 备注 |
+| -------- | ----------- | ---- |
+| id       | 用户 ID     |      |
+| rid      | 用户角色 ID |      |
+| username | 用户名      |      |
+| isstu    | 是否是学生  |      |
+| grade    | 年级        |      |
+| college  | 学院        |      |
+| stuid    | 学号        |      |
+| class    | 班级        |      |
+| email    | 邮箱        |      |
+| mobile   | 手机号      |      |
 
 - 响应数据
 
@@ -862,21 +1110,20 @@ type=tree
 | id      | 用户 id  | 不能为空 `参数是url参数:id` |
 | email   | 邮箱     | 可以为空                    |
 | mobile  | 手机号   | 可以为空                    |
-| grade   | 年级     | 可以为空                    |
 | college | 学院     | 不能为空                    |
 | stuid   | 学号     | 可以为空                    |
-| class   | 班级     | 可以为空                    |
-| email   | 邮箱     | 可以为空                    |
-| mobile  | 手机号   | 可以为空                    |
+
 
 - 响应参数
 
-| 参数名  | 参数说明 | 备注 |
-| ------- | -------- | ---- |
-| id      | 用户 ID  |      |
-| role_id | 角色 ID  |      |
-| mobile  | 手机号   |      |
-| email   | 邮箱     |      |
+| 参数名  | 参数说明 | 备注     |
+| ------- | -------- | -------- |
+| id      | 用户 ID  |          |
+| role_id | 角色 ID  |          |
+| mobile  | 手机号   |          |
+| email   | 邮箱     |          |
+| college | 学院     | 不能为空 |
+| stuid   | 学号     | 可以为空 |
 
 - 响应数据
 
@@ -920,67 +1167,5 @@ type=tree
 }
 ```
 
-### 1.4.6. 分配用户角色
-
-- 请求路径：users/:id/role
-- 请求方法：put
-- 请求参数
-
-| 参数名 | 参数说明 | 备注                       |
-| ------ | -------- | -------------------------- |
-| id     | 用户 ID  | 不能为空`参数是url参数:id` |
-| rid    | 角色 id  | 不能为空`参数body参数`     |
-
-- 响应参数
-
-| 参数名  | 参数说明 | 备注 |
-| ------- | -------- | ---- |
-| id      | 用户 ID  |      |
-| role_id | 角色 ID  |      |
-| mobile  | 手机号   |      |
-| email   | 邮箱     |      |
-
-- 响应数据
-
-```json
-{
-    "data": {
-        "id": 508,
-        "rid": "30",
-        "username": "asdf1",
-        "mobile": "123123",
-        "email": "adfsa@qq.com"
-    },
-    "meta": {
-        "msg": "设置角色成功",
-        "status": 200
-    }
-}
-```
 
 
-
-## 1.7. 学院管理
-
-### 1.5.1. 学院列表
-
-- 请求路径：college
-- 请求方法：get
-- 响应数据
-
-```json
-{
-    "data": [
-        {
-            "id": 1,
-            "collegename": "计算机学院",
-        }
-    ],
-    "meta": {
-        "msg": "获取成功",
-        "status": 200
-    }
-}
-```
-
-### 

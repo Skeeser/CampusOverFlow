@@ -1,0 +1,563 @@
+2023-06-15 00:00:00.611424 [info]: timer tick
+2023-06-15 00:00:05.611563 [info]: timer tick
+2023-06-15 00:00:10.611673 [info]: timer tick
+2023-06-15 00:01:58.718366 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:01:58.718490 [info]: adjust timer once
+2023-06-15 00:01:58.718540 [info]: parse_test=>OPTIONS /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder= HTTP/1.1
+2023-06-15 00:01:58.718574 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder=
+2023-06-15 00:01:58.718585 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:01:58.718589 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:01:58.718593 [info]: parse_test=>Accept: */*
+2023-06-15 00:01:58.718596 [info]: oop!unknow header: Accept: */*
+2023-06-15 00:01:58.718600 [info]: parse_test=>Access-Control-Request-Method: GET
+2023-06-15 00:01:58.718602 [info]: oop!unknow header: Access-Control-Request-Method: GET
+2023-06-15 00:01:58.718606 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-15 00:01:58.718609 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-15 00:01:58.718612 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:01:58.718615 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:01:58.718619 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:01:58.718622 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:01:58.718625 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-15 00:01:58.718629 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-15 00:01:58.718632 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:01:58.718635 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:01:58.718638 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:01:58.718641 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:01:58.718644 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:01:58.718647 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:01:58.718650 [info]: parse_test=>
+2023-06-15 00:01:58.718705 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:01:58.718734 [info]: adjust timer once
+2023-06-15 00:01:58.721111 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:01:58.721183 [info]: adjust timer once
+2023-06-15 00:01:58.721221 [info]: parse_test=>GET /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder= HTTP/1.1
+2023-06-15 00:01:58.721251 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder=
+2023-06-15 00:01:58.721262 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:01:58.721266 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:01:58.721269 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-15 00:01:58.721273 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-15 00:01:58.721276 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:01:58.721280 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:01:58.721283 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:01:58.721286 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:01:58.721289 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:01:58.721292 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:01:58.721295 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:01:58.721308 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:01:58.721311 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:01:58.721314 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:01:58.721317 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:01:58.721320 [info]: parse_test=>
+2023-06-15 00:01:58.721329 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:01:58.724757 [debug]: SQL:
+SELECT * FROM sp_course as curs LEFT JOIN sp_college as col ON curs.cge_id = col.cge_id WHERE curs_name LIKE '%%' LIMIT 0,5;
+2023-06-15 00:01:58.730232 [info]: LEN: 675
+2023-06-15 00:01:58.730340 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"courses" : 
+		[
+			{
+				"college" : "1",
+				"collegeid" : "1",
+				"coursename" : "数据结构",
+				"coursenum" : "4",
+				"id" : "1"
+			},
+			{
+				"college" : "2",
+				"collegeid" : "1",
+				"coursename" : "计算机组成原理",
+				"coursenum" : "3.5",
+				"id" : "2"
+			},
+			{
+				"college" : "3",
+				"collegeid" : "1",
+				"coursename" : "计算机网络",
+				"coursenum" : "3",
+				"id" : "3"
+			},
+			{
+				"college" : "4",
+				"collegeid" : "1",
+				"coursename" : "离散数学",
+				"coursenum" : "3.5",
+				"id" : "4"
+			}
+		],
+		"pagenum" : 1,
+		"total" : 4
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 54
+2023-06-15 00:01:58.730514 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:01:58.730602 [info]: adjust timer once
+2023-06-15 00:01:59.725450 [info]: timer tick
+2023-06-15 00:02:04.725544 [info]: timer tick
+2023-06-15 00:02:06.081718 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:02:06.081802 [info]: adjust timer once
+2023-06-15 00:02:06.081840 [info]: parse_test=>GET /api/class?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder= HTTP/1.1
+2023-06-15 00:02:06.081874 [info]: url=> /api/class?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder=
+2023-06-15 00:02:06.081885 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:02:06.081890 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:02:06.081893 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-15 00:02:06.081896 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-15 00:02:06.081900 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:06.081903 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:06.081907 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:06.081910 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:02:06.081913 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:02:06.081916 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:02:06.081919 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:02:06.081922 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:02:06.081925 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:02:06.081928 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:06.081930 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:06.081933 [info]: parse_test=>
+2023-06-15 00:02:06.081944 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:06.084047 [debug]: SQL:
+SELECT * FROM sp_class as class LEFT JOIN sp_college as col ON class.cge_id = col.cge_id WHERE class_name LIKE '%%' LIMIT 0,5;
+2023-06-15 00:02:06.088633 [info]: LEN: 695
+2023-06-15 00:02:06.088686 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"class" : 
+		[
+			{
+				"classname" : "计科1班",
+				"college" : "计算机学院",
+				"collegeid" : "1",
+				"grade" : "20",
+				"id" : "1"
+			},
+			{
+				"classname" : "计科2班",
+				"college" : "计算机学院",
+				"collegeid" : "1",
+				"grade" : "21",
+				"id" : "2"
+			},
+			{
+				"classname" : "计类1班",
+				"college" : "计算机学院",
+				"collegeid" : "1",
+				"grade" : "22",
+				"id" : "4"
+			},
+			{
+				"classname" : "信工1班",
+				"college" : "电子与信息学院",
+				"collegeid" : "3",
+				"grade" : "21",
+				"id" : "5"
+			}
+		],
+		"pagenum" : 1,
+		"total" : 4
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 54
+2023-06-15 00:02:06.088767 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:02:06.088816 [info]: adjust timer once
+2023-06-15 00:02:08.057673 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:02:08.057759 [info]: adjust timer once
+2023-06-15 00:02:08.057809 [info]: parse_test=>GET /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder= HTTP/1.1
+2023-06-15 00:02:08.057849 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder=
+2023-06-15 00:02:08.057860 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:02:08.057864 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:02:08.057868 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-15 00:02:08.057871 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-15 00:02:08.057875 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:08.057880 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:08.057886 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:08.057891 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:02:08.057896 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:02:08.057906 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:02:08.057912 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:02:08.057915 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:02:08.057918 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:02:08.057921 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:08.057925 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:08.057928 [info]: parse_test=>
+2023-06-15 00:02:08.057940 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:08.059896 [debug]: SQL:
+SELECT * FROM sp_course as curs LEFT JOIN sp_college as col ON curs.cge_id = col.cge_id WHERE curs_name LIKE '%%' LIMIT 0,5;
+2023-06-15 00:02:08.063419 [info]: LEN: 675
+2023-06-15 00:02:08.063468 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"courses" : 
+		[
+			{
+				"college" : "1",
+				"collegeid" : "1",
+				"coursename" : "数据结构",
+				"coursenum" : "4",
+				"id" : "1"
+			},
+			{
+				"college" : "2",
+				"collegeid" : "1",
+				"coursename" : "计算机组成原理",
+				"coursenum" : "3.5",
+				"id" : "2"
+			},
+			{
+				"college" : "3",
+				"collegeid" : "1",
+				"coursename" : "计算机网络",
+				"coursenum" : "3",
+				"id" : "3"
+			},
+			{
+				"college" : "4",
+				"collegeid" : "1",
+				"coursename" : "离散数学",
+				"coursenum" : "3.5",
+				"id" : "4"
+			}
+		],
+		"pagenum" : 1,
+		"total" : 4
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 54
+2023-06-15 00:02:08.063549 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:02:08.063563 [info]: adjust timer once
+2023-06-15 00:02:09.725648 [info]: timer tick
+2023-06-15 00:02:11.705327 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:02:11.705420 [info]: adjust timer once
+2023-06-15 00:02:11.705465 [info]: parse_test=>OPTIONS /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=desc HTTP/1.1
+2023-06-15 00:02:11.705502 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=desc
+2023-06-15 00:02:11.705514 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:02:11.705519 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:02:11.705522 [info]: parse_test=>Accept: */*
+2023-06-15 00:02:11.705525 [info]: oop!unknow header: Accept: */*
+2023-06-15 00:02:11.705528 [info]: parse_test=>Access-Control-Request-Method: GET
+2023-06-15 00:02:11.705531 [info]: oop!unknow header: Access-Control-Request-Method: GET
+2023-06-15 00:02:11.705534 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-15 00:02:11.705537 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-15 00:02:11.705540 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:02:11.705543 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:02:11.705548 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:11.705551 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:11.705554 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-15 00:02:11.705557 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-15 00:02:11.705560 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:02:11.705563 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:02:11.705566 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:02:11.705569 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:02:11.705572 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:11.705575 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:11.705578 [info]: parse_test=>
+2023-06-15 00:02:11.705626 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:02:11.705652 [info]: adjust timer once
+2023-06-15 00:02:11.708610 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:02:11.708685 [info]: adjust timer once
+2023-06-15 00:02:11.708725 [info]: parse_test=>GET /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=desc HTTP/1.1
+2023-06-15 00:02:11.708757 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=desc
+2023-06-15 00:02:11.708767 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:02:11.708772 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:02:11.708775 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-15 00:02:11.708778 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-15 00:02:11.708781 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:11.708785 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:11.708788 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:11.708791 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:02:11.708794 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:02:11.708803 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:02:11.708807 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:02:11.708810 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:02:11.708813 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:02:11.708815 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:11.708819 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:11.708821 [info]: parse_test=>
+2023-06-15 00:02:11.708830 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:11.711417 [debug]: SQL:
+SELECT * FROM sp_course as curs LEFT JOIN sp_college as col ON curs.cge_id = col.cge_id WHERE curs_name LIKE '%%' ORDER BY curs.curs_num desc LIMIT 0,5;
+2023-06-15 00:02:11.716488 [info]: LEN: 675
+2023-06-15 00:02:11.716542 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"courses" : 
+		[
+			{
+				"college" : "1",
+				"collegeid" : "1",
+				"coursename" : "数据结构",
+				"coursenum" : "4",
+				"id" : "1"
+			},
+			{
+				"college" : "2",
+				"collegeid" : "1",
+				"coursename" : "计算机组成原理",
+				"coursenum" : "3.5",
+				"id" : "2"
+			},
+			{
+				"college" : "4",
+				"collegeid" : "1",
+				"coursename" : "离散数学",
+				"coursenum" : "3.5",
+				"id" : "4"
+			},
+			{
+				"college" : "3",
+				"collegeid" : "1",
+				"coursename" : "计算机网络",
+				"coursenum" : "3",
+				"id" : "3"
+			}
+		],
+		"pagenum" : 1,
+		"total" : 4
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 54
+2023-06-15 00:02:11.716648 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:02:11.716736 [info]: adjust timer once
+2023-06-15 00:02:13.265551 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:02:13.265676 [info]: adjust timer once
+2023-06-15 00:02:13.265713 [info]: parse_test=>OPTIONS /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=asc HTTP/1.1
+2023-06-15 00:02:13.265813 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=asc
+2023-06-15 00:02:13.265854 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:02:13.265862 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:02:13.265867 [info]: parse_test=>Accept: */*
+2023-06-15 00:02:13.265871 [info]: oop!unknow header: Accept: */*
+2023-06-15 00:02:13.265874 [info]: parse_test=>Access-Control-Request-Method: GET
+2023-06-15 00:02:13.265877 [info]: oop!unknow header: Access-Control-Request-Method: GET
+2023-06-15 00:02:13.265880 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-15 00:02:13.265883 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-15 00:02:13.265886 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:02:13.265891 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:02:13.265894 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:13.265897 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:13.265901 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-15 00:02:13.265904 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-15 00:02:13.265907 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:02:13.265910 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:02:13.265913 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:02:13.265916 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:02:13.265919 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:13.265944 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:13.265953 [info]: parse_test=>
+2023-06-15 00:02:13.266037 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:02:13.266161 [info]: adjust timer once
+2023-06-15 00:02:13.269130 [info]: deal with the client(192.168.112.1)
+2023-06-15 00:02:13.269241 [info]: adjust timer once
+2023-06-15 00:02:13.269270 [info]: parse_test=>GET /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=asc HTTP/1.1
+2023-06-15 00:02:13.269375 [info]: url=> /api/courses?query=&pagenum=1&pagesize=5&collegeid=&sortprop=coursenum&sortorder=asc
+2023-06-15 00:02:13.269385 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-15 00:02:13.269389 [info]: parse_test=>Connection: keep-alive
+2023-06-15 00:02:13.269393 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-15 00:02:13.269396 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-15 00:02:13.269399 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:13.269402 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:13.269406 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-15 00:02:13.269409 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-15 00:02:13.269412 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-15 00:02:13.269415 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-15 00:02:13.269420 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-15 00:02:13.269423 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-15 00:02:13.269426 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-15 00:02:13.269429 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:13.269432 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-15 00:02:13.269435 [info]: parse_test=>
+2023-06-15 00:02:13.269444 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-15 00:02:13.271110 [debug]: SQL:
+SELECT * FROM sp_course as curs LEFT JOIN sp_college as col ON curs.cge_id = col.cge_id WHERE curs_name LIKE '%%' ORDER BY curs.curs_num asc LIMIT 0,5;
+2023-06-15 00:02:13.275662 [info]: LEN: 675
+2023-06-15 00:02:13.275714 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"courses" : 
+		[
+			{
+				"college" : "3",
+				"collegeid" : "1",
+				"coursename" : "计算机网络",
+				"coursenum" : "3",
+				"id" : "3"
+			},
+			{
+				"college" : "2",
+				"collegeid" : "1",
+				"coursename" : "计算机组成原理",
+				"coursenum" : "3.5",
+				"id" : "2"
+			},
+			{
+				"college" : "4",
+				"collegeid" : "1",
+				"coursename" : "离散数学",
+				"coursenum" : "3.5",
+				"id" : "4"
+			},
+			{
+				"college" : "1",
+				"collegeid" : "1",
+				"coursename" : "数据结构",
+				"coursenum" : "4",
+				"id" : "1"
+			}
+		],
+		"pagenum" : 1,
+		"total" : 4
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 54
+2023-06-15 00:02:13.275821 [info]: send data to the client(192.168.112.1)
+2023-06-15 00:02:13.275883 [info]: adjust timer once
+2023-06-15 00:02:14.725907 [info]: timer tick
+2023-06-15 00:02:19.725994 [info]: timer tick
+2023-06-15 00:02:24.726060 [info]: timer tick
+2023-06-15 00:02:29.726155 [info]: timer tick
+2023-06-15 00:02:34.726237 [info]: timer tick
+2023-06-15 00:02:39.726302 [info]: timer tick
+2023-06-15 00:02:44.726371 [info]: timer tick
+2023-06-15 00:02:49.726609 [info]: timer tick
+2023-06-15 00:02:54.727016 [info]: timer tick
+2023-06-15 00:02:59.727115 [info]: timer tick
+2023-06-15 00:03:04.727175 [info]: timer tick
+2023-06-15 00:03:09.727712 [info]: timer tick
+2023-06-15 00:03:14.727778 [info]: timer tick
+2023-06-15 00:03:19.727888 [info]: timer tick
+2023-06-15 00:03:24.727989 [info]: timer tick
+2023-06-15 00:03:29.728343 [info]: timer tick
+2023-06-15 00:03:34.728421 [info]: timer tick
+2023-06-15 00:03:39.728547 [info]: timer tick
+2023-06-15 00:03:44.728651 [info]: timer tick
+2023-06-15 00:03:49.728760 [info]: timer tick
+2023-06-15 00:03:54.729271 [info]: timer tick
+2023-06-15 00:03:59.729350 [info]: timer tick
+2023-06-15 00:04:04.729442 [info]: timer tick
+2023-06-15 00:04:09.729829 [info]: timer tick
+2023-06-15 00:04:14.730116 [info]: timer tick
+2023-06-15 00:04:19.730403 [info]: timer tick
+2023-06-15 00:04:24.730797 [info]: timer tick
+2023-06-15 00:04:29.730977 [info]: timer tick
+2023-06-15 00:04:34.731064 [info]: timer tick
+2023-06-15 00:04:39.731176 [info]: timer tick
+2023-06-15 00:04:44.731285 [info]: timer tick
+2023-06-15 00:04:49.731536 [info]: timer tick
+2023-06-15 00:04:54.731624 [info]: timer tick
+2023-06-15 00:04:59.731731 [info]: timer tick
+2023-06-15 00:05:04.731811 [info]: timer tick
+2023-06-15 00:05:09.731997 [info]: timer tick
+2023-06-15 00:05:14.732496 [info]: timer tick
+2023-06-15 00:05:19.732585 [info]: timer tick
+2023-06-15 00:05:24.732662 [info]: timer tick
+2023-06-15 00:05:29.732731 [info]: timer tick
+2023-06-15 00:05:34.733288 [info]: timer tick
+2023-06-15 00:05:39.733379 [info]: timer tick
+2023-06-15 00:05:44.733496 [info]: timer tick
+2023-06-15 00:05:49.733582 [info]: timer tick
+2023-06-15 00:05:54.733665 [info]: timer tick
+2023-06-15 00:05:59.733756 [info]: timer tick
+2023-06-15 00:06:04.733950 [info]: timer tick
+2023-06-15 00:06:09.734075 [info]: timer tick
+2023-06-15 00:06:14.734223 [info]: timer tick
+2023-06-15 00:06:19.734335 [info]: timer tick
+2023-06-15 00:06:24.734515 [info]: timer tick
+2023-06-15 00:06:29.734595 [info]: timer tick
+2023-06-15 00:06:34.734682 [info]: timer tick
+2023-06-15 00:06:39.735113 [info]: timer tick
+2023-06-15 00:06:44.735322 [info]: timer tick
+2023-06-15 00:06:49.735583 [info]: timer tick
+2023-06-15 00:06:54.735682 [info]: timer tick
+2023-06-15 00:06:59.735755 [info]: timer tick
+2023-06-15 00:07:04.736012 [info]: timer tick
+2023-06-15 00:07:09.736413 [info]: timer tick
+2023-06-15 00:07:14.736515 [info]: timer tick
+2023-06-15 00:07:19.736616 [info]: timer tick
+2023-06-15 00:07:24.736689 [info]: timer tick
+2023-06-15 00:07:29.736844 [info]: timer tick
+2023-06-15 00:07:34.737219 [info]: timer tick
+2023-06-15 00:07:39.737282 [info]: timer tick
+2023-06-15 00:07:44.737358 [info]: timer tick
+2023-06-15 00:07:49.737457 [info]: timer tick
+2023-06-15 00:07:54.737589 [info]: timer tick
+2023-06-15 00:07:59.737970 [info]: timer tick
+2023-06-15 00:08:04.738357 [info]: timer tick
+2023-06-15 00:08:09.738454 [info]: timer tick
+2023-06-15 00:08:14.738713 [info]: timer tick
+2023-06-15 00:08:19.739002 [info]: timer tick
+2023-06-15 00:08:24.739161 [info]: timer tick
+2023-06-15 00:08:29.739273 [info]: timer tick
+2023-06-15 00:08:34.739425 [info]: timer tick
+2023-06-15 00:08:39.739632 [info]: timer tick
+2023-06-15 00:08:44.739687 [info]: timer tick
+2023-06-15 00:08:49.739788 [info]: timer tick
+2023-06-15 00:08:54.739879 [info]: timer tick
+2023-06-15 00:08:59.740131 [info]: timer tick
+2023-06-15 00:09:04.740231 [info]: timer tick
+2023-06-15 00:09:09.740283 [info]: timer tick
+2023-06-15 00:09:14.740445 [info]: timer tick
+2023-06-15 00:09:19.740529 [info]: timer tick
+2023-06-15 00:09:24.740817 [info]: timer tick
+2023-06-15 00:09:29.740915 [info]: timer tick
+2023-06-15 00:09:34.741180 [info]: timer tick
+2023-06-15 00:09:39.741304 [info]: timer tick
+2023-06-15 00:09:44.741405 [info]: timer tick
+2023-06-15 00:09:49.741532 [info]: timer tick
+2023-06-15 00:09:54.741616 [info]: timer tick
+2023-06-15 00:09:59.741752 [info]: timer tick
+2023-06-15 00:10:04.741808 [info]: timer tick
+2023-06-15 00:10:09.742054 [info]: timer tick
+2023-06-15 00:10:14.742168 [info]: timer tick
+2023-06-15 00:10:19.742265 [info]: timer tick
+2023-06-15 00:10:24.742345 [info]: timer tick
+2023-06-15 00:10:29.742389 [info]: timer tick
+2023-06-15 00:10:34.742461 [info]: timer tick
+2023-06-15 00:10:39.742764 [info]: timer tick
+2023-06-15 00:10:44.742963 [info]: timer tick
+2023-06-15 00:10:49.743063 [info]: timer tick
+2023-06-15 00:10:54.743214 [info]: timer tick
+2023-06-15 00:10:59.743280 [info]: timer tick
+2023-06-15 00:11:04.743923 [info]: timer tick
+2023-06-15 00:11:09.743987 [info]: timer tick
+2023-06-15 00:11:14.744106 [info]: timer tick
+2023-06-15 00:11:19.744193 [info]: timer tick
+2023-06-15 00:11:24.744334 [info]: timer tick
+2023-06-15 00:11:29.744407 [info]: timer tick
+2023-06-15 00:11:34.744509 [info]: timer tick
+2023-06-15 00:11:39.744743 [info]: timer tick
+2023-06-15 00:11:44.744844 [info]: timer tick
+2023-06-15 00:11:49.744936 [info]: timer tick
+2023-06-15 00:11:54.744985 [info]: timer tick
+2023-06-15 00:11:59.745089 [info]: timer tick
+2023-06-15 00:12:04.745192 [info]: timer tick
+2023-06-15 00:12:09.745586 [info]: timer tick
+2023-06-15 00:12:14.746057 [info]: timer tick
+2023-06-15 00:12:19.746184 [info]: timer tick
+2023-06-15 00:12:24.746417 [info]: timer tick
+2023-06-15 00:12:29.746754 [info]: timer tick
+2023-06-15 00:12:34.747282 [info]: timer tick
+2023-06-15 00:12:39.747427 [info]: timer tick
+2023-06-15 00:12:44.747483 [info]: timer tick
+2023-06-15 00:12:49.747821 [info]: timer tick
+2023-06-15 00:12:54.747927 [info]: timer tick
+2023-06-15 00:12:59.747995 [info]: timer tick
+2023-06-15 00:13:04.748273 [info]: timer tick
