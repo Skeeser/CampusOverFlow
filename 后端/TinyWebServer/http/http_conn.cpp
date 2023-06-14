@@ -599,17 +599,12 @@ http_conn::HTTP_CODE http_conn::do_request()
                 // 如果后面没有别的数字
                 if (p == nullptr)
                 {
-
                     if (m_method == GET)
-                        ;
-                    // logic_func->getUserById(m_url);
+                        logic_func->getClassById(m_url);
                     else if (m_method == PUT)
-                        ;
-
-                    // logic_func->putUserById(m_url, m_string);
+                        logic_func->putClassById(m_url, m_string);
                     else if (m_method == DELETE)
-                        ;
-                    // logic_func->deleteUserById(m_url);
+                        logic_func->deleteClassById(m_url);
                 }
                 else
                 {
@@ -619,9 +614,7 @@ http_conn::HTTP_CODE http_conn::do_request()
             else
             {
                 if (m_method == GET && m_string)
-
                     logic_func->getClass(m_string);
-
                 else if (m_method == POST && m_string)
                     logic_func->addClass(m_string);
             }

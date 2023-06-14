@@ -13,7 +13,6 @@ public:
     void getClassById(char *id);
     void putClassById(char *id, char *input_data);
     void deleteClassById(char *id);
-    // void putUserRole(char *id, char *rid);
 
 private:
 };

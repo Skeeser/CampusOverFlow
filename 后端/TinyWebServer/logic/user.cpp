@@ -238,6 +238,8 @@ void User::getUserById(char *id)
         data["role_id"] = row[indexOf("role_id")];
         data["mobile"] = row[indexOf("mg_mobile")];
         data["email"] = row[indexOf("mg_email")];
+        data["stuid"] = row[indexOf("mg_stuid")];
+        data["college"] = row[indexOf("mg_college")];
         meta["msg"] = "查询成功";
         meta["status"] = 200;
         ret_root["data"] = data;

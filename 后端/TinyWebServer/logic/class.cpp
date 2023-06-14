@@ -206,10 +206,10 @@ void Class::putClassById(char *id, char *input_data)
     }
 
     std::string sql_string("UPDATE sp_class SET ");
-    sql_string += " class_name = '" + root["classname"].asString() + "', ";
-    sql_string += " class_grade = '" + root["grade"].asString() + "'  ";
-    sql_string += " cge_id = '" + root["collegeid"].asString() + "'  ";
-    sql_string += " WHERE class_id = '" + std::string(id) + "';";
+    sql_string += " class_name = '" + root["classname"].asString() + "',";
+    sql_string += " class_grade = " + root["grade"].asString() + ",";
+    sql_string += " cge_id = " + root["collegeid"].asString();
+    sql_string += " WHERE class_id = " + std::string(id) + ";";
 
     Json::Value ret_root;
     Json::Value data;
@@ -242,7 +242,7 @@ void Class::putClassById(char *id, char *input_data)
     cpyJson2Buff(&ret_root);
 }
 
-void ClassdeleteClassById(char *id)
+void Class::deleteClassById(char *id)
 {
 
     Json::Value ret_root;
