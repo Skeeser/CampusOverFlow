@@ -11,11 +11,10 @@ public:
 
     // 用户管理
     void getCourse(char *input_data);
-    // void addCourse(char *input_data);
-    // void getCourseById(char *id);
-    // void putCourseById(char *id, char *input_data);
-    // void deleteCourseById(char *id);
-    // void putCourseRole(char *id, char *rid);
+    void addCourse(char *input_data);
+    void getCourseById(char *id);
+    void putCourseById(char *id, char *input_data);
+    void deleteCourseById(char *id);
 
 private:
 };

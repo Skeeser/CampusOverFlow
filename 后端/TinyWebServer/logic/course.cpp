@@ -1,6 +1,6 @@
-#include "user.h"
+#include "course.h"
 
-// 用户管理
+// 课程管理
 void Course::getCourse(char *input_data)
 {
     int page_num = -1;
@@ -103,261 +103,168 @@ void Course::getCourse(char *input_data)
     cpyJson2Buff(&root);
 }
 
-// void User::addUser(char *input_data)
-// {
-//     // 创建 JSON 对象
-//     Json::Value root;
-//     Json::Reader reader;
-//     Json::StreamWriterBuilder writer;
-//     std::string json_string(input_data);
-//     std::string role_id = "-1";
-//     std::string class_id = "-1";
-//     std::string stu_id = "-1";
-//     // 获取当前时间的时间戳
-//     std::time_t currentTime = std::time(nullptr);
-//     // 使用字符串流构建时间字符串
-//     std::stringstream ss;
-//     ss << std::put_time(std::localtime(&currentTime), "%Y-%m-%d %H:%M:%S");
+// 添加课程
+void Course::addCourse(char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+    std::string json_string(input_data);
 
-//     if (!reader.parse(json_string, root))
-//     {
-//         LOG_INFO("sorry, json reader failed");
-//     }
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
 
-//     // 先插入班级表中
-//     std::string sql_insert_class("INSERT INTO sp_class (class_name, class_grade) ");
-//     sql_insert_class += " SELECT '" + root["class"].asString();
-//     sql_insert_class += "','" + root["grade"].asString() + "'";
-//     sql_insert_class += " WHERE NOT EXISTS ( SELECT 1 FROM sp_class WHERE class_name = '" + root["class"].asString() + "' AND class_grade = '" + root["grade"].asString() + "');";
-//     int ret1 = mysql_query(mysql_, sql_insert_class.c_str());
-//     int ret2 = mysql_query(mysql_, "SELECT LAST_INSERT_ID();");
-//     if (!ret1 && !ret2)
-//     {
-//         // 从表中检索完整的结果集
-//         MYSQL_RES *result = mysql_store_result(mysql_);
-//         MYSQL_ROW row = mysql_fetch_row(result);
-//         class_id = row[0];
-//     }
-//     LOG_DEBUG("insert class_id:%s", class_id.c_str());
-//     LOG_INFO("sql_string=>%s", sql_insert_class.c_str());
+    std::string sql_string("INSERT INTO sp_course (curs_name, curs_num, cge_id)");
+    sql_string += " VALUES ('" + root["coursename"].asString();
+    sql_string += "','" + root["coursenum"].asString();
+    sql_string += "','" + root["collegeid"].asString() + "');";
 
-//     stu_id = root["stuid"].asString();
-//     // 插入学生表中
-//     if (root["isstu"].asString() == "1")
-//         role_id = findByKey("sp_role", "role_id", "role_name", "学生");
-//     else if (root["isstu"].asString() == "0")
-//     {
-//         role_id = findByKey("sp_role", "role_id", "role_name", "老师");
-//         stu_id = "0";
-//         class_id = "";
-//     }
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
 
-//     std::string sql_string("INSERT INTO sp_manager (mg_name, mg_pwd, mg_mobile, mg_email, mg_time, role_id, mg_college, mg_stuid, class_id, mg_isstu)");
-//     sql_string += " VALUES ('" + root["username"].asString();
-//     sql_string += "','" + root["password"].asString();
-//     sql_string += "','" + root["mobile"].asString();
-//     sql_string += "','" + root["email"].asString();
-//     sql_string += "','" + ss.str();
-//     sql_string += "','" + role_id;
-//     sql_string += "','" + root["college"].asString();
-//     sql_string += "','" + stu_id;
-//     sql_string += "','" + class_id;
-//     sql_string += "','" + root["isstu"].asString() + "');";
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // m_lock.unlock();
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        std::string id = findByKey("sp_course", "curs_id", "curs_name", root["coursename"].asString());
+        root["id"] = id;
+        meta["msg"] = "课程创建成功";
+        meta["status"] = 201;
+        ret_root["data"] = root;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "课程创建失败");
+        return;
+    }
 
-//     Json::Value ret_root;
-//     Json::Value data;
-//     Json::Value meta;
-//     int mg_id = -1;
-//     // m_lock.lock();
-//     if (mysql_ == NULL)
-//         LOG_INFO("mysql is NULL!");
+    cpyJson2Buff(&ret_root);
+}
 
-//     LOG_INFO("sql_string=>%s", sql_string.c_str());
-//     int ret = mysql_query(mysql_, sql_string.c_str());
-//     // m_lock.unlock();
-//     // LOG_DEBUG("ret=>%d", ret);
-//     if (!ret)
-//     {
-//         std::string id = findByKey("sp_manager", "mg_id", "mg_name", root["username"].asString());
-//         root["id"] = id;
-//         root["role_id"] = role_id;
-//         root["create_time"] = ss.str();
-//         meta["msg"] = "用户创建成功";
-//         meta["status"] = 201;
-//         ret_root["data"] = root;
-//         ret_root["meta"] = meta;
-//     }
-//     else
-//     {
-//         errorLogic(404, "用户创建失败");
-//         return;
-//     }
+void Course::getCourseById(char *id)
+{
+    clearTableKey();
+    getTableKey("sp_course");
 
-//     cpyJson2Buff(&ret_root);
-// }
+    std::string sql_string("SELECT * FROM sp_course WHERE curs_id = '" + std::string(id) + "';");
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+        MYSQL_ROW row = mysql_fetch_row(result);
+        data["id"] = id;
+        data["coursename"] = row[indexOf("curs_name")];
+        data["coursename"] = row[indexOf("curs_num")];
+        data["collegeid"] = row[indexOf("cge_id")];
 
-// // 通过id获取用户信息
-// void User::getUserById(char *id)
-// {
-//     // LOG_DEBUG("id=>%s", id);
-//     getTableKey("sp_manager");
+        meta["msg"] = "查询成功";
+        meta["status"] = 200;
+        ret_root["data"] = data;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "班级查询失败");
+        return;
+    }
 
-//     std::string sql_string("SELECT * FROM sp_manager WHERE mg_id = '" + std::string(id) + "';");
-//     Json::Value ret_root;
-//     Json::Value data;
-//     Json::Value meta;
-//     int mg_id = -1;
-//     // m_lock.lock();
-//     if (mysql_ == NULL)
-//         LOG_INFO("mysql is NULL!");
-//     int ret = mysql_query(mysql_, sql_string.c_str());
-//     // LOG_DEBUG("ret=>%d", ret);
-//     if (!ret)
-//     {
-//         // 从表中检索完整的结果集
-//         MYSQL_RES *result = mysql_store_result(mysql_);
-//         MYSQL_ROW row = mysql_fetch_row(result);
-//         data["id"] = id;
-//         data["username"] = row[indexOf("mg_name")];
-//         data["role_id"] = row[indexOf("role_id")];
-//         data["mobile"] = row[indexOf("mg_mobile")];
-//         data["email"] = row[indexOf("mg_email")];
-//         data["stuid"] = row[indexOf("mg_stuid")];
-//         data["college"] = row[indexOf("mg_college")];
-//         meta["msg"] = "查询成功";
-//         meta["status"] = 200;
-//         ret_root["data"] = data;
-//         ret_root["meta"] = meta;
-//     }
-//     else
-//     {
-//         errorLogic(404, "用户查询失败");
-//         return;
-//     }
+    cpyJson2Buff(&ret_root);
+}
 
-//     cpyJson2Buff(&ret_root);
-// }
+void Course::putCourseById(char *id, char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+    std::string json_string(input_data);
 
-// // 修改用户信息
-// void User::putUserById(char *id, char *input_data)
-// {
-//     // 创建 JSON 对象
-//     Json::Value root;
-//     Json::Reader reader;
-//     Json::StreamWriterBuilder writer;
-//     std::string json_string(input_data);
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
 
-//     if (!reader.parse(json_string, root))
-//     {
-//         LOG_INFO("sorry, json reader failed");
-//     }
+    std::string sql_string("UPDATE sp_course SET ");
+    sql_string += " curs_name = '" + root["coursename"].asString() + "',";
+    sql_string += " curs_num = " + root["coursenum"].asString() + ",";
+    sql_string += " cge_id = " + root["collegeid"].asString();
+    sql_string += " WHERE curs_id = " + std::string(id) + ";";
 
-//     std::string role_id = findByKey("sp_manager", "role_id", "mg_id", id);
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
 
-//     std::string sql_string("UPDATE sp_manager SET ");
-//     sql_string += " mg_mobile = '" + root["mobile"].asString() + "', ";
-//     sql_string += " mg_email = '" + root["email"].asString() + "'  ";
-//     sql_string += " mg_college = '" + root["college"].asString() + "'  ";
-//     sql_string += " mg_stuid = '" + root["stuid"].asString() + "'  ";
-//     sql_string += " WHERE mg_id = '" + std::string(id) + "';";
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
 
-//     Json::Value ret_root;
-//     Json::Value data;
-//     Json::Value meta;
-//     int mg_id = -1;
-//     // m_lock.lock();
-//     if (mysql_ == NULL)
-//         LOG_INFO("mysql is NULL!");
+    if (!ret)
+    {
+        root["id"] = id;
+        // root["mobile"] = root["mobile"];
+        // root["email"] = root["email"];
 
-//     LOG_INFO("sql_string=>%s", sql_string.c_str());
-//     int ret = mysql_query(mysql_, sql_string.c_str());
+        meta["msg"] = "更新成功";
+        meta["status"] = 200;
+        ret_root["data"] = root;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "更新失败");
+        return;
+    }
 
-//     if (!ret)
-//     {
-//         root["id"] = id;
-//         root["role_id"] = role_id;
-//         // root["mobile"] = root["mobile"];
-//         // root["email"] = root["email"];
+    cpyJson2Buff(&ret_root);
+}
 
-//         meta["msg"] = "更新成功";
-//         meta["status"] = 200;
-//         ret_root["data"] = root;
-//         ret_root["meta"] = meta;
-//     }
-//     else
-//     {
-//         errorLogic(500, "更新失败");
-//         return;
-//     }
+// 根据id删除课程
+void Course::deleteCourseById(char *id)
+{
 
-//     cpyJson2Buff(&ret_root);
-// }
+    Json::Value ret_root;
+    Json::Value meta;
+    std::string sql_string("DELETE FROM sp_course WHERE curs_id = '" + std::string(id) + "';");
 
-// // 根据id删除该用户
-// void User::deleteUserById(char *id)
-// {
-//     Json::Value ret_root;
-//     Json::Value meta;
-//     std::string sql_string("DELETE FROM sp_manager WHERE mg_id = '" + std::string(id) + "';");
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
 
-//     if (mysql_ == NULL)
-//         LOG_INFO("mysql is NULL!");
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    if (!ret)
+    {
+        meta["msg"] = "删除成功";
+        meta["status"] = 200;
+        ret_root["data"] = "";
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "删除失败");
+        return;
+    }
 
-//     int ret = mysql_query(mysql_, sql_string.c_str());
-//     if (!ret)
-//     {
-//         meta["msg"] = "删除成功";
-//         meta["status"] = 200;
-//         ret_root["data"] = "";
-//         ret_root["meta"] = meta;
-//     }
-//     else
-//     {
-//         errorLogic(500, "删除失败");
-//         return;
-//     }
-
-//     cpyJson2Buff(&ret_root);
-// }
-
-// void User::putUserRole(char *id, char *rid)
-// {
-//     // 创建 JSON 对象
-//     Json::Value root;
-//     Json::StreamWriterBuilder writer;
-
-//     std::string sql_string("UPDATE sp_manager SET ");
-//     sql_string += " role_id = '" + std::string(rid) + "'";
-//     sql_string += " WHERE mg_id = '" + std::string(id) + "';";
-
-//     Json::Value ret_root;
-//     Json::Value data;
-//     Json::Value meta;
-//     int mg_id = -1;
-//     // m_lock.lock();
-//     if (mysql_ == NULL)
-//         LOG_INFO("mysql is NULL!");
-
-//     LOG_INFO("sql_string=>%s", sql_string.c_str());
-//     int ret = mysql_query(mysql_, sql_string.c_str());
-
-//     if (!ret)
-//     {
-//         root["id"] = id;
-//         root["role_id"] = rid;
-//         // root["mobile"] = root["mobile"];
-//         // root["email"] = root["email"];
-
-//         meta["msg"] = "设置角色成功";
-//         meta["status"] = 200;
-//         ret_root["data"] = root;
-//         ret_root["meta"] = meta;
-//     }
-//     else
-//     {
-//         errorLogic(500, "设置角色失败");
-//         return;
-//     }
-
-//     cpyJson2Buff(&ret_root);
-// }
+    cpyJson2Buff(&ret_root);
+}

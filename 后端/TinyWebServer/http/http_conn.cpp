@@ -639,11 +639,11 @@ http_conn::HTTP_CODE http_conn::do_request()
                 {
 
                     if (m_method == GET)
-                        ; // logic_func->getUserById(m_url);
+                        logic_func->getCourseById(m_url);
                     else if (m_method == PUT)
-                        ; // logic_func->putUserById(m_url, m_string);
+                        logic_func->putCourseById(m_url, m_string);
                     else if (m_method == DELETE)
-                        ; // logic_func->deleteUserById(m_url);
+                        logic_func->deleteCourseById(m_url);
                 }
                 else
                 {
@@ -655,7 +655,7 @@ http_conn::HTTP_CODE http_conn::do_request()
                 if (m_method == GET && m_string)
                     logic_func->getCourse(m_string);
                 else if (m_method == POST && m_string)
-                    ; // logic_func->addUser(m_string);
+                    logic_func->addCourse(m_string);
             }
 
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);

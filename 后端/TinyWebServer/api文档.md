@@ -944,7 +944,7 @@ type=tree
 
 ## 1.8. 课程管理
 
-### 1.4.1. 课程列表
+### 1.8.1. 课程列表
 
 - 请求路径：cources
 - 请求方法：get
@@ -971,25 +971,25 @@ type=tree
 ```json
 {
 	"data" : 
-	{
-		"pagenum" : 1,
-		"total" : 4,
-		"users" : 
+	{"courses" : 
 		[
 			{
-				"class" : "计科2班",
-				"college" : "计算机学院",
-				"create_time" : "2023-06-04 12:26:22",
-				"email" : "1231313@sa.com",
-				"grade" : "21",
-				"id" : "510",
-				"isstu" : "1",
-				"mobile" : "202130241241",
-				"role_name" : "学生",
-				"stuid" : "202130241242",
-				"username" : "银灰"
+				"college" : "3",
+				"collegeid" : "1",
+				"coursename" : "计算机网络",
+				"coursenum" : "3",
+				"id" : "3"
+			},
+			{
+				"college" : "2",
+				"collegeid" : "1",
+				"coursename" : "计算机组成原理",
+				"coursenum" : "3.5",
+				"id" : "2"
 			}
-		]
+		],
+		"pagenum" : 1,
+		"total" : 4
 	},
 	"meta" : 
 	{
