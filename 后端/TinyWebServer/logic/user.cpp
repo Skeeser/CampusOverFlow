@@ -1,4 +1,5 @@
 #include "user.h"
+#include "../util/utils.hpp"
 
 // 用户管理
 void User::getUsers(char *input_data)
@@ -29,6 +30,9 @@ void User::getUsers(char *input_data)
             return;
         }
         query = param_hash["query"];
+        // 要先解码
+        query = Utils::urlDecode(query);
+
         is_stu = param_hash["isstu"];
         // 参数 grade stuid
         sort_prop = param_hash["sortprop"];

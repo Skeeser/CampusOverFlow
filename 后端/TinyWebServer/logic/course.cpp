@@ -1,5 +1,5 @@
 #include "course.h"
-
+#include "../util/utils.hpp"
 // 课程管理
 void Course::getCourse(char *input_data)
 {
@@ -28,6 +28,8 @@ void Course::getCourse(char *input_data)
             return;
         }
         query = param_hash["query"];
+        // 要先解码
+        query = Utils::urlDecode(query);
         // 参数 grade stuid
         sort_prop = param_hash["sortprop"];
         if (sort_prop == "coursenum")
@@ -84,7 +86,7 @@ void Course::getCourse(char *input_data)
             temp["coursename"] = row[indexOf("curs_name")];
             temp["coursenum"] = row[indexOf("curs_num")];
             temp["collegeid"] = row[indexOf("cge_id")];
-            temp["college"] = row[indexOf("mg_college")];
+            temp["college"] = row[indexOf("cge_name")];
             data["courses"].append(temp);
             temp.clear();
         }
@@ -174,9 +176,8 @@ void Course::getCourseById(char *id)
         MYSQL_ROW row = mysql_fetch_row(result);
         data["id"] = id;
         data["coursename"] = row[indexOf("curs_name")];
-        data["coursename"] = row[indexOf("curs_num")];
+        data["coursenum"] = row[indexOf("curs_num")];
         data["collegeid"] = row[indexOf("cge_id")];
-
         meta["msg"] = "查询成功";
         meta["status"] = 200;
         ret_root["data"] = data;
