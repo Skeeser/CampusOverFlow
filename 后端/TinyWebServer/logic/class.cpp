@@ -29,10 +29,10 @@ void Class::getClass(char *input_data)
         query = param_hash["query"];
         // 参数 grade stuid
         sort_prop = param_hash["sortprop"];
-        // if (sort_prop == "grade")
-        //     sort_prop = "class.class_grade";
-        // else if (sort_prop == "stuid")
-        //     sort_prop = "mgr.mg_stuid";
+        if (sort_prop == "grade")
+            sort_prop = "class.class_grade";
+        else if (sort_prop == "classname")
+            sort_prop = "class.class_name";
         //  'asc' : 'desc'
         sort_order = param_hash["sortorder"];
         college_id = param_hash["collegeid"];

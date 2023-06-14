@@ -1,0 +1,93 @@
+2023-06-14 19:40:22.076197 [info]: timer tick
+2023-06-14 19:40:23.581933 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:40:23.582067 [info]: adjust timer once
+2023-06-14 19:40:23.582194 [info]: parse_test=>DELETE /api/roles/1/rights/141 HTTP/1.1
+2023-06-14 19:40:23.582262 [info]: url=> /api/roles/1/rights/141
+2023-06-14 19:40:23.582279 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:40:23.582285 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:40:23.582291 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:40:23.582296 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:40:23.582301 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:40:23.582307 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:40:23.582312 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:40:23.582317 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:40:23.582321 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:40:23.582326 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:40:23.582331 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:40:23.582336 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:40:23.582340 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:40:23.582345 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:40:23.582350 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:40:23.582355 [info]: parse_test=>
+2023-06-14 19:40:23.582369 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:40:29.381396 [info]: timer tick
+2023-06-14 19:40:33.393311 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,139,140,112,147,131,132,133,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 19:40:34.305863 [debug]: json_string = %, len = 4244
+2023-06-14 19:40:34.306026 [debug]: json_string = %, len = 4
+2023-06-14 19:40:34.306068 [info]: LEN: 4
+2023-06-14 19:40:34.306080 [debug]: ret_json, len=>null, 59
+2023-06-14 19:40:34.306239 [info]: send data to the client(192.168.112.1)
+2023-06-14 19:40:34.306352 [info]: adjust timer once
+2023-06-14 19:40:34.381681 [info]: timer tick
+2023-06-14 19:40:39.381974 [info]: timer tick
+2023-06-14 19:40:40.028252 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:40:40.028367 [info]: adjust timer once
+2023-06-14 19:40:40.028416 [info]: parse_test=>OPTIONS /api/roles/1/rights/140 HTTP/1.1
+2023-06-14 19:40:40.028441 [info]: url=> /api/roles/1/rights/140
+2023-06-14 19:40:40.028448 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:40:40.028454 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:40:40.028459 [info]: parse_test=>Accept: */*
+2023-06-14 19:40:40.028465 [info]: oop!unknow header: Accept: */*
+2023-06-14 19:40:40.028470 [info]: parse_test=>Access-Control-Request-Method: DELETE
+2023-06-14 19:40:40.028475 [info]: oop!unknow header: Access-Control-Request-Method: DELETE
+2023-06-14 19:40:40.028480 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 19:40:40.028486 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 19:40:40.028491 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:40:40.028495 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:40:40.028501 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:40:40.028517 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:40:40.028522 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 19:40:40.028527 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 19:40:40.028532 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:40:40.028537 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:40:40.028542 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:40:40.028546 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:40:40.028551 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:40:40.028556 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:40:40.028566 [info]: parse_test=>
+2023-06-14 19:40:40.028662 [info]: send data to the client(192.168.112.1)
+2023-06-14 19:40:40.028715 [info]: adjust timer once
+2023-06-14 19:40:40.032462 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:40:40.032562 [info]: adjust timer once
+2023-06-14 19:40:40.032626 [info]: parse_test=>DELETE /api/roles/1/rights/140 HTTP/1.1
+2023-06-14 19:40:40.032649 [info]: url=> /api/roles/1/rights/140
+2023-06-14 19:40:40.032656 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:40:40.032661 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:40:40.032666 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:40:40.032671 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:40:40.032677 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:40:40.032683 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:40:40.032688 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:40:40.032693 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:40:40.032698 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:40:40.032703 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:40:40.032708 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:40:40.032713 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:40:40.032718 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:40:40.032724 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:40:40.032729 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:40:40.032734 [info]: parse_test=>
+2023-06-14 19:40:40.032745 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:40:40.040649 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,139,112,147,131,132,133,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 19:40:42.650432 [debug]: json_string = %, len = 4120
+2023-06-14 19:40:42.650540 [debug]: json_string = %, len = 4
+2023-06-14 19:40:42.650565 [info]: LEN: 4
+2023-06-14 19:40:42.650571 [debug]: ret_json, len=>null, 59
+2023-06-14 19:40:42.650696 [info]: send data to the client(192.168.112.1)
+2023-06-14 19:40:42.650777 [info]: adjust timer once
+2023-06-14 19:40:44.382502 [info]: timer tick
+2023-06-14 19:40:49.382829 [info]: timer tick
+2023-06-14 19:40:54.383237 [info]: timer tick
+2023-06-14 19:40:59.383816 [info]: timer tick
+2023-06-14 19:41:04.384690 [info]: timer tick
+2023-06-14 19:41:09.385323 [info]: timer tick

@@ -553,7 +553,7 @@ http_conn::HTTP_CODE http_conn::do_request()
                     {
                         logic_func->giveRole(id, m_string);
                     }
-                    else if (m_method == DELETE && strchr(p, '/') != nullptr)
+                    else if (m_method == DELETE && strchr(p, '/') == nullptr)
                     {
                         logic_func->deleteRoleidById(id, p);
                     }

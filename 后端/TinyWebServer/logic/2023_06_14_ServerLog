@@ -1,0 +1,2547 @@
+2023-06-14 17:48:19.830663 [info]: timer tick
+2023-06-14 17:48:20.068148 [info]: deal with the client(192.168.112.1)
+2023-06-14 17:48:20.068222 [info]: adjust timer once
+2023-06-14 17:48:20.068260 [info]: parse_test=>OPTIONS /api/users?query=&pagenum=1&pagesize=5&isstu=0&sortprop=&sortorder= HTTP/1.1
+2023-06-14 17:48:20.068276 [info]: url=> /api/users?query=&pagenum=1&pagesize=5&isstu=0&sortprop=&sortorder=
+2023-06-14 17:48:20.068280 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 17:48:20.068284 [info]: parse_test=>Connection: keep-alive
+2023-06-14 17:48:20.068287 [info]: parse_test=>Accept: */*
+2023-06-14 17:48:20.068295 [info]: oop!unknow header: Accept: */*
+2023-06-14 17:48:20.068299 [info]: parse_test=>Access-Control-Request-Method: GET
+2023-06-14 17:48:20.068341 [info]: oop!unknow header: Access-Control-Request-Method: GET
+2023-06-14 17:48:20.068351 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 17:48:20.068355 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 17:48:20.068358 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 17:48:20.068361 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 17:48:20.068364 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:20.068367 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:20.068370 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 17:48:20.068373 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 17:48:20.068376 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 17:48:20.068379 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 17:48:20.068383 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 17:48:20.068399 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 17:48:20.068408 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:20.068412 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:20.068415 [info]: parse_test=>
+2023-06-14 17:48:20.068462 [info]: send data to the client(192.168.112.1)
+2023-06-14 17:48:20.068490 [info]: adjust timer once
+2023-06-14 17:48:20.070694 [info]: deal with the client(192.168.112.1)
+2023-06-14 17:48:20.070769 [info]: adjust timer once
+2023-06-14 17:48:20.070807 [info]: parse_test=>GET /api/users?query=&pagenum=1&pagesize=5&isstu=0&sortprop=&sortorder= HTTP/1.1
+2023-06-14 17:48:20.070824 [info]: url=> /api/users?query=&pagenum=1&pagesize=5&isstu=0&sortprop=&sortorder=
+2023-06-14 17:48:20.070829 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 17:48:20.070833 [info]: parse_test=>Connection: keep-alive
+2023-06-14 17:48:20.070839 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 17:48:20.070842 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 17:48:20.070846 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 17:48:20.070850 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:20.070853 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:20.070856 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 17:48:20.070859 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 17:48:20.070862 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 17:48:20.070865 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 17:48:20.070868 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 17:48:20.070894 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 17:48:20.070904 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:20.070907 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:20.070911 [info]: parse_test=>
+2023-06-14 17:48:20.070920 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 17:48:20.073894 [debug]: SQL:
+SELECT * FROM sp_manager as mgr LEFT JOIN sp_role as role ON mgr.role_id = role.role_id LEFT JOIN sp_class as class ON mgr.class_id = class.class_id WHERE mg_isstu = 0 AND mg_name LIKE '%%' LIMIT 0,5;
+2023-06-14 17:48:20.085806 [debug]: json_string = %, len = 378
+2023-06-14 17:48:20.085875 [info]: LEN: 378
+2023-06-14 17:48:20.085886 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"pagenum" : 1,
+		"total" : 4,
+		"users" : 
+		[
+			{
+				"college" : "计算机学院",
+				"create_time" : "1486720211",
+				"email" : "adsfad@qq.com",
+				"id" : "500",
+				"isstu" : "0",
+				"mobile" : "1234567",
+				"role_name" : "教务老师",
+				"username" : "admin"
+			}
+		]
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 17:48:20.085963 [info]: send data to the client(192.168.112.1)
+2023-06-14 17:48:20.085990 [info]: adjust timer once
+2023-06-14 17:48:22.025465 [info]: deal with the client(192.168.112.1)
+2023-06-14 17:48:22.025554 [info]: adjust timer once
+2023-06-14 17:48:22.025613 [info]: parse_test=>GET /api/users?query=&pagenum=1&pagesize=5&isstu=1&sortprop=&sortorder= HTTP/1.1
+2023-06-14 17:48:22.025664 [info]: url=> /api/users?query=&pagenum=1&pagesize=5&isstu=1&sortprop=&sortorder=
+2023-06-14 17:48:22.025677 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 17:48:22.025681 [info]: parse_test=>Connection: keep-alive
+2023-06-14 17:48:22.025684 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 17:48:22.025688 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 17:48:22.025691 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 17:48:22.025695 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:22.025698 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:22.025701 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 17:48:22.025703 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 17:48:22.025706 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 17:48:22.025709 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 17:48:22.025712 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 17:48:22.025717 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 17:48:22.025720 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:22.025722 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:22.025725 [info]: parse_test=>
+2023-06-14 17:48:22.025736 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 17:48:22.029692 [debug]: SQL:
+SELECT * FROM sp_manager as mgr LEFT JOIN sp_role as role ON mgr.role_id = role.role_id LEFT JOIN sp_class as class ON mgr.class_id = class.class_id WHERE mg_isstu = 1 AND mg_name LIKE '%%' LIMIT 0,5;
+2023-06-14 17:48:22.035519 [debug]: json_string = %, len = 1081
+2023-06-14 17:48:22.035591 [info]: LEN: 1081
+2023-06-14 17:48:22.035601 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"pagenum" : 1,
+		"total" : 4,
+		"users" : 
+		[
+			{
+				"class" : "计科1班",
+				"college" : "软件学院",
+				"create_time" : "1486720211",
+				"email" : "114514f@qq.com",
+				"grade" : "20",
+				"id" : "502",
+				"isstu" : "1",
+				"mobile" : "1213213123",
+				"role_name" : "学生",
+				"stuid" : "202130241241",
+				"username" : "linken"
+			},
+			{
+				"class" : "计科2班",
+				"college" : "计算机学院",
+				"create_time" : "2023-06-04 12:26:22",
+				"email" : "1231313@sa.com",
+				"grade" : "21",
+				"id" : "510",
+				"isstu" : "1",
+				"mobile" : "202130241241",
+				"role_name" : "学生",
+				"stuid" : "202130241242",
+				"username" : "银灰"
+			},
+			{
+				"class" : "计科2班",
+				"college" : "软件学院",
+				"create_time" : "2023-06-07 16:01:37",
+				"email" : "21313@qq.com",
+				"grade" : "21",
+				"id" : "513",
+				"isstu" : "1",
+				"mobile" : "234556",
+				"role_name" : "学生",
+				"stuid" : "202130241231",
+				"username" : "sasj"
+			}
+		]
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 17:48:22.035703 [info]: send data to the client(192.168.112.1)
+2023-06-14 17:48:22.035761 [info]: adjust timer once
+2023-06-14 17:48:24.830903 [info]: timer tick
+2023-06-14 17:48:29.831097 [info]: timer tick
+2023-06-14 17:48:31.407878 [info]: deal with the client(192.168.112.1)
+2023-06-14 17:48:31.407960 [info]: adjust timer once
+2023-06-14 17:48:31.408003 [info]: parse_test=>GET /api/roles HTTP/1.1
+2023-06-14 17:48:31.408035 [info]: url=> /api/roles
+2023-06-14 17:48:31.408045 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 17:48:31.408049 [info]: parse_test=>Connection: keep-alive
+2023-06-14 17:48:31.408052 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 17:48:31.408055 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 17:48:31.408059 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 17:48:31.408062 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:31.408065 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 17:48:31.408068 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 17:48:31.408071 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 17:48:31.408074 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 17:48:31.408077 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 17:48:31.408081 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 17:48:31.408084 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 17:48:31.408088 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:31.408091 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 17:48:31.408094 [info]: parse_test=>
+2023-06-14 17:48:31.408104 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:26:39.849335 [info]: timer tick
+2023-06-14 19:26:44.314822 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:26:44.314925 [info]: adjust timer once
+2023-06-14 19:26:44.315006 [info]: parse_test=>OPTIONS /api/roles/1/rights/141 HTTP/1.1
+2023-06-14 19:26:44.315097 [info]: url=> /api/roles/1/rights/141
+2023-06-14 19:26:44.315129 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:26:44.315142 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:26:44.315153 [info]: parse_test=>Accept: */*
+2023-06-14 19:26:44.315164 [info]: oop!unknow header: Accept: */*
+2023-06-14 19:26:44.315175 [info]: parse_test=>Access-Control-Request-Method: DELETE
+2023-06-14 19:26:44.315230 [info]: oop!unknow header: Access-Control-Request-Method: DELETE
+2023-06-14 19:26:44.315320 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 19:26:44.315350 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 19:26:44.315361 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:26:44.315372 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:26:44.315384 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:26:44.315439 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:26:44.315515 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 19:26:44.315545 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 19:26:44.315600 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:26:44.315707 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:26:44.315745 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:26:44.315759 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:26:44.315775 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:26:44.315809 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:26:44.315830 [info]: parse_test=>
+2023-06-14 19:26:44.347279 [info]: send data to the client(192.168.112.1)
+2023-06-14 19:26:44.347345 [info]: adjust timer once
+2023-06-14 19:26:44.352430 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:26:44.352527 [info]: adjust timer once
+2023-06-14 19:26:44.352606 [info]: parse_test=>DELETE /api/roles/1/rights/141 HTTP/1.1
+2023-06-14 19:26:44.352662 [info]: url=> /api/roles/1/rights/141
+2023-06-14 19:26:44.352681 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:26:44.352687 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:26:44.352693 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:26:44.352698 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:26:44.352704 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:26:44.352710 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:26:44.352715 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:26:44.352720 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:26:44.352728 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:26:44.352735 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:26:44.352743 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:26:44.352749 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:26:44.352754 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:26:44.352759 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:26:44.352764 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:26:44.352769 [info]: parse_test=>
+2023-06-14 19:26:44.352783 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:31:23.538774 [info]: timer tick
+2023-06-14 19:31:28.539367 [info]: timer tick
+2023-06-14 19:31:33.540206 [info]: timer tick
+2023-06-14 19:31:38.540864 [info]: timer tick
+2023-06-14 19:31:43.541477 [info]: timer tick
+2023-06-14 19:31:48.542383 [info]: timer tick
+2023-06-14 19:31:53.543302 [info]: timer tick
+2023-06-14 19:31:58.543604 [info]: timer tick
+2023-06-14 19:32:03.544262 [info]: timer tick
+2023-06-14 19:32:08.544747 [info]: timer tick
+2023-06-14 19:32:13.545368 [info]: timer tick
+2023-06-14 19:32:18.546088 [info]: timer tick
+2023-06-14 19:32:23.546548 [info]: timer tick
+2023-06-14 19:32:28.546925 [info]: timer tick
+2023-06-14 19:32:33.547279 [info]: timer tick
+2023-06-14 19:32:37.997999 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:32:37.998159 [info]: adjust timer once
+2023-06-14 19:32:37.998259 [info]: parse_test=>DELETE /api/roles/1/rights/141 HTTP/1.1
+2023-06-14 19:32:37.998370 [info]: url=> /api/roles/1/rights/141
+2023-06-14 19:32:37.998388 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:32:37.998394 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:32:37.998400 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:32:37.998405 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:32:37.998411 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:32:37.998417 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:32:37.998422 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:32:37.998427 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:32:37.998431 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:32:37.998436 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:32:37.998441 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:32:37.998446 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:32:37.998451 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:32:37.998456 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:32:37.998466 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:32:37.998472 [info]: parse_test=>
+2023-06-14 19:32:37.998491 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:33:09.363600 [info]: timer tick
+2023-06-14 19:33:14.364543 [info]: timer tick
+2023-06-14 19:33:19.365485 [info]: timer tick
+2023-06-14 19:33:24.273494 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:33:24.273690 [info]: adjust timer once
+2023-06-14 19:33:24.273827 [info]: parse_test=>DELETE /api/roles/1/rights/141 HTTP/1.1
+2023-06-14 19:33:24.273926 [info]: url=> /api/roles/1/rights/141
+2023-06-14 19:33:24.273963 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:33:24.273976 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:33:24.273988 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:33:24.274007 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:33:24.274020 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:33:24.274081 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:33:24.274118 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:33:24.274129 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:33:24.274142 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:33:24.274154 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:33:24.274165 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:33:24.274220 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:33:24.274243 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:33:24.274251 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:33:24.274256 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:33:24.274261 [info]: parse_test=>
+2023-06-14 19:33:24.274276 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:33:29.553265 [info]: timer tick
+2023-06-14 19:33:49.390757 [info]: timer tick
+2023-06-14 19:34:03.753387 [info]: timer tick
+2023-06-14 19:44:57.858825 [info]: timer tick
+2023-06-14 19:44:59.249476 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:44:59.249650 [info]: adjust timer once
+2023-06-14 19:44:59.249759 [info]: parse_test=>DELETE /api/roles/1/rights/141 HTTP/1.1
+2023-06-14 19:44:59.249863 [info]: url=> /api/roles/1/rights/141
+2023-06-14 19:44:59.249895 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:44:59.249908 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:44:59.249919 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:44:59.249929 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:44:59.249940 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:44:59.249952 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:44:59.249962 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:44:59.249972 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:44:59.249981 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:44:59.249996 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:44:59.250006 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:44:59.250016 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:44:59.250025 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:44:59.250035 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:44:59.250045 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:44:59.250054 [info]: parse_test=>
+2023-06-14 19:44:59.250076 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:44:59.738751 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,139,112,147,131,132,133,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 19:45:05.253666 [info]: timer tick
+2023-06-14 19:45:13.940231 [info]: timer tick
+2023-06-14 19:45:21.356325 [info]: timer tick
+2023-06-14 19:45:21.356999 [debug]: json_string = %, len = 4120
+2023-06-14 19:45:21.357133 [info]: LEN: 4120
+2023-06-14 19:45:21.357151 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加班级",
+							"id" : 109,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "班级更新",
+							"id" : 154,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "获取班级详情",
+							"id" : 155,
+							"path" : "class",
+							"pid" : "107"
+						}
+					],
+					"id" : 107,
+					"path" : "class"
+				}
+			],
+			"id" : 102,
+			"path" : "class"
+		},
+		{
+			"authName" : "权限管理",
+			"children" : 
+			[
+				{
+					"authName" : "角色列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加角色",
+							"id" : 129,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "删除角色",
+							"id" : 130,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "角色授权",
+							"id" : 134,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "取消角色授权",
+							"id" : 135,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "获取角色列表",
+							"id" : 138,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "获取角色详情",
+							"id" : 139,
+							"path" : "roles",
+							"pid" : "111"
+						}
+					],
+					"id" : 111,
+					"path" : "roles"
+				},
+				{
+					"authName" : "权限列表",
+					"children" : 
+					[
+						{
+							"authName" : "查看权限",
+							"id" : 147,
+							"path" : "rights",
+							"pid" : "112"
+						}
+					],
+					"id" : 112,
+					"path" : "rights"
+				}
+			],
+			"id" : 103,
+			"path" : "rights"
+		},
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取�2023-06-14 19:45:26.356692 [info]: timer tick
+2023-06-14 19:45:31.356995 [info]: timer tick
+2023-06-14 19:45:36.357859 [info]: timer tick
+2023-06-14 19:45:41.358272 [info]: timer tick
+2023-06-14 19:45:46.358599 [info]: timer tick
+2023-06-14 19:45:51.359008 [info]: timer tick
+2023-06-14 19:45:56.359535 [info]: timer tick
+2023-06-14 19:46:01.360018 [info]: timer tick
+2023-06-14 19:46:06.360899 [info]: timer tick
+2023-06-14 19:46:11.361830 [info]: timer tick
+2023-06-14 19:46:16.362217 [info]: timer tick
+2023-06-14 19:46:21.363127 [info]: timer tick
+2023-06-14 19:46:26.363563 [info]: timer tick
+2023-06-14 19:46:31.364356 [info]: timer tick
+2023-06-14 19:46:36.364770 [info]: timer tick
+2023-06-14 19:46:41.365557 [info]: timer tick
+2023-06-14 19:46:46.366027 [info]: timer tick
+2023-06-14 19:46:51.366640 [info]: timer tick
+2023-06-14 19:46:56.367453 [info]: timer tick
+2023-06-14 19:47:01.368280 [info]: timer tick
+2023-06-14 19:47:06.369184 [info]: timer tick
+2023-06-14 19:47:11.369791 [info]: timer tick
+2023-06-14 19:47:16.370459 [info]: timer tick
+2023-06-14 19:47:21.370941 [info]: timer tick
+2023-06-14 19:47:26.371348 [info]: timer tick
+2023-06-14 19:47:31.371590 [info]: timer tick
+2023-06-14 19:47:36.372170 [info]: timer tick
+2023-06-14 19:47:41.372580 [info]: timer tick
+2023-06-14 19:47:46.372924 [info]: timer tick
+2023-06-14 19:47:51.373555 [info]: timer tick
+2023-06-14 19:47:56.373963 [info]: timer tick
+2023-06-14 19:48:01.374374 [info]: timer tick
+2023-06-14 19:48:06.374979 [info]: timer tick
+2023-06-14 19:48:11.375521 [info]: timer tick
+2023-06-14 19:48:16.376506 [info]: timer tick
+2023-06-14 19:48:21.376855 [info]: timer tick
+2023-06-14 19:48:26.377635 [info]: timer tick
+2023-06-14 19:48:31.377985 [info]: timer tick
+2023-06-14 19:48:36.378737 [info]: timer tick
+2023-06-14 19:48:41.379476 [info]: timer tick
+2023-06-14 19:48:46.380005 [info]: timer tick
+2023-06-14 19:48:51.380491 [info]: timer tick
+2023-06-14 19:48:56.380906 [info]: timer tick
+2023-06-14 19:49:01.381874 [info]: timer tick
+2023-06-14 19:49:06.382331 [info]: timer tick
+2023-06-14 19:49:11.382770 [info]: timer tick
+2023-06-14 19:49:16.383336 [info]: timer tick
+2023-06-14 19:49:21.384025 [info]: timer tick
+2023-06-14 19:49:26.384472 [info]: timer tick
+2023-06-14 19:49:31.385138 [info]: timer tick
+2023-06-14 19:49:36.385683 [info]: timer tick
+2023-06-14 19:49:41.386141 [info]: timer tick
+2023-06-14 19:49:46.386562 [info]: timer tick
+2023-06-14 19:49:51.387506 [info]: timer tick
+2023-06-14 19:49:56.387991 [info]: timer tick
+2023-06-14 19:50:01.388896 [info]: timer tick
+2023-06-14 19:50:06.389125 [info]: timer tick
+2023-06-14 19:50:11.389549 [info]: timer tick
+2023-06-14 19:50:16.389811 [info]: timer tick
+2023-06-14 19:50:21.390152 [info]: timer tick
+2023-06-14 19:50:26.390786 [info]: timer tick
+2023-06-14 19:50:31.391613 [info]: timer tick
+2023-06-14 19:50:36.392439 [info]: timer tick
+2023-06-14 19:50:41.392944 [info]: timer tick
+2023-06-14 19:50:46.393530 [info]: timer tick
+2023-06-14 19:50:51.394047 [info]: timer tick
+2023-06-14 19:50:56.394454 [info]: timer tick
+2023-06-14 19:51:01.395477 [info]: timer tick
+2023-06-14 19:51:06.395920 [info]: timer tick
+2023-06-14 19:51:11.396552 [info]: timer tick
+2023-06-14 19:51:16.397727 [info]: timer tick
+2023-06-14 19:51:21.398556 [info]: timer tick
+2023-06-14 19:51:26.399088 [info]: timer tick
+2023-06-14 19:51:31.399668 [info]: timer tick
+2023-06-14 19:51:36.400111 [info]: timer tick
+2023-06-14 19:51:41.400580 [info]: timer tick
+2023-06-14 19:51:46.401149 [info]: timer tick
+2023-06-14 19:51:51.401529 [info]: timer tick
+2023-06-14 19:51:56.402569 [info]: timer tick
+2023-06-14 19:52:01.403004 [info]: timer tick
+2023-06-14 19:52:06.403605 [info]: timer tick
+2023-06-14 19:52:11.404463 [info]: timer tick
+2023-06-14 19:52:16.405024 [info]: timer tick
+2023-06-14 19:52:21.405921 [info]: timer tick
+2023-06-14 19:52:26.406611 [info]: timer tick
+2023-06-14 19:52:31.407280 [info]: timer tick
+2023-06-14 19:52:36.408282 [info]: timer tick
+2023-06-14 19:52:41.409102 [info]: timer tick
+2023-06-14 19:52:46.409732 [info]: timer tick
+2023-06-14 19:52:51.410817 [info]: timer tick
+2023-06-14 19:52:56.411482 [info]: timer tick
+2023-06-14 19:53:01.412243 [info]: timer tick
+2023-06-14 19:53:06.412804 [info]: timer tick
+2023-06-14 19:53:11.413611 [info]: timer tick
+2023-06-14 19:53:16.414000 [info]: timer tick
+2023-06-14 19:53:21.414799 [info]: timer tick
+2023-06-14 19:53:26.415756 [info]: timer tick
+2023-06-14 19:53:31.416776 [info]: timer tick
+2023-06-14 19:53:36.417462 [info]: timer tick
+2023-06-14 19:53:41.418365 [info]: timer tick
+2023-06-14 19:53:46.418864 [info]: timer tick
+2023-06-14 19:53:51.419378 [info]: timer tick
+2023-06-14 19:53:56.419767 [info]: timer tick
+2023-06-14 19:54:01.420559 [info]: timer tick
+2023-06-14 19:54:06.421100 [info]: timer tick
+2023-06-14 19:54:11.421697 [info]: timer tick
+2023-06-14 19:54:16.422799 [info]: timer tick
+2023-06-14 19:54:21.423319 [info]: timer tick
+2023-06-14 19:54:26.424106 [info]: timer tick
+2023-06-14 19:54:31.424700 [info]: timer tick
+2023-06-14 19:54:36.425296 [info]: timer tick
+2023-06-14 19:54:41.425965 [info]: timer tick
+2023-06-14 19:54:46.426868 [info]: timer tick
+2023-06-14 19:54:51.427732 [info]: timer tick
+2023-06-14 19:54:56.428566 [info]: timer tick
+2023-06-14 19:55:01.429125 [info]: timer tick
+2023-06-14 19:55:06.429533 [info]: timer tick
+2023-06-14 19:55:11.430413 [info]: timer tick
+2023-06-14 19:55:16.431374 [info]: timer tick
+2023-06-14 19:55:21.432270 [info]: timer tick
+2023-06-14 19:55:26.433166 [info]: timer tick
+2023-06-14 19:55:31.433527 [info]: timer tick
+2023-06-14 19:55:36.434341 [info]: timer tick
+2023-06-14 19:55:41.434674 [info]: timer tick
+2023-06-14 19:55:46.434984 [info]: timer tick
+2023-06-14 19:55:51.435407 [info]: timer tick
+2023-06-14 19:55:56.435716 [info]: timer tick
+2023-06-14 19:56:01.436594 [info]: timer tick
+2023-06-14 19:56:06.436942 [info]: timer tick
+2023-06-14 19:56:11.437271 [info]: timer tick
+2023-06-14 19:56:16.438080 [info]: timer tick
+2023-06-14 19:56:21.438623 [info]: timer tick
+2023-06-14 19:56:26.439743 [info]: timer tick
+2023-06-14 19:56:31.440243 [info]: timer tick
+2023-06-14 19:56:36.441041 [info]: timer tick
+2023-06-14 19:56:41.441622 [info]: timer tick
+2023-06-14 19:56:46.442059 [info]: timer tick
+2023-06-14 19:56:51.442594 [info]: timer tick
+2023-06-14 19:56:56.442949 [info]: timer tick
+2023-06-14 19:57:01.443423 [info]: timer tick
+2023-06-14 19:57:06.444072 [info]: timer tick
+2023-06-14 19:57:11.444705 [info]: timer tick
+2023-06-14 19:57:16.445019 [info]: timer tick
+2023-06-14 19:57:21.445363 [info]: timer tick
+2023-06-14 19:57:26.445817 [info]: timer tick
+2023-06-14 19:57:31.446177 [info]: timer tick
+2023-06-14 19:57:33.858753 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:57:33.859599 [info]: adjust timer once
+2023-06-14 19:57:33.861137 [info]: parse_test=>OPTIONS /api/roles/1/rights/133 HTTP/1.1
+2023-06-14 19:57:33.861311 [info]: url=> /api/roles/1/rights/133
+2023-06-14 19:57:33.861339 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:57:33.861350 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:57:33.861358 [info]: parse_test=>Accept: */*
+2023-06-14 19:57:33.861366 [info]: oop!unknow header: Accept: */*
+2023-06-14 19:57:33.861375 [info]: parse_test=>Access-Control-Request-Method: DELETE
+2023-06-14 19:57:33.861382 [info]: oop!unknow header: Access-Control-Request-Method: DELETE
+2023-06-14 19:57:33.861390 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 19:57:33.861397 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 19:57:33.861405 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:57:33.861412 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:57:33.861420 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:57:33.861427 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:57:33.861435 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 19:57:33.861442 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 19:57:33.861450 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:57:33.861467 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:57:33.861475 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:57:33.861482 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:57:33.861490 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:57:33.861498 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:57:33.861505 [info]: parse_test=>
+2023-06-14 19:57:33.880552 [info]: send data to the client(192.168.112.1)
+2023-06-14 19:57:33.880662 [info]: adjust timer once
+2023-06-14 19:57:33.886170 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:57:33.886411 [info]: adjust timer once
+2023-06-14 19:57:33.887194 [info]: parse_test=>DELETE /api/roles/1/rights/133 HTTP/1.1
+2023-06-14 19:57:33.887349 [info]: url=> /api/roles/1/rights/133
+2023-06-14 19:57:33.887381 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:57:33.887394 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:57:33.887406 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:57:33.887422 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:57:33.887434 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:57:33.887446 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:57:33.887458 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:57:33.887473 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:57:33.887484 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:57:33.887493 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:57:33.887503 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:57:33.887514 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:57:33.887524 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:57:33.887534 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:57:33.887544 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:57:33.887554 [info]: parse_test=>
+2023-06-14 19:57:33.887580 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:57:35.141407 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,139,112,147,131,132,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 19:57:45.914005 [info]: timer tick
+2023-06-14 19:57:51.647199 [info]: timer tick
+2023-06-14 19:57:59.679512 [info]: deal with the client(192.168.112.1)
+2023-06-14 19:57:59.679670 [info]: adjust timer once
+2023-06-14 19:57:59.680327 [info]: parse_test=>DELETE /api/roles/1/rights/133 HTTP/1.1
+2023-06-14 19:57:59.680533 [info]: url=> /api/roles/1/rights/133
+2023-06-14 19:57:59.680557 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 19:57:59.680569 [info]: parse_test=>Connection: keep-alive
+2023-06-14 19:57:59.680576 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 19:57:59.680583 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 19:57:59.680591 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:57:59.680599 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:57:59.680609 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 19:57:59.680616 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 19:57:59.680623 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 19:57:59.680630 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 19:57:59.680335 [info]: timer tick
+2023-06-14 19:57:59.680668 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 19:57:59.680838 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 19:57:59.680889 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 19:57:59.680895 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:57:59.680904 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 19:57:59.680909 [info]: parse_test=>
+2023-06-14 19:57:59.680939 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 19:58:30.593254 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,139,112,147,131,132,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 19:58:30.593468 [info]: timer tick
+2023-06-14 19:58:34.388069 [debug]: json_string = %, len = 4002
+2023-06-14 19:58:34.388260 [info]: LEN: 4002
+2023-06-14 19:58:34.388282 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加班级",
+							"id" : 109,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "班级更新",
+							"id" : 154,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "获取班级详情",
+							"id" : 155,
+							"path" : "class",
+							"pid" : "107"
+						}
+					],
+					"id" : 107,
+					"path" : "class"
+				}
+			],
+			"id" : 102,
+			"path" : "class"
+		},
+		{
+			"authName" : "权限管理",
+			"children" : 
+			[
+				{
+					"authName" : "角色列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加角色",
+							"id" : 129,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "删除角色",
+							"id" : 130,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "角色授权",
+							"id" : 134,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "取消角色授权",
+							"id" : 135,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "获取角色列表",
+							"id" : 138,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "获取角色详情",
+							"id" : 139,
+							"path" : "roles",
+							"pid" : "111"
+						}
+					],
+					"id" : 111,
+					"path" : "roles"
+				},
+				{
+					"authName" : "权限列表",
+					"children" : 
+					[
+						{
+							"authName" : "查看权限",
+							"id" : 147,
+							"path" : "rights",
+							"pid" : "112"
+						}
+					],
+					"id" : 112,
+					"path" : "rights"
+				}
+			],
+			"id" : 103,
+			"path" : "rights"
+		},
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取�2023-06-14 19:58:36.101348 [info]: timer tick
+2023-06-14 19:58:44.520003 [info]: timer tick
+2023-06-14 19:58:50.724840 [info]: timer tick
+2023-06-14 19:58:53.372134 [debug]: json_string = %, len = 4002
+2023-06-14 19:59:07.351177 [info]: timer tick
+2023-06-14 20:02:36.861798 [info]: timer tick
+2023-06-14 20:02:40.411808 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:02:40.411920 [info]: adjust timer once
+2023-06-14 20:02:40.412009 [info]: parse_test=>POST /api/login HTTP/1.1
+2023-06-14 20:02:40.412090 [info]: url=> /api/login
+2023-06-14 20:02:40.412107 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:02:40.412114 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:02:40.412119 [info]: parse_test=>Content-Length: 40
+2023-06-14 20:02:40.412125 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:02:40.412130 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:02:40.412136 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:40.412141 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:40.412146 [info]: parse_test=>Content-Type: application/json
+2023-06-14 20:02:40.412151 [info]: oop!unknow header: Content-Type: application/json
+2023-06-14 20:02:40.412156 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:02:40.412161 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:02:40.412166 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:02:40.412171 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:02:40.412176 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:02:40.412182 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:02:40.412191 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:40.412196 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:40.412201 [info]: parse_test=>
+2023-06-14 20:02:40.412206 [info]: parse_test=>{"username":"admin","password":"123456"}
+2023-06-14 20:02:40.412211 [info]: POST_CONTENT=>{"username":"admin","password":"123456"}
+2023-06-14 20:02:40.412261 [info]: sql_string=>SELECT * FROM sp_manager WHERE mg_name = 'admin' AND mg_pwd = '123456';
+2023-06-14 20:02:41.522100 [info]: row=>500
+2023-06-14 20:02:45.583515 [info]: LEN: 240
+2023-06-14 20:02:45.583586 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I",
+		"username" : "admin"
+	},
+	"meta" : 
+	{
+		"msg" : "登录成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 20:02:45.583908 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:02:45.583970 [info]: adjust timer once
+2023-06-14 20:02:45.583994 [info]: timer tick
+2023-06-14 20:02:45.972334 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:02:45.972476 [info]: adjust timer once
+2023-06-14 20:02:45.972543 [info]: parse_test=>GET /api/menus HTTP/1.1
+2023-06-14 20:02:45.972597 [info]: url=> /api/menus
+2023-06-14 20:02:45.972615 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:02:45.972622 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:02:45.972628 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:02:45.972633 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:02:45.972639 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:02:45.972645 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:45.972650 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:45.972655 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:02:45.972660 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:02:45.972692 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:02:45.972707 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:02:45.972713 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:02:45.972718 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:02:45.972723 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:45.972728 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:45.972732 [info]: parse_test=>
+2023-06-14 20:02:45.972748 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:02:46.633909 [info]: LEN: 1421
+2023-06-14 20:02:46.633997 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "课程列表",
+					"id" : "104",
+					"path" : "courselist"
+				},
+				{
+					"authName" : "选课管理",
+					"id" : "115",
+					"path" : "cource"
+				},
+				{
+					"authName" : "成绩查询",
+					"id" : "121",
+					"path" : "categories"
+				}
+			],
+			"id" : "101",
+			"path" : "course"
+		},
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"id" : "107",
+					"path" : "class"
+				}
+			],
+			"id" : "102",
+			"path" : "class"
+		},
+		{
+			"authName" : "权限管理",
+			"children" : 
+			[
+				{
+					"authName" : "角色列表",
+					"id" : "111",
+					"path" : "roles"
+				},
+				{
+					"authName" : "权限列表",
+					"id" : "112",
+					"path" : "rights"
+				}
+			],
+			"id" : "103",
+			"path" : "rights"
+		},
+		{
+			"authName" : "用户管理",
+			"children" : 
+			[
+				{
+					"authName" : "学生列表",
+					"id" : "160",
+					"path" : "students"
+				},
+				{
+					"authName" : "教师列表",
+					"id" : "161",
+					"path" : "teachers"
+				}
+			],
+			"id" : "125",
+			"path" : "users"
+		},
+		{
+			"authName" : "数据统计",
+			"children" : 
+			[
+				{
+					"authName" : "数据报表",
+					"id" : "146",
+					"path" : "reports"
+				}
+			],
+			"id" : "145",
+			"path" : "reports"
+		}
+	],
+	"meta" : 
+	{
+		"msg" : "登录成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 20:02:46.634147 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:02:46.634230 [info]: adjust timer once
+2023-06-14 20:02:50.585065 [info]: timer tick
+2023-06-14 20:02:52.433523 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:02:52.433648 [info]: adjust timer once
+2023-06-14 20:02:52.433724 [info]: parse_test=>GET /api/roles HTTP/1.1
+2023-06-14 20:02:52.433777 [info]: url=> /api/roles
+2023-06-14 20:02:52.433784 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:02:52.433790 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:02:52.433805 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:02:52.433810 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:02:52.433816 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:02:52.433823 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:52.433828 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:52.433833 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:02:52.433838 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:02:52.433843 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:02:52.433848 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:02:52.433853 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:02:52.433858 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:02:52.433864 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:52.433869 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:52.433874 [info]: parse_test=>
+2023-06-14 20:02:52.433888 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:02:52.466485 [info]: LEN: 14807
+2023-06-14 20:02:52.466550 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"children" : 
+			[
+				{
+					"authName" : "班级管理",
+					"children" : 
+					[
+						{
+							"authName" : "班级列表",
+							"children" : 
+							[
+								{
+									"authName" : "添加班级",
+									"id" : 109,
+									"path" : "class",
+									"pid" : "107"
+								},
+								{
+									"authName" : "班级更新",
+									"id" : 154,
+									"path" : "class",
+									"pid" : "107"
+								},
+								{
+									"authName" : "获取班级详情",
+									"id" : 155,
+									"path" : "class",
+									"pid" : "107"
+								}
+							],
+							"id" : 107,
+							"path" : "class"
+						}
+					],
+					"id" : 102,
+					"path" : "class"
+				},
+				{
+					"authName" : "权限管理",
+					"children" : 
+					[
+						{
+							"authName" : "角色列表",
+							"children" : 
+							[
+								{
+									"authName" : "添加角色",
+									"id" : 129,
+									"path" : "roles",
+									"pid" : "111"
+								},
+								{
+									"authName" : "删除角色",
+									"id" : 130,
+									"path" : "roles",
+									"pid" : "111"
+								},
+								{
+									"authName" : "角色授权",
+									"id" : 134,
+									"path" : "roles",
+									"pid" : "111"
+								},
+								{
+									"authName" : "取消角色授权",
+									"id" : 135,
+									"path" : "roles",
+									"pid" : "111"
+								},
+								{
+									"authName" : "获取角色列表",
+									"id" : 138,
+									"path" : "roles",
+									"pid" : "111"
+								},
+								{
+									"authName" : "获取角色详情",
+									"id" : 139,
+									"path" : "roles",
+									"pid" : "111"
+								}
+							],
+							"id" : 111,
+							"path" : "roles"
+						},
+						{
+							"authName" : "权限列表",
+							"children" : 
+							[
+								{
+									"authName" : "查看权限",
+									"id" : 147,
+									"path" : "rights",
+									"pid" : "112"
+								}
+							],
+							"id" : 112,
+							"path" : "rights2023-06-14 20:02:52.466718 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:02:52.466782 [info]: adjust timer once
+2023-06-14 20:02:53.389934 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:02:53.390046 [info]: adjust timer once
+2023-06-14 20:02:53.390075 [info]: parse_test=>GET /api/rights/tree HTTP/1.1
+2023-06-14 20:02:53.390100 [info]: url=> /api/rights/tree
+2023-06-14 20:02:53.390120 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:02:53.390126 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:02:53.390132 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:02:53.390138 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:02:53.390144 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:02:53.390150 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:53.390155 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:02:53.390160 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:02:53.390165 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:02:53.390170 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:02:53.390175 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:02:53.390180 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:02:53.390184 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:02:53.390189 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:53.390194 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:02:53.390199 [info]: parse_test=>
+2023-06-14 20:02:53.390209 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:02:53.390340 [debug]: input_data=>tree
+2023-06-14 20:02:53.419609 [info]: LEN: 7372
+2023-06-14 20:02:53.419718 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "课程列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加课程",
+							"id" : 105,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程修改",
+							"id" : 116,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程删除",
+							"id" : 117,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程",
+							"id" : 150,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程属性",
+							"id" : 151,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程状态",
+							"id" : 152,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "获取课程详情",
+							"id" : 153,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表添加",
+							"id" : 156,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表删除",
+							"id" : 157,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表详情",
+							"id" : 158,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						}
+					],
+					"id" : 104,
+					"level" : "1",
+					"path" : "courselist",
+					"pid" : "101"
+				},
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "115,101"
+					2023-06-14 20:02:53.420066 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:02:53.420176 [info]: adjust timer once
+2023-06-14 20:02:55.585989 [info]: timer tick
+2023-06-14 20:03:00.586779 [info]: timer tick
+2023-06-14 20:03:02.126004 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:02.126155 [info]: adjust timer once
+2023-06-14 20:03:02.126242 [info]: parse_test=>OPTIONS /api/roles/1/rights/139 HTTP/1.1
+2023-06-14 20:03:02.126327 [info]: url=> /api/roles/1/rights/139
+2023-06-14 20:03:02.126345 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:02.126354 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:02.126359 [info]: parse_test=>Accept: */*
+2023-06-14 20:03:02.126364 [info]: oop!unknow header: Accept: */*
+2023-06-14 20:03:02.126369 [info]: parse_test=>Access-Control-Request-Method: DELETE
+2023-06-14 20:03:02.126400 [info]: oop!unknow header: Access-Control-Request-Method: DELETE
+2023-06-14 20:03:02.126419 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 20:03:02.126425 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 20:03:02.126430 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:02.126435 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:02.126441 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:02.126446 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:02.126451 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 20:03:02.126456 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 20:03:02.126461 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:02.126466 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:02.126475 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:02.126480 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:02.126485 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:02.126490 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:02.126494 [info]: parse_test=>
+2023-06-14 20:03:02.126599 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:02.126650 [info]: adjust timer once
+2023-06-14 20:03:02.133627 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:02.133775 [info]: adjust timer once
+2023-06-14 20:03:02.133915 [info]: parse_test=>DELETE /api/roles/1/rights/139 HTTP/1.1
+2023-06-14 20:03:02.134084 [info]: url=> /api/roles/1/rights/139
+2023-06-14 20:03:02.134117 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:02.134130 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:02.134142 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:03:02.134153 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:03:02.134164 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:02.134176 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:02.134186 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:02.134196 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:02.134205 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:02.134215 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:02.134226 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:02.134237 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:02.134246 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:02.134256 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:02.134283 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:02.134293 [info]: parse_test=>
+2023-06-14 20:03:02.134320 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:02.147178 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,112,147,131,132,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 20:03:10.358329 [info]: timer tick
+2023-06-14 20:03:25.187886 [info]: timer tick
+2023-06-14 20:03:25.187952 [info]: LEN: 3878
+2023-06-14 20:03:25.188313 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加班级",
+							"id" : 109,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "班级更新",
+							"id" : 154,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "获取班级详情",
+							"id" : 155,
+							"path" : "class",
+							"pid" : "107"
+						}
+					],
+					"id" : 107,
+					"path" : "class"
+				}
+			],
+			"id" : 102,
+			"path" : "class"
+		},
+		{
+			"authName" : "权限管理",
+			"children" : 
+			[
+				{
+					"authName" : "角色列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加角色",
+							"id" : 129,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "删除角色",
+							"id" : 130,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "角色授权",
+							"id" : 134,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "取消角色授权",
+							"id" : 135,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "获取角色列表",
+							"id" : 138,
+							"path" : "roles",
+							"pid" : "111"
+						}
+					],
+					"id" : 111,
+					"path" : "roles"
+				},
+				{
+					"authName" : "权限列表",
+					"children" : 
+					[
+						{
+							"authName" : "查看权限",
+							"id" : 147,
+							"path" : "rights",
+							"pid" : "112"
+						}
+					],
+					"id" : 112,
+					"path" : "rights"
+				}
+			],
+			"id" : 103,
+			"path" : "rights"
+		},
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"path" : "categories",
+							"pid" : "115"
+						},
+						{
+							"authName" : "创建选2023-06-14 20:03:25.190161 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:25.190305 [info]: adjust timer once
+2023-06-14 20:03:25.190367 [info]: parse_test=>DELETE /api/roles/1/rights/139 HTTP/1.1
+2023-06-14 20:03:25.190501 [info]: url=> /api/roles/1/rights/139
+2023-06-14 20:03:25.190518 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:25.190525 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:25.190531 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:03:25.190537 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:03:25.190543 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:25.190549 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:25.190554 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:25.190559 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:25.190565 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:25.190587 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:25.190592 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:25.190597 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:25.190602 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:25.190608 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:25.190615 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:25.190654 [info]: parse_test=>
+2023-06-14 20:03:25.190681 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:25.200233 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,115,142,143,144,121,122,123,149,102,107,109,154,155,103,111,129,130,134,135,138,112,147,131,132,136,101,104,125,160' WHERE role_id = '1';
+2023-06-14 20:03:25.289252 [info]: LEN: 3878
+2023-06-14 20:03:25.289355 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加班级",
+							"id" : 109,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "班级更新",
+							"id" : 154,
+							"path" : "class",
+							"pid" : "107"
+						},
+						{
+							"authName" : "获取班级详情",
+							"id" : 155,
+							"path" : "class",
+							"pid" : "107"
+						}
+					],
+					"id" : 107,
+					"path" : "class"
+				}
+			],
+			"id" : 102,
+			"path" : "class"
+		},
+		{
+			"authName" : "权限管理",
+			"children" : 
+			[
+				{
+					"authName" : "角色列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加角色",
+							"id" : 129,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "删除角色",
+							"id" : 130,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "角色授权",
+							"id" : 134,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "取消角色授权",
+							"id" : 135,
+							"path" : "roles",
+							"pid" : "111"
+						},
+						{
+							"authName" : "获取角色列表",
+							"id" : 138,
+							"path" : "roles",
+							"pid" : "111"
+						}
+					],
+					"id" : 111,
+					"path" : "roles"
+				},
+				{
+					"authName" : "权限列表",
+					"children" : 
+					[
+						{
+							"authName" : "查看权限",
+							"id" : 147,
+							"path" : "rights",
+							"pid" : "112"
+						}
+					],
+					"id" : 112,
+					"path" : "rights"
+				}
+			],
+			"id" : 103,
+			"path" : "rights"
+		},
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"path" : "categories",
+							"pid" : "115"
+						},
+						{
+							"authName" : "创建选2023-06-14 20:03:25.289556 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:25.289692 [info]: adjust timer once
+2023-06-14 20:03:30.188716 [info]: timer tick
+2023-06-14 20:03:35.189131 [info]: timer tick
+2023-06-14 20:03:40.190126 [info]: timer tick
+2023-06-14 20:03:45.190478 [info]: timer tick
+2023-06-14 20:03:47.899325 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:47.899533 [info]: adjust timer once
+2023-06-14 20:03:47.899601 [info]: parse_test=>OPTIONS /api/roles/1 HTTP/1.1
+2023-06-14 20:03:47.899710 [info]: url=> /api/roles/1
+2023-06-14 20:03:47.899742 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:47.899755 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:47.899766 [info]: parse_test=>Accept: */*
+2023-06-14 20:03:47.899777 [info]: oop!unknow header: Accept: */*
+2023-06-14 20:03:47.899834 [info]: parse_test=>Access-Control-Request-Method: GET
+2023-06-14 20:03:47.899866 [info]: oop!unknow header: Access-Control-Request-Method: GET
+2023-06-14 20:03:47.899878 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 20:03:47.899965 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 20:03:47.899995 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:47.900006 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:47.900017 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:47.900074 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:47.900105 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 20:03:47.900116 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 20:03:47.900128 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:47.900138 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:47.900147 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:47.900157 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:47.900167 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:47.900178 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:47.900194 [info]: parse_test=>
+2023-06-14 20:03:47.900354 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:47.900408 [info]: adjust timer once
+2023-06-14 20:03:47.910304 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:47.910446 [info]: adjust timer once
+2023-06-14 20:03:47.910496 [info]: parse_test=>GET /api/roles/1 HTTP/1.1
+2023-06-14 20:03:47.910606 [info]: url=> /api/roles/1
+2023-06-14 20:03:47.910623 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:47.910630 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:47.910637 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:03:47.910642 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:03:47.910647 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:47.910654 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:47.910660 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:47.910665 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:47.910672 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:47.910677 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:47.910682 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:47.910687 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:47.910691 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:47.910696 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:47.910702 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:47.910706 [info]: parse_test=>
+2023-06-14 20:03:47.910720 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:47.910846 [debug]: id=>1
+2023-06-14 20:03:47.926694 [info]: LEN: 151
+2023-06-14 20:03:47.926828 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"roleDesc" : "大学生",
+		"roleId" : "1",
+		"roleName" : "学生"
+	},
+	"meta" : 
+	{
+		"msg" : "查询成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 20:03:47.927037 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:47.927184 [info]: adjust timer once
+2023-06-14 20:03:49.660088 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:49.660233 [info]: adjust timer once
+2023-06-14 20:03:49.660277 [info]: parse_test=>GET /api/rights/tree HTTP/1.1
+2023-06-14 20:03:49.660303 [info]: url=> /api/rights/tree
+2023-06-14 20:03:49.660310 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:49.660316 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:49.660321 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:03:49.660327 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:03:49.660334 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:49.660341 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:49.660347 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:49.660352 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:49.660357 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:49.660361 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:49.660366 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:49.660371 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:49.660376 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:49.660381 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:49.660386 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:49.660390 [info]: parse_test=>
+2023-06-14 20:03:49.660428 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:49.660591 [debug]: input_data=>tree
+2023-06-14 20:03:49.666358 [info]: LEN: 7372
+2023-06-14 20:03:49.666460 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "课程列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加课程",
+							"id" : 105,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程修改",
+							"id" : 116,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程删除",
+							"id" : 117,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程",
+							"id" : 150,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程属性",
+							"id" : 151,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程状态",
+							"id" : 152,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "获取课程详情",
+							"id" : 153,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表添加",
+							"id" : 156,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表删除",
+							"id" : 157,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表详情",
+							"id" : 158,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						}
+					],
+					"id" : 104,
+					"level" : "1",
+					"path" : "courselist",
+					"pid" : "101"
+				},
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "115,101"
+					2023-06-14 20:03:49.666633 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:49.666689 [info]: adjust timer once
+2023-06-14 20:03:50.191013 [info]: timer tick
+2023-06-14 20:03:55.191522 [info]: timer tick
+2023-06-14 20:03:57.843428 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:57.843536 [info]: adjust timer once
+2023-06-14 20:03:57.843587 [info]: parse_test=>OPTIONS /api/roles/1/rights HTTP/1.1
+2023-06-14 20:03:57.843642 [info]: url=> /api/roles/1/rights
+2023-06-14 20:03:57.843659 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:57.843665 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:57.843671 [info]: parse_test=>Accept: */*
+2023-06-14 20:03:57.843676 [info]: oop!unknow header: Accept: */*
+2023-06-14 20:03:57.843681 [info]: parse_test=>Access-Control-Request-Method: POST
+2023-06-14 20:03:57.843686 [info]: oop!unknow header: Access-Control-Request-Method: POST
+2023-06-14 20:03:57.843691 [info]: parse_test=>Access-Control-Request-Headers: authorization,content-type
+2023-06-14 20:03:57.843697 [info]: oop!unknow header: Access-Control-Request-Headers: authorization,content-type
+2023-06-14 20:03:57.843702 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:57.843707 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:57.843712 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:57.843730 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:57.843736 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 20:03:57.843741 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 20:03:57.843746 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:57.843756 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:57.843761 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:57.843766 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:57.843771 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:57.843776 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:57.843781 [info]: parse_test=>
+2023-06-14 20:03:57.843867 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:57.843915 [info]: adjust timer once
+2023-06-14 20:03:57.847329 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:57.847485 [info]: adjust timer once
+2023-06-14 20:03:57.847539 [info]: parse_test=>POST /api/roles/1/rights HTTP/1.1
+2023-06-14 20:03:57.847596 [info]: url=> /api/roles/1/rights
+2023-06-14 20:03:57.847603 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:57.847609 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:57.847614 [info]: parse_test=>Content-Length: 142
+2023-06-14 20:03:57.847620 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:03:57.847625 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:03:57.847630 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:57.847636 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:57.847645 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:57.847651 [info]: parse_test=>Content-Type: application/json
+2023-06-14 20:03:57.847656 [info]: oop!unknow header: Content-Type: application/json
+2023-06-14 20:03:57.847661 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:57.847674 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:57.847679 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:57.847684 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:57.847689 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:57.847693 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:57.847698 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:57.847706 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:57.847711 [info]: parse_test=>
+2023-06-14 20:03:57.847716 [info]: parse_test=>{"rids":"105,116,117,152,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,131,132,136,101,104,103,111,125,160"}
+2023-06-14 20:03:57.847721 [info]: POST_CONTENT=>{"rids":"105,116,117,152,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,131,132,136,101,104,103,111,125,160"}
+2023-06-14 20:03:57.847733 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:57.847856 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '105,116,117,152,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,131,132,136,101,104,103,111,125,160' WHERE role_id = '1';
+2023-06-14 20:03:58.018776 [info]: LEN: 77
+2023-06-14 20:03:58.018886 [debug]: ret_json, len=>{
+	"data" : "",
+	"meta" : 
+	{
+		"msg" : "更新成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 20:03:58.019053 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:58.019133 [info]: adjust timer once
+2023-06-14 20:03:58.051055 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:03:58.051191 [info]: adjust timer once
+2023-06-14 20:03:58.051265 [info]: parse_test=>GET /api/roles HTTP/1.1
+2023-06-14 20:03:58.051348 [info]: url=> /api/roles
+2023-06-14 20:03:58.051371 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:03:58.051378 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:03:58.051384 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:03:58.051390 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:03:58.051395 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:58.051402 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:58.051406 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:03:58.051411 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:03:58.051416 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:03:58.051421 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:03:58.051426 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:03:58.051431 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:03:58.051436 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:03:58.051441 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:58.051447 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:03:58.051451 [info]: parse_test=>
+2023-06-14 20:03:58.051466 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:03:58.080925 [info]: LEN: 14808
+2023-06-14 20:03:58.081001 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"children" : 
+			[
+				{
+					"authName" : "班级管理",
+					"children" : 
+					[
+						{
+							"authName" : "班级列表",
+							"children" : 
+							[
+								{
+									"authName" : "添加班级",
+									"id" : 109,
+									"path" : "class",
+									"pid" : "107"
+								},
+								{
+									"authName" : "班级更新",
+									"id" : 154,
+									"path" : "class",
+									"pid" : "107"
+								},
+								{
+									"authName" : "获取班级详情",
+									"id" : 155,
+									"path" : "class",
+									"pid" : "107"
+								}
+							],
+							"id" : 107,
+							"path" : "class"
+						}
+					],
+					"id" : 102,
+					"path" : "class"
+				},
+				{
+					"authName" : "课程管理",
+					"children" : 
+					[
+						{
+							"authName" : "选课管理",
+							"children" : 
+							[
+								{
+									"authName" : "获取选课",
+									"id" : 142,
+									"path" : "categories",
+									"pid" : "115"
+								},
+								{
+									"authName" : "创建选课",
+									"id" : 143,
+									"path" : "categories",
+									"pid" : "115"
+								},
+								{
+									"authName" : "删除选课",
+									"id" : 144,
+									"path" : "categories",
+									"pid" : "115"
+								}
+							],
+							"id" : 115,
+							"path" : "cource"
+						},
+						{
+							"authName" : "成绩查询",
+							"children" : 
+							[
+								{
+									"authName" : "添加成绩",
+									"id" : 122,
+									"path" : "categories",
+									"pid" : "121"
+								},
+								{
+									"authName" : "删除成绩",
+									"id" : 123,
+									"path" : "categories",
+									"pid" : "121"
+								},
+								{
+									"authName" : "获取成绩",
+									"id" : 149,
+									"path" : "categories",
+									"pid" : "121"
+								}
+							],
+							"id" : 121,
+							"path" : "categories"
+						},
+						{
+							"authName" : "课程列表",
+							"children" : 
+							[
+								{
+									"authName"2023-06-14 20:03:58.081209 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:03:58.081314 [info]: adjust timer once
+2023-06-14 20:04:00.192404 [info]: timer tick
+2023-06-14 20:04:05.193147 [info]: timer tick
+2023-06-14 20:04:10.194310 [info]: timer tick
+2023-06-14 20:04:15.195308 [info]: timer tick
+2023-06-14 20:04:15.996067 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:15.996233 [info]: adjust timer once
+2023-06-14 20:04:15.996270 [info]: parse_test=>GET /api/rights/tree HTTP/1.1
+2023-06-14 20:04:15.996322 [info]: url=> /api/rights/tree
+2023-06-14 20:04:15.996329 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:15.996335 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:15.996340 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:04:15.996345 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:04:15.996351 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:15.996361 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:15.996367 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:15.996373 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:15.996378 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:15.996383 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:15.996388 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:15.996393 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:15.996397 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:15.996402 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:15.996407 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:15.996412 [info]: parse_test=>
+2023-06-14 20:04:15.996432 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:15.996667 [debug]: input_data=>tree
+2023-06-14 20:04:16.002116 [info]: LEN: 7372
+2023-06-14 20:04:16.002210 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "课程列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加课程",
+							"id" : 105,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程修改",
+							"id" : 116,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程删除",
+							"id" : 117,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程",
+							"id" : 150,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程属性",
+							"id" : 151,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "更新课程状态",
+							"id" : 152,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "获取课程详情",
+							"id" : 153,
+							"level" : "2",
+							"path" : "course",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表添加",
+							"id" : 156,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表删除",
+							"id" : 157,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						},
+						{
+							"authName" : "课程列表详情",
+							"id" : 158,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "104,101"
+						}
+					],
+					"id" : 104,
+					"level" : "1",
+					"path" : "courselist",
+					"pid" : "101"
+				},
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"level" : "2",
+							"path" : "categories",
+							"pid" : "115,101"
+					2023-06-14 20:04:16.002367 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:16.002415 [info]: adjust timer once
+2023-06-14 20:04:20.195680 [info]: timer tick
+2023-06-14 20:04:25.196056 [info]: timer tick
+2023-06-14 20:04:26.385069 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:26.385229 [info]: adjust timer once
+2023-06-14 20:04:26.385302 [info]: parse_test=>POST /api/roles/1/rights HTTP/1.1
+2023-06-14 20:04:26.385442 [info]: url=> /api/roles/1/rights
+2023-06-14 20:04:26.385460 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:26.385466 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:26.385472 [info]: parse_test=>Content-Length: 194
+2023-06-14 20:04:26.385478 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:04:26.385486 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:04:26.385514 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:26.385553 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:26.385562 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:26.385567 [info]: parse_test=>Content-Type: application/json
+2023-06-14 20:04:26.385572 [info]: oop!unknow header: Content-Type: application/json
+2023-06-14 20:04:26.385577 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:26.385582 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:26.385587 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:26.385642 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:26.385660 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:26.385665 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:26.385672 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:26.385678 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:26.385682 [info]: parse_test=>
+2023-06-14 20:04:26.385688 [info]: parse_test=>{"rids":"101,104,105,116,117,150,151,152,153,156,157,158,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,125,160,131,132,133,136,137,159,161,145,146,148,103,111"}
+2023-06-14 20:04:26.385694 [info]: POST_CONTENT=>{"rids":"101,104,105,116,117,150,151,152,153,156,157,158,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,125,160,131,132,133,136,137,159,161,145,146,148,103,111"}
+2023-06-14 20:04:26.385708 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:26.385849 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '101,104,105,116,117,150,151,152,153,156,157,158,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,125,160,131,132,133,136,137,159,161,145,146,148,103,111' WHERE role_id = '1';
+2023-06-14 20:04:26.548156 [info]: LEN: 77
+2023-06-14 20:04:26.548237 [debug]: ret_json, len=>{
+	"data" : "",
+	"meta" : 
+	{
+		"msg" : "更新成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 20:04:26.548375 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:26.548421 [info]: adjust timer once
+2023-06-14 20:04:26.573767 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:26.573877 [info]: adjust timer once
+2023-06-14 20:04:26.573911 [info]: parse_test=>GET /api/roles HTTP/1.1
+2023-06-14 20:04:26.573941 [info]: url=> /api/roles
+2023-06-14 20:04:26.573948 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:26.573954 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:26.573960 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:04:26.573966 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:04:26.573972 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:26.573978 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:26.573983 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:26.573992 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:26.573997 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:26.574002 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:26.574007 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:26.574012 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:26.574017 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:26.574022 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:26.574027 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:26.574032 [info]: parse_test=>
+2023-06-14 20:04:26.574044 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:26.613744 [info]: LEN: 16527
+2023-06-14 20:04:26.613819 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"children" : 
+			[
+				{
+					"authName" : "课程管理",
+					"children" : 
+					[
+						{
+							"authName" : "课程列表",
+							"children" : 
+							[
+								{
+									"authName" : "添加课程",
+									"id" : 105,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "课程修改",
+									"id" : 116,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "课程删除",
+									"id" : 117,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "更新课程",
+									"id" : 150,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "更新课程属性",
+									"id" : 151,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "更新课程状态",
+									"id" : 152,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "获取课程详情",
+									"id" : 153,
+									"path" : "course",
+									"pid" : "104"
+								},
+								{
+									"authName" : "课程列表添加",
+									"id" : 156,
+									"path" : "categories",
+									"pid" : "104"
+								},
+								{
+									"authName" : "课程列表删除",
+									"id" : 157,
+									"path" : "categories",
+									"pid" : "104"
+								},
+								{
+									"authName" : "课程列表详情",
+									"id" : 158,
+									"path" : "categories",
+									"pid" : "104"
+								}
+							],
+							"id" : 104,
+							"path" : "courselist"
+						},
+						{
+							"authName" : "选课管理",
+							"children" : 
+							[
+								{
+									"authName" : "获取选课",
+									"id" : 142,
+									"path" : "categories",
+									"pid" : "115"
+								},
+								{
+									"authName" : "创建选课",
+									"id" : 143,
+									"path" : "categories",
+									"pid" : "115"
+								2023-06-14 20:04:26.614023 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:26.614094 [info]: adjust timer once
+2023-06-14 20:04:30.196472 [info]: timer tick
+2023-06-14 20:04:35.197077 [info]: timer tick
+2023-06-14 20:04:35.620290 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:35.620439 [info]: adjust timer once
+2023-06-14 20:04:35.620498 [info]: parse_test=>OPTIONS /api/roles/1/rights/161 HTTP/1.1
+2023-06-14 20:04:35.620626 [info]: url=> /api/roles/1/rights/161
+2023-06-14 20:04:35.620644 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:35.620651 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:35.620657 [info]: parse_test=>Accept: */*
+2023-06-14 20:04:35.620662 [info]: oop!unknow header: Accept: */*
+2023-06-14 20:04:35.620667 [info]: parse_test=>Access-Control-Request-Method: DELETE
+2023-06-14 20:04:35.620672 [info]: oop!unknow header: Access-Control-Request-Method: DELETE
+2023-06-14 20:04:35.620677 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 20:04:35.620682 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 20:04:35.620687 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:35.620692 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:35.620700 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:35.620705 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:35.620710 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 20:04:35.620715 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 20:04:35.620724 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:35.620729 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:35.620734 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:35.620739 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:35.620744 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:35.620749 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:35.620772 [info]: parse_test=>
+2023-06-14 20:04:35.620887 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:35.620938 [info]: adjust timer once
+2023-06-14 20:04:35.626072 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:35.626270 [info]: adjust timer once
+2023-06-14 20:04:35.626316 [info]: parse_test=>DELETE /api/roles/1/rights/161 HTTP/1.1
+2023-06-14 20:04:35.626560 [info]: url=> /api/roles/1/rights/161
+2023-06-14 20:04:35.626568 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:35.626574 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:35.626579 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:04:35.626584 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:04:35.626589 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:35.626596 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:35.626602 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:35.626607 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:35.626611 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:35.626617 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:35.626622 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:35.626632 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:35.626637 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:35.626642 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:35.626649 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:35.626653 [info]: parse_test=>
+2023-06-14 20:04:35.626667 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:35.629421 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '101,104,105,116,117,150,151,152,153,156,157,158,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,125,160,131,132,133,136,137,159,145,146,148,103,111' WHERE role_id = '1';
+2023-06-14 20:04:35.979949 [info]: LEN: 5471
+2023-06-14 20:04:35.980090 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "课程列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加课程",
+							"id" : 105,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程修改",
+							"id" : 116,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程删除",
+							"id" : 117,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "更新课程",
+							"id" : 150,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "更新课程属性",
+							"id" : 151,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "更新课程状态",
+							"id" : 152,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "获取课程详情",
+							"id" : 153,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程列表添加",
+							"id" : 156,
+							"path" : "categories",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程列表删除",
+							"id" : 157,
+							"path" : "categories",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程列表详情",
+							"id" : 158,
+							"path" : "categories",
+							"pid" : "104"
+						}
+					],
+					"id" : 104,
+					"path" : "courselist"
+				},
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"path" : "categories",
+							"pid" : "115"
+						},
+						{
+							"authName" : "创建选课",
+							"id" : 143,
+							"path" : "categories",
+							"pid" : "115"
+						},
+						{
+							"authName" : "删除选课",
+							"id" : 144,
+							"path" : "categories",
+							"pid" : "115"
+						}
+					],
+					"id" : 115,
+					"path" : "cource"
+				},
+				{
+					"authName" 2023-06-14 20:04:35.980305 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:35.980354 [info]: adjust timer once
+2023-06-14 20:04:38.874967 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:38.875153 [info]: adjust timer once
+2023-06-14 20:04:38.875209 [info]: parse_test=>OPTIONS /api/roles/1/rights/159 HTTP/1.1
+2023-06-14 20:04:38.875236 [info]: url=> /api/roles/1/rights/159
+2023-06-14 20:04:38.875245 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:38.875251 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:38.875256 [info]: parse_test=>Accept: */*
+2023-06-14 20:04:38.875261 [info]: oop!unknow header: Accept: */*
+2023-06-14 20:04:38.875266 [info]: parse_test=>Access-Control-Request-Method: DELETE
+2023-06-14 20:04:38.875271 [info]: oop!unknow header: Access-Control-Request-Method: DELETE
+2023-06-14 20:04:38.875276 [info]: parse_test=>Access-Control-Request-Headers: authorization
+2023-06-14 20:04:38.875281 [info]: oop!unknow header: Access-Control-Request-Headers: authorization
+2023-06-14 20:04:38.875286 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:38.875291 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:38.875297 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:38.875312 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:38.875317 [info]: parse_test=>Sec-Fetch-Mode: cors
+2023-06-14 20:04:38.875321 [info]: oop!unknow header: Sec-Fetch-Mode: cors
+2023-06-14 20:04:38.875326 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:38.875332 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:38.875340 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:38.875345 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:38.875351 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:38.875356 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:38.875360 [info]: parse_test=>
+2023-06-14 20:04:38.875498 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:38.875604 [info]: adjust timer once
+2023-06-14 20:04:38.880712 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:38.880852 [info]: adjust timer once
+2023-06-14 20:04:38.880889 [info]: parse_test=>DELETE /api/roles/1/rights/159 HTTP/1.1
+2023-06-14 20:04:38.880915 [info]: url=> /api/roles/1/rights/159
+2023-06-14 20:04:38.880922 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:38.880928 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:38.880933 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:04:38.880938 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:04:38.880943 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:38.880952 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:38.880957 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:38.881012 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:38.881030 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:38.881036 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:38.881041 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:38.881046 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:38.881051 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:38.881056 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:38.881061 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:38.881065 [info]: parse_test=>
+2023-06-14 20:04:38.881078 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:38.881914 [info]: sql_string=>UPDATE sp_role SET  ps_ids = '101,104,105,116,117,150,151,152,153,156,157,158,115,142,143,144,121,122,123,149,102,107,109,154,155,129,130,134,135,138,112,147,125,160,131,132,133,136,137,145,146,148,103,111' WHERE role_id = '1';
+2023-06-14 20:04:39.049268 [info]: LEN: 5347
+2023-06-14 20:04:39.049373 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "课程管理",
+			"children" : 
+			[
+				{
+					"authName" : "课程列表",
+					"children" : 
+					[
+						{
+							"authName" : "添加课程",
+							"id" : 105,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程修改",
+							"id" : 116,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程删除",
+							"id" : 117,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "更新课程",
+							"id" : 150,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "更新课程属性",
+							"id" : 151,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "更新课程状态",
+							"id" : 152,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "获取课程详情",
+							"id" : 153,
+							"path" : "course",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程列表添加",
+							"id" : 156,
+							"path" : "categories",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程列表删除",
+							"id" : 157,
+							"path" : "categories",
+							"pid" : "104"
+						},
+						{
+							"authName" : "课程列表详情",
+							"id" : 158,
+							"path" : "categories",
+							"pid" : "104"
+						}
+					],
+					"id" : 104,
+					"path" : "courselist"
+				},
+				{
+					"authName" : "选课管理",
+					"children" : 
+					[
+						{
+							"authName" : "获取选课",
+							"id" : 142,
+							"path" : "categories",
+							"pid" : "115"
+						},
+						{
+							"authName" : "创建选课",
+							"id" : 143,
+							"path" : "categories",
+							"pid" : "115"
+						},
+						{
+							"authName" : "删除选课",
+							"id" : 144,
+							"path" : "categories",
+							"pid" : "115"
+						}
+					],
+					"id" : 115,
+					"path" : "cource"
+				},
+				{
+					"authName" 2023-06-14 20:04:39.049529 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:39.049581 [info]: adjust timer once
+2023-06-14 20:04:40.197512 [info]: timer tick
+2023-06-14 20:04:42.939327 [info]: deal with the client(192.168.112.1)
+2023-06-14 20:04:42.939515 [info]: adjust timer once
+2023-06-14 20:04:42.939595 [info]: parse_test=>GET /api/users?query=&pagenum=1&pagesize=5&isstu=1&sortprop=&sortorder= HTTP/1.1
+2023-06-14 20:04:42.939748 [info]: url=> /api/users?query=&pagenum=1&pagesize=5&isstu=1&sortprop=&sortorder=
+2023-06-14 20:04:42.939767 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 20:04:42.939775 [info]: parse_test=>Connection: keep-alive
+2023-06-14 20:04:42.939781 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 20:04:42.939809 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 20:04:42.939815 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:42.939821 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:42.939826 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 20:04:42.939832 [info]: parse_test=>Origin: http://localhost:8080
+2023-06-14 20:04:42.939838 [info]: oop!unknow header: Origin: http://localhost:8080
+2023-06-14 20:04:42.939844 [info]: parse_test=>Referer: http://localhost:8080/
+2023-06-14 20:04:42.939856 [info]: oop!unknow header: Referer: http://localhost:8080/
+2023-06-14 20:04:42.939861 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 20:04:42.939866 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 20:04:42.939872 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:42.939877 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 20:04:42.939882 [info]: parse_test=>
+2023-06-14 20:04:42.939897 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 20:04:43.019695 [debug]: SQL:
+SELECT * FROM sp_manager as mgr LEFT JOIN sp_role as role ON mgr.role_id = role.role_id LEFT JOIN sp_class as class ON mgr.class_id = class.class_id WHERE mg_isstu = 1 AND mg_name LIKE '%%' LIMIT 0,5;
+2023-06-14 20:04:43.036389 [info]: LEN: 1081
+2023-06-14 20:04:43.036496 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"pagenum" : 1,
+		"total" : 4,
+		"users" : 
+		[
+			{
+				"class" : "计科1班",
+				"college" : "软件学院",
+				"create_time" : "1486720211",
+				"email" : "114514f@qq.com",
+				"grade" : "20",
+				"id" : "502",
+				"isstu" : "1",
+				"mobile" : "1213213123",
+				"role_name" : "学生",
+				"stuid" : "202130241241",
+				"username" : "linken"
+			},
+			{
+				"class" : "计科2班",
+				"college" : "计算机学院",
+				"create_time" : "2023-06-04 12:26:22",
+				"email" : "1231313@sa.com",
+				"grade" : "21",
+				"id" : "510",
+				"isstu" : "1",
+				"mobile" : "202130241241",
+				"role_name" : "学生",
+				"stuid" : "202130241242",
+				"username" : "银灰"
+			},
+			{
+				"class" : "计科2班",
+				"college" : "软件学院",
+				"create_time" : "2023-06-07 16:01:37",
+				"email" : "21313@qq.com",
+				"grade" : "21",
+				"id" : "513",
+				"isstu" : "1",
+				"mobile" : "234556",
+				"role_name" : "学生",
+				"stuid" : "202130241231",
+				"username" : "sasj"
+			}
+		]
+	},
+	"meta" : 
+	{
+		"msg" : "查询用户列表成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 20:04:43.036667 [info]: send data to the client(192.168.112.1)
+2023-06-14 20:04:43.036713 [info]: adjust timer once
+2023-06-14 20:04:45.197917 [info]: timer tick
+2023-06-14 20:04:50.198436 [info]: timer tick
