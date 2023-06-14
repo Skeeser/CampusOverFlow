@@ -108,3 +108,189 @@ SELECT * FROM sp_manager as mgr LEFT JOIN sp_role as role ON mgr.role_id = role.
 2023-06-14 11:18:59.341118 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
 2023-06-14 11:18:59.344235 [debug]: SQL:
 SELECT * FROM sp_manager as mgr LEFT JOIN sp_role as role ON mgr.role_id = role.role_id LEFT JOIN sp_class as class ON mgr.class_id = class.class_id WHERE mg_isstu = 0 AND mg_name LIKE '%%' LIMIT 0,5;
+2023-06-14 11:40:54.149025 [info]: timer tick
+2023-06-14 11:40:55.167689 [info]: deal with the client(192.168.112.1)
+2023-06-14 11:40:55.167778 [info]: adjust timer once
+2023-06-14 11:40:55.167825 [info]: parse_test=>POST /api/login HTTP/1.1
+2023-06-14 11:40:55.167857 [info]: url=> /api/login
+2023-06-14 11:40:55.167867 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 11:40:55.167871 [info]: parse_test=>Connection: keep-alive
+2023-06-14 11:40:55.167875 [info]: parse_test=>Content-Length: 40
+2023-06-14 11:40:55.167879 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 11:40:55.167882 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 11:40:55.167885 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 11:40:55.167888 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 11:40:55.167891 [info]: parse_test=>Content-Type: application/json
+2023-06-14 11:40:55.167895 [info]: oop!unknow header: Content-Type: application/json
+2023-06-14 11:40:55.167901 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 11:40:55.167904 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 11:40:55.167907 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 11:40:55.167910 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 11:40:55.167913 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 11:40:55.167916 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 11:40:55.167928 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 11:40:55.167932 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 11:40:55.167935 [info]: parse_test=>
+2023-06-14 11:40:55.167938 [info]: parse_test=>{"username":"admin","password":"123456"}
+2023-06-14 11:40:55.167941 [info]: POST_CONTENT=>{"username":"admin","password":"123456"}
+2023-06-14 11:40:55.198470 [info]: sql_string=>SELECT * FROM sp_manager WHERE mg_name = 'admin' AND mg_pwd = '123456';
+2023-06-14 11:40:55.443136 [info]: row=>500
+2023-06-14 11:40:55.443309 [debug]: json_string = %, len = 240
+2023-06-14 11:40:55.443351 [info]: LEN: 240
+2023-06-14 11:40:55.443361 [debug]: ret_json, len=>{
+	"data" : 
+	{
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I",
+		"username" : "admin"
+	},
+	"meta" : 
+	{
+		"msg" : "登录成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 11:40:55.443444 [info]: send data to the client(192.168.112.1)
+2023-06-14 11:40:55.443498 [info]: adjust timer once
+2023-06-14 11:40:55.686509 [info]: deal with the client(192.168.112.1)
+2023-06-14 11:40:55.686600 [info]: adjust timer once
+2023-06-14 11:40:55.686661 [info]: parse_test=>GET /api/menus HTTP/1.1
+2023-06-14 11:40:55.686707 [info]: url=> /api/menus
+2023-06-14 11:40:55.686718 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 11:40:55.686723 [info]: parse_test=>Connection: keep-alive
+2023-06-14 11:40:55.686728 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 11:40:55.686732 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 11:40:55.686736 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 11:40:55.686740 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 11:40:55.686745 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 11:40:55.686748 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 11:40:55.686752 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 11:40:55.686756 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 11:40:55.686760 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 11:40:55.686782 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 11:40:55.686793 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 11:40:55.686798 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 11:40:55.686802 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 11:40:55.686806 [info]: parse_test=>
+2023-06-14 11:40:55.686820 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 11:40:55.747545 [debug]: json_string = %, len = 1415
+2023-06-14 11:40:55.747623 [info]: LEN: 1415
+2023-06-14 11:40:55.747633 [debug]: ret_json, len=>{
+	"data" : 
+	[
+		{
+			"authName" : "选课管理",
+			"children" : 
+			[
+				{
+					"authName" : "商品列表",
+					"id" : "104",
+					"path" : "goods"
+				},
+				{
+					"authName" : "分类参数",
+					"id" : "115",
+					"path" : "params"
+				},
+				{
+					"authName" : "商品分类",
+					"id" : "121",
+					"path" : "categories"
+				}
+			],
+			"id" : "101",
+			"path" : "goods"
+		},
+		{
+			"authName" : "班级管理",
+			"children" : 
+			[
+				{
+					"authName" : "班级列表",
+					"id" : "107",
+					"path" : "class"
+				}
+			],
+			"id" : "102",
+			"path" : "class"
+		},
+		{
+			"authName" : "权限管理",
+			"children" : 
+			[
+				{
+					"authName" : "角色列表",
+					"id" : "111",
+					"path" : "roles"
+				},
+				{
+					"authName" : "权限列表",
+					"id" : "112",
+					"path" : "rights"
+				}
+			],
+			"id" : "103",
+			"path" : "rights"
+		},
+		{
+			"authName" : "用户管理",
+			"children" : 
+			[
+				{
+					"authName" : "学生列表",
+					"id" : "160",
+					"path" : "students"
+				},
+				{
+					"authName" : "教师列表",
+					"id" : "161",
+					"path" : "teachers"
+				}
+			],
+			"id" : "125",
+			"path" : "users"
+		},
+		{
+			"authName" : "数据统计",
+			"children" : 
+			[
+				{
+					"authName" : "数据报表",
+					"id" : "146",
+					"path" : "reports"
+				}
+			],
+			"id" : "145",
+			"path" : "reports"
+		}
+	],
+	"meta" : 
+	{
+		"msg" : "登录成功",
+		"status" : 200
+	}
+}, 60
+2023-06-14 11:40:55.747704 [info]: send data to the client(192.168.112.1)
+2023-06-14 11:40:55.747732 [info]: adjust timer once
+2023-06-14 11:40:57.735691 [info]: deal with the client(192.168.112.1)
+2023-06-14 11:40:57.735776 [info]: adjust timer once
+2023-06-14 11:40:57.735818 [info]: parse_test=>GET /api/class?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder= HTTP/1.1
+2023-06-14 11:40:57.735850 [info]: url=> /api/class?query=&pagenum=1&pagesize=5&collegeid=&sortprop=&sortorder=
+2023-06-14 11:40:57.735861 [info]: parse_test=>Host: 192.168.114.189:9006
+2023-06-14 11:40:57.735865 [info]: parse_test=>Connection: keep-alive
+2023-06-14 11:40:57.735869 [info]: parse_test=>Accept: application/json, text/plain, */*
+2023-06-14 11:40:57.735872 [info]: oop!unknow header: Accept: application/json, text/plain, */*
+2023-06-14 11:40:57.735875 [info]: parse_test=>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 11:40:57.735879 [info]: parse_test=>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 11:40:57.735882 [info]: oop!unknow header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43
+2023-06-14 11:40:57.735887 [info]: parse_test=>Origin: http://localhost:8082
+2023-06-14 11:40:57.735889 [info]: oop!unknow header: Origin: http://localhost:8082
+2023-06-14 11:40:57.735907 [info]: parse_test=>Referer: http://localhost:8082/
+2023-06-14 11:40:57.735919 [info]: oop!unknow header: Referer: http://localhost:8082/
+2023-06-14 11:40:57.735922 [info]: parse_test=>Accept-Encoding: gzip, deflate
+2023-06-14 11:40:57.735925 [info]: oop!unknow header: Accept-Encoding: gzip, deflate
+2023-06-14 11:40:57.735928 [info]: parse_test=>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 11:40:57.735930 [info]: oop!unknow header: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+2023-06-14 11:40:57.735933 [info]: parse_test=>
+2023-06-14 11:40:57.735944 [debug]: get_token=>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCIsIm1nX2lkIjoiNTAwIn0.jU5-XdosAAaPOBK7OBl8fIqswp81EreYSohhmqPl_-I
+2023-06-14 11:40:57.786173 [debug]: SQL:
+SELECT * FROM sp_class as class LEFT JOIN sp_college as col ON class.cge_id = col.cge_id WHERE class_name LIKE '%%' LIMIT 0,5;

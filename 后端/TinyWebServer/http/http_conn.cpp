@@ -623,8 +623,7 @@ http_conn::HTTP_CODE http_conn::do_request()
                     logic_func->getClass(m_string);
 
                 else if (m_method == POST && m_string)
-                    ;
-                // logic_func->addUser(m_string);
+                    logic_func->addClass(m_string);
             }
 
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);

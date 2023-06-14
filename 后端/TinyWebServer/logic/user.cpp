@@ -94,10 +94,13 @@ void User::getUsers(char *input_data)
             temp["mobile"] = row[indexOf("mg_mobile")];
             temp["email"] = row[indexOf("mg_email")];
             temp["isstu"] = row[indexOf("mg_isstu")];
-            temp["grade"] = row[indexOf("class_grade")];
             temp["college"] = row[indexOf("mg_college")];
-            temp["class"] = row[indexOf("class_name")];
-            temp["stuid"] = row[indexOf("mg_stuid")];
+            if (is_stu == "1")
+            {
+                temp["grade"] = row[indexOf("class_grade")];
+                temp["class"] = row[indexOf("class_name")];
+                temp["stuid"] = row[indexOf("mg_stuid")];
+            }
             data["users"].append(temp);
             temp.clear();
         }
@@ -162,7 +165,7 @@ void User::addUser(char *input_data)
     {
         role_id = findByKey("sp_role", "role_id", "role_name", "老师");
         stu_id = "0";
-        class_id = "3";
+        class_id = "";
     }
 
     std::string sql_string("INSERT INTO sp_manager (mg_name, mg_pwd, mg_mobile, mg_email, mg_time, role_id, mg_college, mg_stuid, class_id, mg_isstu)");

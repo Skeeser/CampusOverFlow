@@ -9,6 +9,7 @@ public:
     {
     }
     void getClass(char *input_data);
+    void addClass(char *input_data);
 
 private:
 };

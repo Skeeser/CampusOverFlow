@@ -103,3 +103,52 @@ void Class::getClass(char *input_data)
 
     cpyJson2Buff(&root);
 }
+
+// 增加班级
+void Class::addClass(char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+    std::string json_string(input_data);
+
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
+
+    std::string sql_string("INSERT INTO sp_class (class_name, class_grade, cge_id)");
+    sql_string += " VALUES ('" + root["classname"].asString();
+    sql_string += "','" + root["grade"].asString();
+    sql_string += "','" + root["collegeid"].asString() + "');";
+
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // m_lock.unlock();
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        std::string id = findByKey("sp_class", "class_id", "class_name", root["classname"].asString());
+        root["id"] = id;
+        meta["msg"] = "班级创建成功";
+        meta["status"] = 201;
+        ret_root["data"] = root;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "班级创建失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
