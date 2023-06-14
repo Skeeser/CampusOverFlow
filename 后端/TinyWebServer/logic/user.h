@@ -15,6 +15,7 @@ public:
     void getUserById(char *id);
     void putUserById(char *id, char *input_data);
     void deleteUserById(char *id);
+    void putUserRole(char *id, char* rid);
 
 private:
 };
