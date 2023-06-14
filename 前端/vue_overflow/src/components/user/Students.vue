@@ -31,7 +31,7 @@
         </el-col>
       </el-row>
       <!-- 用户列表区域 -->
-      <el-table :data="userlist" @sort_change="handleSortChange" border stripe>
+      <el-table :data="userlist" border @sort-change="handleSortChange" stripe>
         <!-- stripe: 斑马条纹
         border：边框-->
         <el-table-column type="index" label="#"></el-table-column>
@@ -39,34 +39,18 @@
         <el-table-column
           prop="grade"
           label="年级"
-          sortable="custom"
+          :sortable="'custom'"
         ></el-table-column>
-        <el-table-column
-          prop="college"
-          label="学院"
-          sortable="custom"
-        ></el-table-column>
-        <el-table-column
-          prop="class"
-          label="班级"
-          sortable="custom"
-        ></el-table-column>
+        <el-table-column prop="college" label="学院"></el-table-column>
+        <el-table-column prop="class" label="班级"></el-table-column>
         <el-table-column
           prop="stuid"
           label="学号"
-          sortable="custom"
+          :sortable="'custom'"
         ></el-table-column>
         <el-table-column prop="email" label="邮箱"></el-table-column>
         <el-table-column prop="mobile" label="电话"></el-table-column>
         <el-table-column prop="role_name" label="角色"></el-table-column>
-        <!-- <el-table-column label="状态">
-          <template slot-scope="scope">
-            <el-switch
-              v-model="scope.row.mg_state"
-              @change="userStateChanged(scope.row)"
-            ></el-switch>
-          </template>
-        </el-table-column> -->
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button
@@ -338,6 +322,8 @@ export default {
       userInfo: {},
       // 所有角色数据列表
       rolesLsit: [],
+      // 学院列表
+      collegeList: [],
       // 已选中的角色Id值
       selectRoleId: ''
     }
@@ -359,9 +345,10 @@ export default {
     },
     // 监听排序改变的时间
     handleSortChange({ prop, order }) {
-      this.sortprop = prop
-      ;(this.sortorder = order === 'ascending' ? 'asc' : 'desc'), // 排序顺序，可以根据需要进行适配
-        this.getUserList()
+      // console.log({ prop, order })
+      this.queryInfo.sortprop = prop
+      this.queryInfo.sortorder = order === 'ascending' ? 'asc' : 'desc' // 排序顺序，可以根据需要进行适配
+      this.getUserList()
     },
     // 监听 pagesize改变的事件
     handleSizeChange(newSize) {

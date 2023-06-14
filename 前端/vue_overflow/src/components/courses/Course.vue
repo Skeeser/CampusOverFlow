@@ -3,8 +3,8 @@
     <!-- 面包屑导航区 -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>师生管理</el-breadcrumb-item>
-      <el-breadcrumb-item>老师列表</el-breadcrumb-item>
+      <el-breadcrumb-item>班级管理</el-breadcrumb-item>
+      <el-breadcrumb-item>班级列表</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 卡片视图 -->
     <el-card>
@@ -31,15 +31,30 @@
         </el-col>
       </el-row>
       <!-- 用户列表区域 -->
-      <el-table :data="userlist" border @sort-change="handleSortChange" stripe>
+      <el-table :data="userlist" @sort_change="handleSortChange" border stripe>
         <!-- stripe: 斑马条纹
         border：边框-->
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="username" label="姓名"></el-table-column>
         <el-table-column
+          prop="grade"
+          label="年级"
+          sortable="custom"
+        ></el-table-column>
+        <el-table-column
           prop="college"
           label="学院"
-          :sortable="'custom'"
+          sortable="custom"
+        ></el-table-column>
+        <el-table-column
+          prop="class"
+          label="班级"
+          sortable="custom"
+        ></el-table-column>
+        <el-table-column
+          prop="stuid"
+          label="学号"
+          sortable="custom"
         ></el-table-column>
         <el-table-column prop="email" label="邮箱"></el-table-column>
         <el-table-column prop="mobile" label="电话"></el-table-column>
@@ -118,8 +133,17 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="addUserForm.password"></el-input>
         </el-form-item>
+        <el-form-item label="年级" prop="grade">
+          <el-input v-model="addUserForm.grade"></el-input>
+        </el-form-item>
         <el-form-item label="学院" prop="college">
           <el-input v-model="addUserForm.college"></el-input>
+        </el-form-item>
+        <el-form-item label="班级" prop="class">
+          <el-input v-model="addUserForm.class"></el-input>
+        </el-form-item>
+        <el-form-item label="学号" prop="stuid">
+          <el-input v-model="addUserForm.stuid"></el-input>
         </el-form-item>
         <el-form-item label="电话" prop="mobile">
           <el-input v-model="addUserForm.mobile"></el-input>
@@ -151,8 +175,17 @@
         <el-form-item label="用户名">
           <el-input v-model="editUserForm.username" disabled></el-input>
         </el-form-item>
+        <el-form-item label="年级" prop="grade">
+          <el-input v-model="editUserForm.grade"></el-input>
+        </el-form-item>
         <el-form-item label="学院" prop="coollege">
           <el-input v-model="editUserForm.college"></el-input>
+        </el-form-item>
+        <el-form-item label="班级" prop="class">
+          <el-input v-model="editUserForm.class"></el-input>
+        </el-form-item>
+        <el-form-item label="学号" prop="stuid">
+          <el-input v-model="editUserForm.stuid"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="editUserForm.email"></el-input>
@@ -234,7 +267,7 @@ export default {
         // 每页显示多少数据
         pagesize: 5,
         // 是否是学生
-        isstu: 0,
+        isstu: 1,
         // 排序参数
         sortprop: '',
         // 排序顺序
@@ -248,10 +281,13 @@ export default {
       addUserForm: {
         username: '',
         password: '',
+        grade: '',
         college: '', // 学院名称
+        class: '',
+        stuid: '',
         email: '',
         mobile: '',
-        isstu: 0
+        isstu: 1 // 是否是学生
       },
       // 用户添加表单验证规则
       addUserFormRules: {
@@ -302,8 +338,6 @@ export default {
       userInfo: {},
       // 所有角色数据列表
       rolesLsit: [],
-      // 学院列表
-      collegeList: [],
       // 已选中的角色Id值
       selectRoleId: ''
     }
@@ -325,9 +359,9 @@ export default {
     },
     // 监听排序改变的时间
     handleSortChange({ prop, order }) {
-      this.queryInfo.sortprop = prop
-      this.queryInfo.sortorder = order === 'ascending' ? 'asc' : 'desc' // 排序顺序，可以根据需要进行适配
-      this.getUserList()
+      this.sortprop = prop
+      ;(this.sortorder = order === 'ascending' ? 'asc' : 'desc'), // 排序顺序，可以根据需要进行适配
+        this.getUserList()
     },
     // 监听 pagesize改变的事件
     handleSizeChange(newSize) {
