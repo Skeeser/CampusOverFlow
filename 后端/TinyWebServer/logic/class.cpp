@@ -152,3 +152,96 @@ void Class::addClass(char *input_data)
 
     cpyJson2Buff(&ret_root);
 }
+
+void Class::getClassById(char *id)
+{
+    clearTableKey();
+    getTableKey("sp_class");
+
+    std::string sql_string("SELECT * FROM sp_class WHERE class_id = '" + std::string(id) + "';");
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+        MYSQL_ROW row = mysql_fetch_row(result);
+        data["id"] = id;
+        data["classname"] = row[indexOf("class_name")];
+        data["grade"] = row[indexOf("class_grade")];
+        data["collegeid"] = row[indexOf("cge_id")];
+
+        meta["msg"] = "查询成功";
+        meta["status"] = 200;
+        ret_root["data"] = data;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "班级查询失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void Class::putClassById(char *id, char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+    std::string json_string(input_data);
+
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
+
+    std::string sql_string("UPDATE sp_class SET ");
+    sql_string += " class_name = '" + root["classname"].asString() + "', ";
+    sql_string += " class_grade = '" + root["grade"].asString() + "'  ";
+    sql_string += " cge_id = '" + root["collegeid"].asString() + "'  ";
+    sql_string += " WHERE mg_id = '" + std::string(id) + "';";
+
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret)
+    {
+        root["id"] = id;
+        // root["mobile"] = root["mobile"];
+        // root["email"] = root["email"];
+
+        meta["msg"] = "更新成功";
+        meta["status"] = 200;
+        ret_root["data"] = root;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "更新失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void ClassdeleteClassById(char *id)
+{
+}

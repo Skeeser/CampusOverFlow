@@ -215,7 +215,7 @@ void User::addUser(char *input_data)
 // 通过id获取用户信息
 void User::getUserById(char *id)
 {
-    LOG_DEBUG("id=>%s", id);
+    // LOG_DEBUG("id=>%s", id);
     getTableKey("sp_manager");
 
     std::string sql_string("SELECT * FROM sp_manager WHERE mg_id = '" + std::string(id) + "';");
@@ -271,6 +271,8 @@ void User::putUserById(char *id, char *input_data)
     std::string sql_string("UPDATE sp_manager SET ");
     sql_string += " mg_mobile = '" + root["mobile"].asString() + "', ";
     sql_string += " mg_email = '" + root["email"].asString() + "'  ";
+    sql_string += " mg_college = '" + root["college"].asString() + "'  ";
+    sql_string += " mg_stuid = '" + root["stuid"].asString() + "'  ";
     sql_string += " WHERE mg_id = '" + std::string(id) + "';";
 
     Json::Value ret_root;
