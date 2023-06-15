@@ -663,6 +663,45 @@ http_conn::HTTP_CODE http_conn::do_request()
             strncpy(temp_buf, logic_func->getData(), json_len);
             temp_buf[json_len] = '\0';
         }
+        else if (strncasecmp(m_url, "/score", 6) == 0)
+        {
+            std::shared_ptr<Score> logic_func = std::make_shared<Score>(mysql, m_close_log, &json_len, token);
+            m_url += 6;
+            // 如果是 /:id的情况
+            if (*m_url != '\0')
+            {
+                m_url++;
+                // LOG_DEBUG("url1=>%s", m_url);
+                auto *p = strchr(m_url, '/');
+                // 如果后面没有别的数字
+                if (p == nullptr)
+                {
+
+                    if (m_method == GET)
+                        ; // logic_func->getCourseById(m_url);
+                    else if (m_method == PUT)
+                        ; // logic_func->putCourseById(m_url, m_string);
+                    else if (m_method == DELETE)
+                        ; // logic_func->deleteCourseById(m_url);
+                }
+                else
+                {
+                    LOG_DEBUG("is not nullptr");
+                }
+            }
+            else
+            {
+                if (m_method == GET && m_string)
+                    logic_func->getScore(m_string);
+                else if (m_method == POST && m_string)
+                    ; // logic_func->addCourse(m_string);
+            }
+
+            // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);
+            temp_buf = new char[json_len + 1];
+            strncpy(temp_buf, logic_func->getData(), json_len);
+            temp_buf[json_len] = '\0';
+        }
     }
     else
         strncpy(m_real_file + len, m_url, FILENAME_LEN - len - 1);
