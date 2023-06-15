@@ -608,7 +608,8 @@ http_conn::HTTP_CODE http_conn::do_request()
                 }
                 else
                 {
-                    LOG_DEBUG("is not nullptr");
+                    if (m_method == PUT && strncasecmp(p, "/course", 7) == 0)
+                        logic_func->putCourseToClass(strtok(m_url, "/"), m_string);
                 }
             }
             else
