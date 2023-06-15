@@ -3,7 +3,7 @@
 #define SECRET_KEY "3MnJb57tW9TAvkYFQEDUgLdSRuBzmXcZ"
 
 // 获取索引值
-std::string Logic::getToken(int mg_id)
+std::string Token::getToken(int mg_id)
 {
     return jwt::create()
         .set_issuer("auth0")
@@ -13,7 +13,7 @@ std::string Logic::getToken(int mg_id)
 }
 
 // 验证token并且解析其中的用户id
-bool Logic::checkToken(std::string token, int &mg_id)
+bool Token::checkToken(std::string token, int &mg_id)
 {
     auto decoded = jwt::decode(token);
     mg_id = -1;

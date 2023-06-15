@@ -143,32 +143,34 @@ void User::addUser(char *input_data)
         LOG_INFO("sorry, json reader failed");
     }
 
-    // 先插入班级表中
-    std::string sql_insert_class("INSERT INTO sp_class (class_name, class_grade) ");
-    sql_insert_class += " SELECT '" + root["class"].asString();
-    sql_insert_class += "','" + root["grade"].asString() + "'";
-    sql_insert_class += " WHERE NOT EXISTS ( SELECT 1 FROM sp_class WHERE class_name = '" + root["class"].asString() + "' AND class_grade = '" + root["grade"].asString() + "');";
-    int ret1 = mysql_query(mysql_, sql_insert_class.c_str());
-    int ret2 = mysql_query(mysql_, "SELECT LAST_INSERT_ID();");
-    if (!ret1 && !ret2)
-    {
-        // 从表中检索完整的结果集
-        MYSQL_RES *result = mysql_store_result(mysql_);
-        MYSQL_ROW row = mysql_fetch_row(result);
-        class_id = row[0];
-    }
-    LOG_DEBUG("insert class_id:%s", class_id.c_str());
-    LOG_INFO("sql_string=>%s", sql_insert_class.c_str());
-
-    stu_id = root["stuid"].asString();
     // 插入学生表中
     if (root["isstu"].asString() == "1")
+    {
+        // 先插入班级表中
+        std::string sql_insert_class("INSERT INTO sp_class (class_name, class_grade) ");
+        sql_insert_class += " SELECT '" + root["class"].asString();
+        sql_insert_class += "','" + root["grade"].asString() + "'";
+        sql_insert_class += " WHERE NOT EXISTS ( SELECT 1 FROM sp_class WHERE class_name = '" + root["class"].asString() + "' AND class_grade = '" + root["grade"].asString() + "');";
+        int ret1 = mysql_query(mysql_, sql_insert_class.c_str());
+        int ret2 = mysql_query(mysql_, "SELECT LAST_INSERT_ID();");
+        if (!ret1 && !ret2)
+        {
+            // 从表中检索完整的结果集
+            MYSQL_RES *result = mysql_store_result(mysql_);
+            MYSQL_ROW row = mysql_fetch_row(result);
+            class_id = row[0];
+        }
+        LOG_DEBUG("insert class_id:%s", class_id.c_str());
+        LOG_INFO("sql_string=>%s", sql_insert_class.c_str());
+
+        stu_id = root["stuid"].asString();
         role_id = findByKey("sp_role", "role_id", "role_name", "学生");
+    }
     else if (root["isstu"].asString() == "0")
     {
         role_id = findByKey("sp_role", "role_id", "role_name", "老师");
         stu_id = "0";
-        class_id = "";
+        class_id = "NULL";
     }
 
     std::string sql_string("INSERT INTO sp_manager (mg_name, mg_pwd, mg_mobile, mg_email, mg_time, role_id, mg_college, mg_stuid, class_id, mg_isstu)");
@@ -180,8 +182,8 @@ void User::addUser(char *input_data)
     sql_string += "','" + role_id;
     sql_string += "','" + root["college"].asString();
     sql_string += "','" + stu_id;
-    sql_string += "','" + class_id;
-    sql_string += "','" + root["isstu"].asString() + "');";
+    sql_string += "'," + class_id;
+    sql_string += ",'" + root["isstu"].asString() + "');";
 
     Json::Value ret_root;
     Json::Value data;
