@@ -20,12 +20,6 @@ const routes = [
         path: '/home',
         component: (resolve) => require(['@/components/Welcome'], resolve)
       },
-
-      // {
-      //   path: '/users',
-      //   component: (resolve) => require(['@/components/user/User'], resolve)
-      // },
-
       {
         path: '/students',
         component: (resolve) => require(['@/components/user/Students'], resolve)
@@ -43,14 +37,6 @@ const routes = [
         path: '/roles',
         component: (resolve) => require(['@/components/power/Roles'], resolve)
       },
-      // {
-      //   path: '/categories',
-      //   component: (resolve) => require(['@/components/goods/Cate'], resolve)
-      // },
-      // {
-      //   path: '/params',
-      //   component: (resolve) => require(['@/components/goods/Params'], resolve)
-      // },
       {
         path: '/score',
         component: (resolve) => require(['@/components/courses/Score'], resolve)
@@ -59,22 +45,13 @@ const routes = [
         path: '/courselist',
         component: (resolve) => require(['@/components/courses/List'], resolve)
       },
-      // {
-      //   path: '/orders',
-      //   component: (resolve) => require(['@/components/order/Order'], resolve)
-      // },
       {
         path: '/course',
-        component: (resolve) =>
-          require(['@/components/courses/Course'], resolve)
+        component: (resolve) => require(['@/components/class/Class'], resolve)
       },
       {
         path: '/class',
         component: (resolve) => require(['@/components/class/Class'], resolve)
-      },
-      {
-        path: '/reports',
-        component: (resolve) => require(['@/components/report/Report'], resolve)
       }
     ]
   }
