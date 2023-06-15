@@ -608,7 +608,8 @@ http_conn::HTTP_CODE http_conn::do_request()
                 }
                 else
                 {
-                    LOG_DEBUG("is not nullptr");
+                    if (m_method == POST && strncasecmp(p, "/course", 7) == 0)
+                        logic_func->postCourseToClass(strtok(m_url, "/"), m_string);
                 }
             }
             else
@@ -633,7 +634,7 @@ http_conn::HTTP_CODE http_conn::do_request()
             {
                 m_url++;
                 // LOG_DEBUG("url1=>%s", m_url);
-                auto *p = strchr(m_url, '/');
+                char *p = strchr(m_url, '/');
                 // 如果后面没有别的数字
                 if (p == nullptr)
                 {
@@ -647,9 +648,13 @@ http_conn::HTTP_CODE http_conn::do_request()
                 }
                 else
                 {
-                    char *id = strtok(m_url, "/");
                     if (m_method == GET)
-                        logic_func->getCourseByStuid(id);
+                    {
+                        if (strncasecmp(p, "/stuid", 6) == 0)
+                            logic_func->getCourseByStuid(strtok(m_url, "/"));
+                        else if (strncasecmp(p, "/col", 4) == 0)
+                            logic_func->getCourseByCollegeid(strtok(m_url, "/"));
+                    }
                 }
             }
             else

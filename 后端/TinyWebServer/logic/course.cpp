@@ -222,6 +222,50 @@ void Course::getCourseByStuid(char *id)
         while (MYSQL_ROW row = mysql_fetch_row(result))
         {
             temp["id"] = row[indexOf("curs_id")];
+            temp["coursename"] = row[indexOf("curs_name")];
+            ret_root["data"].append(temp);
+            temp.clear();
+        }
+
+        meta["msg"] = "查询课程列表成功";
+        meta["status"] = 200;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "课程查询失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void Course::getCourseByCollegeid(char *id)
+{
+    std::string sql_string = "SELECT * FROM sp_course as curs";
+    sql_string += " LEFT JOIN sp_college as col ON col.cge_id = curs.cge_id";
+    sql_string += " WHERE curs.cge_id = '" + std::string(id) + "'";
+
+    Json::Value ret_root;
+    Json::Value temp;
+    Json::Value meta;
+
+    clearTableKey();
+    getTableKey("sp_course");
+    getTableKey("sp_college");
+
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+        while (MYSQL_ROW row = mysql_fetch_row(result))
+        {
+            temp["id"] = row[indexOf("curs_id")];
             temp["collegename"] = row[indexOf("curs_name")];
             ret_root["data"].append(temp);
             temp.clear();
