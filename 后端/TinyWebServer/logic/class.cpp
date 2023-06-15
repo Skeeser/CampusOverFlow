@@ -245,6 +245,49 @@ void Class::putClassById(char *id, char *input_data)
     cpyJson2Buff(&ret_root);
 }
 
+void Class::putCourseToClass(char *id, char *input_data)
+{
+    // 创建 JSON 对象
+    Json::Value root;
+    Json::Reader reader;
+    Json::StreamWriterBuilder writer;
+    std::string json_string(input_data);
+
+    if (!reader.parse(json_string, root))
+    {
+        LOG_INFO("sorry, json reader failed");
+    }
+
+    std::string sql_string("UPDATE sp_class SET ");
+    sql_string += " curs_ids = '" + root["cids"].asString() + "'";
+    sql_string += " WHERE class_id = '" + std::string(id) + "';";
+
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret)
+    {
+        meta["msg"] = "更新成功";
+        meta["status"] = 200;
+        ret_root["data"] = "";
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "更新失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
 void Class::deleteClassById(char *id)
 {
 
