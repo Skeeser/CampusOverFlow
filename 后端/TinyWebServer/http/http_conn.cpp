@@ -608,8 +608,8 @@ http_conn::HTTP_CODE http_conn::do_request()
                 }
                 else
                 {
-                    if (m_method == PUT && strncasecmp(p, "/course", 7) == 0)
-                        logic_func->putCourseToClass(strtok(m_url, "/"), m_string);
+                    if (m_method == POST && strncasecmp(p, "/course", 7) == 0)
+                        logic_func->postCourseToClass(strtok(m_url, "/"), m_string);
                 }
             }
             else

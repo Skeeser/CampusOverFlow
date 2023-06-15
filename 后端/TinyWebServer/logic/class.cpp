@@ -245,7 +245,7 @@ void Class::putClassById(char *id, char *input_data)
     cpyJson2Buff(&ret_root);
 }
 
-void Class::putCourseToClass(char *id, char *input_data)
+void Class::postCourseToClass(char *id, char *input_data)
 {
     // 创建 JSON 对象
     Json::Value root;
