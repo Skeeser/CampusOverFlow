@@ -1,6 +1,53 @@
 #include "class.h"
 #include "../util/utils.hpp"
 
+void Class::getCoursesInClass(Json::Value &ret_root, std::string ids)
+{
+    Json::Value data;
+    Json::Value temp;
+
+    std::unordered_map<int, MYSQL_ROW> rows;
+    std::string sql_string("SELECT * FROM sp_course;");
+    auto vec = Utils::split(ids, ",");
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    // 在获取前先清除
+    clearTableKey();
+    getTableKey("sp_course");
+
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret) // 查询成功
+    {
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+        while (MYSQL_ROW row = mysql_fetch_row(result))
+        {
+            rows[std::stoi(row[indexOf("curs_id")])] = row;
+        }
+
+        for (auto c_id : vec)
+        {
+            if (c_id == "")
+                continue;
+            int cid = std::stoi(c_id);
+            auto row = rows[cid];
+            temp["id"] = cid;
+            temp["coursename"] = row[indexOf("curs_name")];
+            temp["coursenum"] = row[indexOf("curs_num")];
+            ret_root.append(temp);
+            temp.clear();
+        }
+    }
+    else
+    {
+        errorLogic(404, "查询失败");
+        return;
+    }
+}
+
 void Class::getClass(char *input_data)
 {
     int page_num = -1;
@@ -69,10 +116,6 @@ void Class::getClass(char *input_data)
         LOG_INFO("mysql is NULL!");
         return;
     }
-    // 在获取前先清除
-    clearTableKey();
-    getTableKey("sp_class");
-    getTableKey("sp_college");
 
     int ret = mysql_query(mysql_, sql_string.c_str());
     if (!ret) // 查询成功de
@@ -84,23 +127,28 @@ void Class::getClass(char *input_data)
         MYSQL_RES *result = mysql_store_result(mysql_);
         while (MYSQL_ROW row = mysql_fetch_row(result))
         {
+            // 在获取前先清除
+            clearTableKey();
+            getTableKey("sp_class");
+            getTableKey("sp_college");
             temp["id"] = row[indexOf("class_id")];
             temp["classname"] = row[indexOf("class_name")];
             temp["college"] = row[indexOf("cge_name")];
             temp["grade"] = row[indexOf("class_grade")];
             temp["collegeid"] = row[indexOf("cge_id")];
+            getCoursesInClass(temp["courses"], row[indexOf("curs_ids")]);
             data["class"].append(temp);
             temp.clear();
         }
 
-        meta["msg"] = "查询用户列表成功";
+        meta["msg"] = "查询班级列表成功";
         meta["status"] = 200;
         root["data"] = data;
         root["meta"] = meta;
     }
     else
     {
-        errorLogic(404, "获取用户列表失败");
+        errorLogic(404, "获取班级列表失败");
         return;
     }
 
@@ -304,6 +352,61 @@ void Class::deleteClassById(char *id)
         meta["msg"] = "删除成功";
         meta["status"] = 200;
         ret_root["data"] = "";
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(500, "删除失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void Class::deleteCourseidById(char *id, char *rid)
+{
+
+    // 创建 JSON 对象
+    Json::Value ret_root;
+    Json::Value data;
+    Json::Value meta;
+    Json::StreamWriterBuilder writer;
+
+    auto ids = findByKey("sp_class", "curs_ids", "class_id", id);
+    std::string delete_rid = std::string(rid);
+    auto pos = ids.find(delete_rid);
+    if (pos != -1)
+    {
+        int size = delete_rid.size();
+        // 当在第一个时
+        if (pos == 0)
+        {
+            ids.erase(pos, size + 1);
+        }
+        else
+        {
+            ids.erase(pos - 1, size + 1);
+        }
+    }
+
+    std::string sql_string("UPDATE sp_class SET ");
+    sql_string += " curs_ids = '" + ids + "'";
+    sql_string += " WHERE class_id = '" + std::string(id) + "';";
+
+    int mg_id = -1;
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+
+    LOG_INFO("sql_string=>%s", sql_string.c_str());
+    int ret = mysql_query(mysql_, sql_string.c_str());
+
+    if (!ret)
+    {
+        getCoursesInClass(ret_root["data"], ids);
+        meta["msg"] = "删除成功";
+        meta["status"] = 200;
+
         ret_root["meta"] = meta;
     }
     else

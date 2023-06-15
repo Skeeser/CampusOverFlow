@@ -746,7 +746,7 @@ type=tree
     "data": {
         "total": 5,
         "pagenum": 4,
-        "users": [
+        "class": [
             {
                 "class" : "计科1班",
 				"college" : "软件学院",
@@ -939,6 +939,61 @@ type=tree
     }
 }
 ```
+
+
+
+### 1.6.7. 删除班级指定课程
+
+- 请求路径：class/:classId/course/:courseId
+
+- 请求方法：delete
+
+- 请求参数
+
+  | 参数名   | 参数说明 | 备注                  |
+  | -------- | -------- | --------------------- |
+  | :roleId  | 角色 ID  | 不能为空`携带在url中` |
+  | :rightId | 权限 ID  | 不能为空`携带在url中` |
+
+- 响应数据说明 
+
+  - 返回的data, 是当前角色下最新的权限数据
+
+- 响应数据
+
+  ```json
+  {
+      "data": [
+          {
+              "authName" : "课程管理",
+              "children" : 
+              [
+                  {
+                      "authName" : "课程列表",
+                      "id" : "104",
+                      "path" : "courselist"
+                  },
+                  {
+                      "authName" : "选课管理",
+                      "id" : "115",
+                      "path" : "cource"
+                  },
+                  {
+                      "authName" : "成绩查询",
+                      "id" : "121",
+                      "path" : "categories"
+                  }
+              ],
+              "id" : "101",
+              "path" : "course"
+          }
+      ],
+      "meta": {
+          "msg": "取消权限成功",
+          "status": 200
+      }
+  }
+  ```
 
 
 

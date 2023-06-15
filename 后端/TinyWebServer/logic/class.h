@@ -14,6 +14,8 @@ public:
     void putClassById(char *id, char *input_data);
     void postCourseToClass(char *id, char *input_data);
     void deleteClassById(char *id);
+    void deleteCourseidById(char *id, char *rid);
 
 private:
+    void getCoursesInClass(Json::Value &ret_root, std::string ids);
 };

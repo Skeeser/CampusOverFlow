@@ -606,10 +606,16 @@ http_conn::HTTP_CODE http_conn::do_request()
                     else if (m_method == DELETE)
                         logic_func->deleteClassById(m_url);
                 }
-                else
+                else if (strncasecmp(p, "/course", 7) == 0)
                 {
-                    if (m_method == POST && strncasecmp(p, "/course", 7) == 0)
-                        logic_func->postCourseToClass(strtok(m_url, "/"), m_string);
+                    char *id = strtok(m_url, "/");
+                    p += 8;
+                    if (m_method == POST)
+                        logic_func->postCourseToClass(id, m_string);
+                    else if (m_method == DELETE && strchr(p, '/') == nullptr)
+                    {
+                        logic_func->deleteCourseidById(id, p);
+                    }
                 }
             }
             else
