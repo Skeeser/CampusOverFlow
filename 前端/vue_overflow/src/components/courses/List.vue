@@ -3,8 +3,8 @@
     <!-- 面包屑导航区 -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>班级管理</el-breadcrumb-item>
-      <el-breadcrumb-item>班级列表</el-breadcrumb-item>
+      <el-breadcrumb-item>课程管理</el-breadcrumb-item>
+      <el-breadcrumb-item>课程列表</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 卡片视图 -->
     <el-card>
@@ -15,74 +15,55 @@
             placeholder="请输入内容"
             v-model="queryInfo.query"
             clearable
-            @clear="getClassList"
+            @clear="getCourseList"
           >
             <el-button
               slot="append"
               icon="el-icon-search"
-              @click="getClassList"
+              @click="getCourseList"
             ></el-button>
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button
-            type="primary"
-            @click="
-              getCollegeList()
-              this.addDialogVisible = true
-            "
-            >添加班级</el-button
+          <el-button type="primary" @click="addDialogVisible = true"
+            >添加课程</el-button
           >
         </el-col>
       </el-row>
-      <!-- 班级列表区域 -->
-      <el-table :data="classlist" border @sort-change="handleSortChange" stripe>
+      <!-- 用户列表区域 -->
+      <el-table
+        :data="courselist"
+        border
+        @sort-change="handleSortChange"
+        stripe
+      >
         <!-- stripe: 斑马条纹
         border：边框-->
-        <!-- 索引列 -->
         <el-table-column type="index" label="#"></el-table-column>
-        <el-table-column
-          prop="classname"
-          label="班级"
-          :sortable="'custom'"
-        ></el-table-column>
-        <el-table-column
-          prop="grade"
-          label="年级"
-          :sortable="'custom'"
-        ></el-table-column>
+        <el-table-column prop="coursename" label="课程名称"></el-table-column>
         <el-table-column prop="college" label="学院"></el-table-column>
+        <el-table-column
+          prop="coursenum"
+          label="学分"
+          :sortable="'custom'"
+        ></el-table-column>
+        <!-- 之后可以添加是否是必修还是选修 -->
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button
               type="primary"
               icon="el-icon-edit"
               size="mini"
-              circle
               @click="showEditDialog(scope.row.id)"
-            ></el-button>
+              >编辑</el-button
+            >
             <el-button
               type="danger"
               icon="el-icon-delete"
               size="mini"
-              circle
-              @click="removeClassById(scope.row.id)"
-            ></el-button>
-            <!-- <el-tooltip
-              class="item"
-              effect="dark"
-              content="角色分配"
-              :enterable="false"
-              placement="top"
+              @click="removeCourseById(scope.row.id)"
+              >删除</el-button
             >
-              <el-button
-                type="warning"
-                icon="el-icon-setting"
-                size="mini"
-                circle
-                @click="showSetRole(scope.row)"
-              ></el-button>
-            </el-tooltip> -->
           </template>
         </el-table-column>
       </el-table>
@@ -106,19 +87,20 @@
       @close="addDialogClosed"
     >
       <!-- 内容主体 -->
-      <el-form :model="addClassForm" ref="addClassFormRef" label-width="100px">
-        <el-form-item label="班级名称" prop="classname">
+      <el-form
+        :model="addCourseForm"
+        ref="addCourseFormRef"
+        label-width="100px"
+      >
+        <el-form-item label="课程名称" prop="coursename">
           <el-input
-            v-model="addClassForm.classname"
+            v-model="addCourseForm.coursename"
             style="width: 90%"
           ></el-input>
         </el-form-item>
-        <el-form-item label="年级" prop="grade">
-          <el-input v-model="addClassForm.grade" style="width: 90%"></el-input>
-        </el-form-item>
         <el-form-item label="学院" prop="college">
           <el-select
-            v-model="addClassForm.collegeid"
+            v-model="addCourseForm.collegeid"
             filterable
             allow-create
             default-first-option
@@ -132,10 +114,16 @@
             ></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="学分" prop="coursename">
+          <el-input
+            v-model="addCourseForm.coursename"
+            style="width: 90%"
+          ></el-input>
+        </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addClass">确 定</el-button>
+        <el-button type="primary" @click="addCourse">确 定</el-button>
       </span>
     </el-dialog>
 
@@ -147,19 +135,20 @@
       @close="editDialogClosed"
     >
       <!-- 内容主体 -->
-      <el-form :model="editClassForm" ref="editClassFormRef" label-width="70px">
-        <el-form-item label="班级名称">
+      <el-form
+        :model="editCourseForm"
+        ref="editCourseFormRef"
+        label-width="70px"
+      >
+        <el-form-item label="课程名称" prop="coursename">
           <el-input
-            v-model="editClassForm.classname"
+            v-model="editCourseForm.coursename"
             style="width: 90%"
           ></el-input>
         </el-form-item>
-        <el-form-item label="年级" prop="grade">
-          <el-input v-model="editClassForm.grade" style="width: 90%"></el-input>
-        </el-form-item>
         <el-form-item label="学院" prop="college">
           <el-select
-            v-model="editClassForm.college"
+            v-model="editCourseForm.college"
             filterable
             allow-create
             default-first-option
@@ -173,44 +162,16 @@
             ></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="学分" prop="coursenum">
+          <el-input
+            v-model="editCourseForm.coursenum"
+            style="width: 90%"
+          ></el-input>
+        </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="editDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="editClass">确 定</el-button>
-      </span>
-    </el-dialog>
-
-    <!-- 分配角色对话框 -->
-    <el-dialog
-      title="分配角色"
-      :visible.sync="setRoleDialogVisible"
-      width="50%"
-      @close="setRoleDialogClosed"
-    >
-      <div>
-        <p>当前用户：{{ classInfo.classname }}</p>
-        <p>当前角色：{{ classInfo.role_name }}</p>
-        <p>
-          分配角色：
-          <el-select
-            v-model="selectRoleId"
-            filterable
-            allow-create
-            default-first-option
-            placeholder="请选择文章标签"
-          >
-            <el-option
-              v-for="item in rolesLsit"
-              :key="item.id"
-              :label="item.roleName"
-              :value="item.id"
-            ></el-option>
-          </el-select>
-        </p>
-      </div>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="setRoleDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="saveRoleInfo">确 定</el-button>
+        <el-button type="primary" @click="editCourse">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -220,7 +181,7 @@
 export default {
   data() {
     return {
-      // 获取课程列表查询参数对象
+      // 获取用户列表查询参数对象
       queryInfo: {
         // 搜索的字符串
         query: '',
@@ -235,23 +196,19 @@ export default {
         // 排序顺序
         sortorder: ''
       },
-      classlist: [],
+      courselist: [],
       totle: 0,
       // 添加用户对话框
       addDialogVisible: false,
-      // 班级添加
-      addClassForm: {
-        classname: '',
-        grade: '',
-        collegeid: '' // 学院id
+      // 用户添加
+      addCourseForm: {
+        coursename: '',
+        collegeid: '', // 学院id
+        coursenum: ''
       },
       // 修改用户
       editDialogVisible: false,
-      editClassForm: {},
-      // 分配角色对话框
-      setRoleDialogVisible: false,
-      // 当前需要被角色的班级
-      classInfo: {},
+      editCourseForm: {},
       // 所有角色数据列表
       rolesLsit: [],
       // 学院列表
@@ -261,102 +218,106 @@ export default {
     }
   },
   created() {
-    this.getClassList()
+    this.getCourseList()
   },
   methods: {
-    async getClassList() {
-      const { data: res } = await this.$http.get('class', {
+    async getCourseList() {
+      const { data: res } = await this.$http.get('courses', {
         params: this.queryInfo
       })
       if (res.meta.status !== 200) {
-        return this.$message.error('获取班级列表失败！')
+        return this.$message.error('获取课程列表失败！')
       }
-      this.classlist = res.data.class
+      this.courselist = res.data.courses
       this.totle = res.data.total
       // console.log(res)
     },
     // 监听排序改变的时间
     handleSortChange({ prop, order }) {
+      // console.log({ prop, order })
       this.queryInfo.sortprop = prop
       this.queryInfo.sortorder = order === 'ascending' ? 'asc' : 'desc' // 排序顺序，可以根据需要进行适配
-      this.getClassList()
+      this.getCourseList()
     },
     // 监听 pagesize改变的事件
     handleSizeChange(newSize) {
       // console.log(newSize)
       this.queryInfo.pagesize = newSize
-      this.getClassList()
+      this.getCourseList()
     },
     // 监听 页码值 改变事件
     handleCurrentChange(newSize) {
       // console.log(newSize)
       this.queryInfo.pagenum = newSize
-      this.getClassList()
+      this.getCourseList()
     },
+
     // 监听 添加用户对话框的关闭事件
     addDialogClosed() {
-      this.$refs.addClassFormRef.resetFields()
+      this.$refs.addCourseFormRef.resetFields()
     },
-    // 添加用户
-    addClass() {
+    // 添加课程
+    addCourse() {
       // 提交请求前，表单预验证
-      this.$refs.addClassFormRef.validate(async (valid) => {
+      this.$refs.addCourseFormRef.validate(async (valid) => {
         console.log(valid)
         // 表单预校验失败
-        console.log(this.addClassForm)
+        console.log(this.addCourseForm)
         if (!valid) return
-        const { data: res } = await this.$http.post('class', this.addClassForm)
+        const { data: res } = await this.$http.post(
+          'courses',
+          this.addCourseForm
+        )
 
         if (res.meta.status !== 201) {
-          this.$message.error('添加班级失败！')
+          this.$message.error('添加课程失败！')
         }
-        this.$message.success('添加班级成功！')
+        this.$message.success('添加课程成功！')
         // 隐藏添加用户对话框
         this.addDialogVisible = false
-        this.getClassList()
+        this.getCourseList()
       })
     },
     // 编辑用户信息
     async showEditDialog(id) {
-      this.getCollegeList()
-      const { data: res } = await this.$http.get('class/' + id)
+      const { data: res } = await this.$http.get('courses/' + id)
       if (res.meta.status !== 200) {
-        return this.$message.error('查询班级信息失败！')
+        return this.$message.error('查询用户信息失败！')
       }
-      this.editClassForm = res.data
+      this.editCourseForm = res.data
       this.editDialogVisible = true
     },
     // 监听修改用户对话框的关闭事件
     editDialogClosed() {
-      this.$refs.editClassFormRef.resetFields()
+      this.$refs.editCourseFormRef.resetFields()
     },
     // 修改用户信息
-    editClass() {
+    editCourse() {
       // 提交请求前，表单预验证
-      this.$refs.editClassFormRef.validate(async (valid) => {
+      this.$refs.editCourseFormRef.validate(async (valid) => {
         // console.log(valid)
         // 表单预校验失败
         if (!valid) return
         const { data: res } = await this.$http.put(
-          'class/' + this.editClassForm.id,
+          'courses/' + this.editCourseForm.id,
           {
-            classname: this.editClassForm.classname,
-            grade: this.editClassForm.grade,
-            collegeid: this.editClassForm.collegeid,
-            college: this.editClassForm.college
+            college: this.editCourseForm.college,
+            collegeid: this.editCourseForm.collegeid,
+            coursename: this.editCourseForm.coursename,
+            coursenum: this.editCourseForm.coursenum
           }
         )
         if (res.meta.status !== 200) {
-          this.$message.error('更新用户信息失败！')
+          this.$message.error('更新课程信息失败！')
         }
         // 隐藏添加用户对话框
         this.editDialogVisible = false
-        this.$message.success('更新用户信息成功！')
-        this.getClassList()
+        this.$message.success('更新课程信息成功！')
+        this.getCourseList()
       })
     },
     // 删除用户
-    async removeClassById(id) {
+    async removeCourseById(id) {
       const confirmResult = await this.$confirm(
         '此操作将永久删除该用户, 是否继续?',
         '提示',
@@ -371,52 +332,10 @@ export default {
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }
-      const { data: res } = await this.$http.delete('class/' + id)
+      const { data: res } = await this.$http.delete('courses/' + id)
       if (res.meta.status !== 200) return this.$message.error('删除用户失败！')
       this.$message.success('删除用户成功！')
-      this.getClassList()
-    },
-    // 展示分配角色的对话框
-    async showSetRole(role) {
-      this.classInfo = role
-      // 展示对话框之前，获取所有角色列表
-      const { data: res } = await this.$http.get('roles')
-      if (res.meta.status !== 200) {
-        return this.$message.error('获取角色列表失败！')
-      }
-      this.rolesLsit = res.data
-      this.setRoleDialogVisible = true
-    },
-    // 获取学院列表
-    async getCollegeList() {
-      // this.classInfo = classinfo
-      // 展示对话框之前，获取所有角色列表
-      const { data: res } = await this.$http.get('college')
-      if (res.meta.status !== 200) {
-        return this.$message.error('获取学院列表失败！')
-      }
-      this.collegeList = res.data
-    },
-    // 分配角色
-    async saveRoleInfo() {
-      if (!this.selectRoleId) {
-        return this.$message.error('请选择要分配的角色')
-      }
-      const { data: res } = await this.$http.put(
-        `class/${this.classInfo.id}/role`,
-        { rid: this.selectRoleId }
-      )
-      if (res.meta.status !== 200) {
-        return this.$message.error('更新用户角色失败！')
-      }
-      this.$message.success('更新角色成功！')
-      this.getClassList()
-      this.setRoleDialogVisible = false
-    },
-    // 分配角色对话框关闭事件
-    setRoleDialogClosed() {
-      this.selectRoleId = ''
-      this.classInfo = {}
+      this.getCourseList()
     }
   }
 }
