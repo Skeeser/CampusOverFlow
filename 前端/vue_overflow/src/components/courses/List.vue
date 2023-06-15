@@ -25,7 +25,12 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="addDialogVisible = true"
+          <el-button
+            type="primary"
+            @click="
+              addDialogVisible = true
+              getCollegeList()
+            "
             >添加课程</el-button
           >
         </el-col>
@@ -114,9 +119,9 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="学分" prop="coursename">
+        <el-form-item label="学分" prop="coursenum">
           <el-input
-            v-model="addCourseForm.coursename"
+            v-model="addCourseForm.coursenum"
             style="width: 90%"
           ></el-input>
         </el-form-item>
@@ -127,9 +132,9 @@
       </span>
     </el-dialog>
 
-    <!-- 修改用户的对话框 -->
+    <!-- 修改课程的对话框 -->
     <el-dialog
-      title="修改用户信息"
+      title="修改课程信息"
       :visible.sync="editDialogVisible"
       width="50%"
       @close="editDialogClosed"
@@ -148,7 +153,7 @@
         </el-form-item>
         <el-form-item label="学院" prop="college">
           <el-select
-            v-model="editCourseForm.college"
+            v-model="editCourseForm.collegeid"
             filterable
             allow-create
             default-first-option
@@ -280,6 +285,7 @@ export default {
     },
     // 编辑用户信息
     async showEditDialog(id) {
+      this.getCollegeList()
       const { data: res } = await this.$http.get('courses/' + id)
       if (res.meta.status !== 200) {
         return this.$message.error('查询用户信息失败！')
@@ -336,6 +342,16 @@ export default {
       if (res.meta.status !== 200) return this.$message.error('删除用户失败！')
       this.$message.success('删除用户成功！')
       this.getCourseList()
+    },
+    // 获取学院列表
+    async getCollegeList() {
+      // this.classInfo = classinfo
+      // 展示对话框之前，获取所有角色列表
+      const { data: res } = await this.$http.get('college')
+      if (res.meta.status !== 200) {
+        return this.$message.error('获取学院列表失败！')
+      }
+      this.collegeList = res.data
     }
   }
 }

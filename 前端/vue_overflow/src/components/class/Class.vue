@@ -28,8 +28,8 @@
           <el-button
             type="primary"
             @click="
+              addDialogVisible = true
               getCollegeList()
-              this.addDialogVisible = true
             "
             >添加班级</el-button
           >
@@ -39,6 +39,55 @@
       <el-table :data="classlist" border @sort-change="handleSortChange" stripe>
         <!-- stripe: 斑马条纹
         border：边框-->
+        <!-- 展开列 -->
+        <el-table-column type="expand">
+          <template slot-scope="scope">
+            <el-row
+              :class="['bdbottom', i1 === 0 ? 'bdtop' : '', 'vcenter']"
+              v-for="(item1, i1) in scope.row.children"
+              :key="item1.id"
+            >
+              <!-- 一级权限 -->
+              <el-col :span="5">
+                <el-tag
+                  closable
+                  @close="removeRightById(scope.row, item1.id)"
+                  >{{ item1.authName }}</el-tag
+                >
+                <i class="el-icon-caret-right"></i>
+              </el-col>
+              <!-- 二级和三级 -->
+              <el-col :span="19">
+                <!-- 通过for循环 渲染二级权限 -->
+                <el-row
+                  :class="[i2 === 0 ? '' : 'bdtop', 'vcenter']"
+                  v-for="(item2, i2) in item1.children"
+                  :key="item2.id"
+                >
+                  <el-col :span="6">
+                    <el-tag
+                      type="success"
+                      closable
+                      @close="removeRightById(scope.row, item2.id)"
+                      >{{ item2.authName }}</el-tag
+                    >
+                    <i class="el-icon-caret-right"></i>
+                  </el-col>
+                  <el-col :span="18">
+                    <el-tag
+                      type="warning"
+                      v-for="item3 in item2.children"
+                      :key="item3.id"
+                      closable
+                      @close="removeRightById(scope.row, item3.id)"
+                      >{{ item3.authName }}</el-tag
+                    >
+                  </el-col>
+                </el-row>
+              </el-col>
+            </el-row>
+          </template>
+        </el-table-column>
         <!-- 索引列 -->
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column
@@ -68,10 +117,10 @@
               circle
               @click="removeClassById(scope.row.id)"
             ></el-button>
-            <!-- <el-tooltip
+            <el-tooltip
               class="item"
               effect="dark"
-              content="角色分配"
+              content="选课管理"
               :enterable="false"
               placement="top"
             >
@@ -80,9 +129,9 @@
                 icon="el-icon-setting"
                 size="mini"
                 circle
-                @click="showSetRole(scope.row)"
+                @click="showSetCourse(scope.row)"
               ></el-button>
-            </el-tooltip> -->
+            </el-tooltip>
           </template>
         </el-table-column>
       </el-table>
@@ -97,6 +146,27 @@
         :total="totle"
       ></el-pagination>
     </el-card>
+    <!-- 选课窗口 -->
+    <el-dialog
+      title="选课管理"
+      :visible.sync="setCourseDialogVisible"
+      width="50%"
+      @close="setCourseDialogClosed"
+    >
+      <el-tree
+        :data="courseList"
+        :props="treeProps"
+        ref="treeRef"
+        show-checkbox
+        node-key="id"
+        default-expand-all
+        :default-checked-keys="defKeys"
+      ></el-tree>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="setCourseDialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="allotCourse">确 定</el-button>
+      </span>
+    </el-dialog>
 
     <!-- 添加用户的对话框 -->
     <el-dialog
@@ -179,40 +249,6 @@
         <el-button type="primary" @click="editClass">确 定</el-button>
       </span>
     </el-dialog>
-
-    <!-- 分配角色对话框 -->
-    <el-dialog
-      title="分配角色"
-      :visible.sync="setRoleDialogVisible"
-      width="50%"
-      @close="setRoleDialogClosed"
-    >
-      <div>
-        <p>当前用户：{{ classInfo.classname }}</p>
-        <p>当前角色：{{ classInfo.role_name }}</p>
-        <p>
-          分配角色：
-          <el-select
-            v-model="selectRoleId"
-            filterable
-            allow-create
-            default-first-option
-            placeholder="请选择文章标签"
-          >
-            <el-option
-              v-for="item in rolesLsit"
-              :key="item.id"
-              :label="item.roleName"
-              :value="item.id"
-            ></el-option>
-          </el-select>
-        </p>
-      </div>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="setRoleDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="saveRoleInfo">确 定</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
@@ -220,6 +256,17 @@
 export default {
   data() {
     return {
+      // 课程列表
+      courseList: [],
+      //   默认选中节点ID值
+      defKeys: [],
+      //  树形控件的属性绑定对象
+      treeProps: {
+        label: 'collegename',
+        children: 'children'
+      },
+      //   当前即将分配权限的Id
+      classId: 0,
       // 获取课程列表查询参数对象
       queryInfo: {
         // 搜索的字符串
@@ -249,7 +296,7 @@ export default {
       editDialogVisible: false,
       editClassForm: {},
       // 分配角色对话框
-      setRoleDialogVisible: false,
+      setCourseDialogVisible: false,
       // 当前需要被角色的班级
       classInfo: {},
       // 所有角色数据列表
@@ -376,16 +423,25 @@ export default {
       this.$message.success('删除用户成功！')
       this.getClassList()
     },
-    // 展示分配角色的对话框
-    async showSetRole(role) {
-      this.classInfo = role
-      // 展示对话框之前，获取所有角色列表
-      const { data: res } = await this.$http.get('roles')
+    // 展示选课的对话框
+    async showSetCourse(row) {
+      this.classId = row.id
+      // 获取班级的所有可选课程
+      const { data: res } = await this.$http.get(`courses/${row.collegeid}/col`)
       if (res.meta.status !== 200) {
-        return this.$message.error('获取角色列表失败！')
+        return this.$message.error('获取课程数据失败！')
       }
-      this.rolesLsit = res.data
-      this.setRoleDialogVisible = true
+      this.courseList = res.data
+      this.getLeafkeys(row, this.defKeys)
+      this.setCourseDialogVisible = true
+    },
+    // 通过递归 获取角色下三级权限的 id, 并保存到defKeys数组
+    getLeafkeys(node, arr) {
+      // 没有children属性，则是三级节点
+      if (!node.children) {
+        return arr.push(node.id)
+      }
+      node.children.forEach((item) => this.getLeafkeys(item, arr))
     },
     // 获取学院列表
     async getCollegeList() {
@@ -397,29 +453,46 @@ export default {
       }
       this.collegeList = res.data
     },
-    // 分配角色
-    async saveRoleInfo() {
-      if (!this.selectRoleId) {
-        return this.$message.error('请选择要分配的角色')
-      }
-      const { data: res } = await this.$http.put(
-        `class/${this.classInfo.id}/role`,
-        { rid: this.selectRoleId }
+    // 进行选课
+    async allotCourse(roleId) {
+      // 获得当前选中和半选中的Id
+      const keys = [
+        ...this.$refs.treeRef.getCheckedKeys(),
+        ...this.$refs.treeRef.getHalfCheckedKeys()
+      ]
+      // join() 方法用于把数组中的所有元素放入一个字符串
+      const idStr = keys.join(',')
+      const { data: res } = await this.$http.post(
+        `class/${this.classId}/course`,
+        { cids: idStr }
       )
       if (res.meta.status !== 200) {
-        return this.$message.error('更新用户角色失败！')
+        return this.$message.error('选课失败！')
       }
-      this.$message.success('更新角色成功！')
+      this.$message.success('选课成功!')
       this.getClassList()
-      this.setRoleDialogVisible = false
+      this.setCourseDialogVisible = false
     },
-    // 分配角色对话框关闭事件
-    setRoleDialogClosed() {
-      this.selectRoleId = ''
-      this.classInfo = {}
+    // 权限对话框关闭事件
+    setCourseDialogClosed() {
+      this.defKeys = []
     }
   }
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.el-tag {
+  margin: 7px;
+}
+.bdtop {
+  border-top: 1px solid #eee;
+}
+.bdbottom {
+  border-bottom: 1px solid #eee;
+}
+.vcenter {
+  display: flex;
+  align-items: center;
+}
+</style>
