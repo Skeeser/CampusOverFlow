@@ -647,7 +647,9 @@ http_conn::HTTP_CODE http_conn::do_request()
                 }
                 else
                 {
-                    LOG_DEBUG("is not nullptr");
+                    char *id = strtok(m_url, "/");
+                    if (m_method == GET)
+                        logic_func->getCourseByStuid(id);
                 }
             }
             else
@@ -678,11 +680,11 @@ http_conn::HTTP_CODE http_conn::do_request()
                 {
 
                     if (m_method == GET)
-                        ; // logic_func->getCourseById(m_url);
+                        logic_func->getScoreById(m_url);
                     else if (m_method == PUT)
-                        ; // logic_func->putCourseById(m_url, m_string);
+                        logic_func->putScoreById(m_url, m_string);
                     else if (m_method == DELETE)
-                        ; // logic_func->deleteCourseById(m_url);
+                        logic_func->deleteScoreById(m_url);
                 }
                 else
                 {
@@ -694,7 +696,7 @@ http_conn::HTTP_CODE http_conn::do_request()
                 if (m_method == GET && m_string)
                     logic_func->getScore(m_string);
                 else if (m_method == POST && m_string)
-                    ; // logic_func->addCourse(m_string);
+                    logic_func->addScore(m_string);
             }
 
             // LOG_DEBUG("ret_json, len=>%s, %d", temp_buf, len);

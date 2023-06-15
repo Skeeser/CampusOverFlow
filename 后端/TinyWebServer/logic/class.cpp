@@ -1,5 +1,6 @@
 #include "class.h"
 #include "../util/utils.hpp"
+
 void Class::getClass(char *input_data)
 {
     int page_num = -1;

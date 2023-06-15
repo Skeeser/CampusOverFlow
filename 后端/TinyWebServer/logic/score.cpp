@@ -95,13 +95,22 @@ void Score::getScore(char *input_data)
         while (MYSQL_ROW row = mysql_fetch_row(result))
         {
             // temp["id"] = row[indexOf("class_id")];
+            if (row[indexOf("sco_num")] != NULL && row[indexOf("sco_ispass")] != NULL && row[indexOf("curs_name")] != NULL)
+            {
+                temp["id"] = row[indexOf("sco_id")];
+                temp["score"] = row[indexOf("sco_num")];
+                temp["ispass"] = row[indexOf("sco_ispass")];
+                temp["course"] = row[indexOf("curs_name")];
+            }
+            else
+            {
+                errorLogic(404, "获取成绩的值为空");
+                return;
+            }
             temp["name"] = row[indexOf("mg_name")];
             temp["grade"] = row[indexOf("class_grade")];
             temp["classname"] = row[indexOf("class_name")];
             temp["college"] = row[indexOf("mg_college")];
-            temp["course"] = row[indexOf("curs_name")];
-            temp["score"] = row[indexOf("sco_num")];
-            temp["ispass"] = row[indexOf("sco_ispass")];
             data["score"].append(temp);
             temp.clear();
         }
@@ -120,7 +129,7 @@ void Score::getScore(char *input_data)
     cpyJson2Buff(&root);
 }
 
-// 增加班级
+// 增加成绩
 void Score::addScore(char *input_data)
 {
     // 创建 JSON 对象
@@ -133,16 +142,21 @@ void Score::addScore(char *input_data)
     {
         LOG_INFO("sorry, json reader failed");
     }
+    auto mg_id = findByKey("sp_manager", "mg_id", "mg_stuid", root["stuid"].asString());
+    int ispass = 0;
 
-    std::string sql_string("INSERT INTO sp_class (class_name, class_grade, cge_id)");
-    sql_string += " VALUES ('" + root["classname"].asString();
-    sql_string += "','" + root["grade"].asString();
-    sql_string += "','" + root["collegeid"].asString() + "');";
+    if (std::stoi(root["scorenum"].asString()) >= 60)
+        ispass = 1;
+
+    std::string sql_string("INSERT INTO sp_score (curs_id, mg_id, sco_ispass, sco_num)");
+    sql_string += " VALUES ('" + root["courseid"].asString();
+    sql_string += "','" + mg_id;
+    sql_string += "','" + std::to_string(ispass);
+    sql_string += "','" + root["scorenum"].asString() + "');";
 
     Json::Value ret_root;
     Json::Value data;
     Json::Value meta;
-    int mg_id = -1;
     // m_lock.lock();
     if (mysql_ == NULL)
         LOG_INFO("mysql is NULL!");
@@ -153,28 +167,35 @@ void Score::addScore(char *input_data)
     // LOG_DEBUG("ret=>%d", ret);
     if (!ret)
     {
-        std::string id = findByKey("sp_class", "class_id", "class_name", root["classname"].asString());
-        root["id"] = id;
-        meta["msg"] = "班级创建成功";
+        root["id"] = mg_id;
+        meta["msg"] = "成绩添加成功";
         meta["status"] = 201;
         ret_root["data"] = root;
         ret_root["meta"] = meta;
     }
     else
     {
-        errorLogic(404, "班级创建失败");
+        errorLogic(404, "成绩添加失败");
         return;
     }
 
     cpyJson2Buff(&ret_root);
 }
 
+// 获取成绩信息
 void Score::getScoreById(char *id)
 {
-    clearTableKey();
-    getTableKey("sp_class");
 
-    std::string sql_string("SELECT * FROM sp_class WHERE class_id = '" + std::string(id) + "';");
+    std::string sql_string = "SELECT * FROM sp_score as sco";
+    sql_string += " LEFT JOIN sp_manager as mgr ON sco.mg_id = mgr.mg_id";
+    sql_string += " LEFT JOIN sp_course as curs ON scp.curs_id = curs.curs_id";
+    sql_string += " WHERE sco_id = '" + std::string(id) + "'";
+
+    clearTableKey();
+    getTableKey("sp_score");
+    getTableKey("sp_manager");
+    getTableKey("sp_course");
+
     Json::Value ret_root;
     Json::Value data;
     Json::Value meta;
@@ -190,9 +211,9 @@ void Score::getScoreById(char *id)
         MYSQL_RES *result = mysql_store_result(mysql_);
         MYSQL_ROW row = mysql_fetch_row(result);
         data["id"] = id;
-        data["classname"] = row[indexOf("class_name")];
-        data["grade"] = row[indexOf("class_grade")];
-        data["collegeid"] = row[indexOf("cge_id")];
+        data["name"] = row[indexOf("mg_name")];
+        data["course"] = row[indexOf("curs_name")];
+        data["score"] = row[indexOf("sco_num")];
 
         meta["msg"] = "查询成功";
         meta["status"] = 200;
@@ -201,13 +222,14 @@ void Score::getScoreById(char *id)
     }
     else
     {
-        errorLogic(404, "班级查询失败");
+        errorLogic(404, "成绩查询失败");
         return;
     }
 
     cpyJson2Buff(&ret_root);
 }
 
+// 修改成绩信息
 void Score::putScoreById(char *id, char *input_data)
 {
     // 创建 JSON 对象
@@ -221,11 +243,14 @@ void Score::putScoreById(char *id, char *input_data)
         LOG_INFO("sorry, json reader failed");
     }
 
-    std::string sql_string("UPDATE sp_class SET ");
-    sql_string += " class_name = '" + root["classname"].asString() + "',";
-    sql_string += " class_grade = " + root["grade"].asString() + ",";
-    sql_string += " cge_id = " + root["collegeid"].asString();
-    sql_string += " WHERE class_id = " + std::string(id) + ";";
+    int ispass = 0;
+    if (std::stoi(root["scorenum"].asString()) >= 60)
+        ispass = 1;
+
+    std::string sql_string("UPDATE sp_score SET ");
+    sql_string += "sco_ispass = " + std::to_string(ispass) + ", ";
+    sql_string += " sco_num = " + root["score"].asString();
+    sql_string += " WHERE sco_id = " + std::string(id) + ";";
 
     Json::Value ret_root;
     Json::Value data;
@@ -258,12 +283,13 @@ void Score::putScoreById(char *id, char *input_data)
     cpyJson2Buff(&ret_root);
 }
 
+// 删除成绩
 void Score::deleteScoreById(char *id)
 {
 
     Json::Value ret_root;
     Json::Value meta;
-    std::string sql_string("DELETE FROM sp_class WHERE class_id = '" + std::string(id) + "';");
+    std::string sql_string("DELETE FROM sp_score WHERE sco_id = '" + std::string(id) + "';");
 
     if (mysql_ == NULL)
         LOG_INFO("mysql is NULL!");
