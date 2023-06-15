@@ -42,23 +42,29 @@
         <!-- 展开列 -->
         <el-table-column type="expand">
           <template slot-scope="scope">
-            <el-row
-              :class="['bdbottom', i1 === 0 ? 'bdtop' : '', 'vcenter']"
-              v-for="(item1, i1) in scope.row.children"
+            <!-- 一级权限 -->
+            <el-tag
+              v-for="item1 in scope.row.courses"
               :key="item1.id"
+              closable
+              :type="
+                item1.id % 4 == 0
+                  ? ''
+                  : item1.id % 4 == 1
+                  ? 'warning'
+                  : item1.id % 4 == 2
+                  ? 'primary'
+                  : scope.row.type % 4 == 3
+                  ? 'success'
+                  : 'danger'
+              "
+              @close="removeCourseById(scope.row, item1.id)"
+              >{{ item1.coursename }}</el-tag
             >
-              <!-- 一级权限 -->
-              <el-col :span="5">
-                <el-tag
-                  closable
-                  @close="removeRightById(scope.row, item1.id)"
-                  >{{ item1.authName }}</el-tag
-                >
-                <i class="el-icon-caret-right"></i>
-              </el-col>
-              <!-- 二级和三级 -->
-              <el-col :span="19">
-                <!-- 通过for循环 渲染二级权限 -->
+            <!-- <i class="el-icon-caret-right"></i> -->
+
+            <!-- 二级和三级 -->
+            <!-- <el-col :span="19">
                 <el-row
                   :class="[i2 === 0 ? '' : 'bdtop', 'vcenter']"
                   v-for="(item2, i2) in item1.children"
@@ -68,7 +74,7 @@
                     <el-tag
                       type="success"
                       closable
-                      @close="removeRightById(scope.row, item2.id)"
+                      @close="removeCourseById(scope.row, item2.id)"
                       >{{ item2.authName }}</el-tag
                     >
                     <i class="el-icon-caret-right"></i>
@@ -79,13 +85,12 @@
                       v-for="item3 in item2.children"
                       :key="item3.id"
                       closable
-                      @close="removeRightById(scope.row, item3.id)"
+                      @close="removeCourseById(scope.row, item3.id)"
                       >{{ item3.authName }}</el-tag
                     >
                   </el-col>
                 </el-row>
-              </el-col>
-            </el-row>
+              </el-col> -->
           </template>
         </el-table-column>
         <!-- 索引列 -->
@@ -432,16 +437,11 @@ export default {
         return this.$message.error('获取课程数据失败！')
       }
       this.courseList = res.data
-      this.getLeafkeys(row, this.defKeys)
+      this.getLeafkeys(row.courses, this.defKeys)
       this.setCourseDialogVisible = true
     },
-    // 通过递归 获取角色下三级权限的 id, 并保存到defKeys数组
     getLeafkeys(node, arr) {
-      // 没有children属性，则是三级节点
-      if (!node.children) {
-        return arr.push(node.id)
-      }
-      node.children.forEach((item) => this.getLeafkeys(item, arr))
+      node.forEach((item) => arr.push(item.id))
     },
     // 获取学院列表
     async getCollegeList() {
@@ -472,6 +472,33 @@ export default {
       this.$message.success('选课成功!')
       this.getClassList()
       this.setCourseDialogVisible = false
+    },
+    // 根据ID删除对应的班级
+    async removeCourseById(classid, courseId) {
+      // 弹框提示 删除
+      const confirmResult = await this.$confirm(
+        '此操作将删除该课程, 是否继续?',
+        '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }
+      ).catch((err) => err)
+      // 点击确定 返回值为：confirm
+      // 点击取消 返回值为： cancel
+      if (confirmResult !== 'confirm') {
+        return this.$message.info('已取消课程删除')
+      }
+      const { data: res } = await this.$http.delete(
+        `class/${classid.id}/course/${courseId}`
+      )
+      if (res.meta.status !== 200) {
+        return this.$message.error('删除课程失败！')
+      }
+      classid.courses = res.data
+      //   不建议使用
+      // this.getRolesList()
     },
     // 权限对话框关闭事件
     setCourseDialogClosed() {
