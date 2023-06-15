@@ -14,6 +14,7 @@ public:
     void addCourse(char *input_data);
     void getCourseById(char *id);
     void getCourseByStuid(char *id);
+    void getCourseByCollegeid(char *id);
     void putCourseById(char *id, char *input_data);
     void deleteCourseById(char *id);
 
