@@ -1,5 +1,5 @@
 #include "course.h"
-
+#include "../util/utils.hpp"
 // 课程管理
 void Course::getCourse(char *input_data)
 {
@@ -28,6 +28,8 @@ void Course::getCourse(char *input_data)
             return;
         }
         query = param_hash["query"];
+        // 要先解码
+        query = Utils::urlDecode(query);
         // 参数 grade stuid
         sort_prop = param_hash["sortprop"];
         if (sort_prop == "coursenum")
@@ -84,7 +86,7 @@ void Course::getCourse(char *input_data)
             temp["coursename"] = row[indexOf("curs_name")];
             temp["coursenum"] = row[indexOf("curs_num")];
             temp["collegeid"] = row[indexOf("cge_id")];
-            temp["college"] = row[indexOf("mg_college")];
+            temp["college"] = row[indexOf("cge_name")];
             data["courses"].append(temp);
             temp.clear();
         }
@@ -174,9 +176,8 @@ void Course::getCourseById(char *id)
         MYSQL_ROW row = mysql_fetch_row(result);
         data["id"] = id;
         data["coursename"] = row[indexOf("curs_name")];
-        data["coursename"] = row[indexOf("curs_num")];
+        data["coursenum"] = row[indexOf("curs_num")];
         data["collegeid"] = row[indexOf("cge_id")];
-
         meta["msg"] = "查询成功";
         meta["status"] = 200;
         ret_root["data"] = data;
@@ -185,6 +186,54 @@ void Course::getCourseById(char *id)
     else
     {
         errorLogic(404, "班级查询失败");
+        return;
+    }
+
+    cpyJson2Buff(&ret_root);
+}
+
+void Course::getCourseByStuid(char *id)
+{
+
+    std::string sql_string = "SELECT * FROM sp_manager as mgr";
+    sql_string += " LEFT JOIN sp_college as col ON mgr.mg_college = col.cge_name";
+    sql_string += " LEFT JOIN sp_course as curs ON col.cge_id = curs.cge_id";
+    sql_string += " WHERE mg_isstu = 1";
+    sql_string += " AND mg_stuid = '" + std::string(id) + "'";
+
+    Json::Value ret_root;
+    Json::Value temp;
+    Json::Value meta;
+
+    clearTableKey();
+    getTableKey("sp_manager");
+    getTableKey("sp_college");
+    getTableKey("sp_course");
+
+    // m_lock.lock();
+    if (mysql_ == NULL)
+        LOG_INFO("mysql is NULL!");
+    int ret = mysql_query(mysql_, sql_string.c_str());
+    // LOG_DEBUG("ret=>%d", ret);
+    if (!ret)
+    {
+        // 从表中检索完整的结果集
+        MYSQL_RES *result = mysql_store_result(mysql_);
+        while (MYSQL_ROW row = mysql_fetch_row(result))
+        {
+            temp["id"] = row[indexOf("curs_id")];
+            temp["collegename"] = row[indexOf("curs_name")];
+            ret_root["data"].append(temp);
+            temp.clear();
+        }
+
+        meta["msg"] = "查询课程列表成功";
+        meta["status"] = 200;
+        ret_root["meta"] = meta;
+    }
+    else
+    {
+        errorLogic(404, "课程查询失败");
         return;
     }
 

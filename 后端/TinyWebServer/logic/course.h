@@ -13,6 +13,7 @@ public:
     void getCourse(char *input_data);
     void addCourse(char *input_data);
     void getCourseById(char *id);
+    void getCourseByStuid(char *id);
     void putCourseById(char *id, char *input_data);
     void deleteCourseById(char *id);
 

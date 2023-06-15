@@ -37,6 +37,7 @@
 #include "../logic/class.h"
 #include "../logic/college.h"
 #include "../logic/course.h"
+#include "../logic/score.h"
 
 class http_conn
 {

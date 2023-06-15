@@ -1,4 +1,5 @@
 #include "user.h"
+#include "../util/utils.hpp"
 
 // 用户管理
 void User::getUsers(char *input_data)
@@ -29,6 +30,9 @@ void User::getUsers(char *input_data)
             return;
         }
         query = param_hash["query"];
+        // 要先解码
+        query = Utils::urlDecode(query);
+
         is_stu = param_hash["isstu"];
         // 参数 grade stuid
         sort_prop = param_hash["sortprop"];
@@ -63,7 +67,6 @@ void User::getUsers(char *input_data)
     sql_string += " AND mg_name LIKE '%" + query + "%'";
     if (sort_prop != "" && sort_order != "")
         sql_string += " ORDER BY " + sort_prop + " " + sort_order;
-
     sql_string += " LIMIT " + std::to_string(offset) + "," + std::to_string(page_size) + ";";
     LOG_DEBUG("SQL:\n%s", sql_string.c_str());
     if (mysql_ == NULL)

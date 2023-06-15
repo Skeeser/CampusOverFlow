@@ -1,4 +1,5 @@
 #include "class.h"
+#include "../util/utils.hpp"
 
 void Class::getClass(char *input_data)
 {
@@ -27,6 +28,8 @@ void Class::getClass(char *input_data)
             return;
         }
         query = param_hash["query"];
+        // 要先解码
+        query = Utils::urlDecode(query);
         // 参数 grade stuid
         sort_prop = param_hash["sortprop"];
         if (sort_prop == "grade")
