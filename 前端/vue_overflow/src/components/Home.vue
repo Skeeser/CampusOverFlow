@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import Background from '@/assets/images/arknights_bg03.png'
+import Background from '@/assets/images/arknights_bg03.jpg'
 export default {
   data() {
     return {

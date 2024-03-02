@@ -64,8 +64,8 @@ export default {
       Background: Background,
       // 数据绑定返回的的表单对象
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: '',
+        password: ''
       },
       // 具体的验证规则的定义
       // blur鼠标离开触发验证
