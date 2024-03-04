@@ -277,27 +277,36 @@ bool WebServer::dealwithsignal(bool &timeout, bool &stop_server)
     return true;
 }
 
+// 读事件处理
 void WebServer::dealwithread(int sockfd)
 {
+    // 获取定时器
     util_timer *timer = users_timer[sockfd].timer;
 
     // reactor
+    // improv和timer_flag这两个标志位
+    // 线程池处理读写事件的时候, 如果发生异常, 需要告诉主线程关闭连接
     if (1 == m_actormodel)
     {
         if (timer)
         {
+            // 往后调整定时器
             adjust_timer(timer);
         }
 
-        // 若监测到读事件，将该事件放入请求队列
+        // 若监测到读事件，将该事件放入请求队列, 0--读
         m_pool->append(users + sockfd, 0);
 
+        // 循环等待fd处理完
         while (true)
         {
+            // 线程将fd处理完后, 将improv置为1
             if (1 == users[sockfd].improv)
             {
+                // 1位timer过期的标志, 标识io读写是否成功, 即fd处理完后, 要判断是否io成功读写
                 if (1 == users[sockfd].timer_flag)
                 {
+                    // 关闭
                     deal_timer(timer, sockfd);
                     users[sockfd].timer_flag = 0;
                 }
@@ -328,6 +337,7 @@ void WebServer::dealwithread(int sockfd)
     }
 }
 
+// 写事件处理
 void WebServer::dealwithwrite(int sockfd)
 {
     util_timer *timer = users_timer[sockfd].timer;
