@@ -105,6 +105,7 @@ void *threadpool<T>::worker(void *arg)
 }
 
 // 执行工作队列任务
+// 多个线程同时执行run, 让所有子线程竞争任务
 template <typename T>
 void threadpool<T>::run()
 {

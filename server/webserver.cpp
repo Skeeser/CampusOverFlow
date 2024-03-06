@@ -142,9 +142,13 @@ void WebServer::eventListen()
     utils.addfd(m_epollfd, m_listenfd, false, m_LISTENTrigmode);
     http_conn::m_epollfd = m_epollfd;
 
+    // 创建管道套接字
     ret = socketpair(PF_UNIX, SOCK_STREAM, 0, m_pipefd);
     assert(ret != -1);
+
+    // 设置管道写端为非阻塞，为什么写端要非阻塞？
     utils.setnonblocking(m_pipefd[1]);
+    // 设置管道读端为ET非阻塞
     utils.addfd(m_epollfd, m_pipefd[0], false, 0);
 
     utils.addsig(SIGPIPE, SIG_IGN);
@@ -220,6 +224,7 @@ bool WebServer::dealclinetdata()
 
     else
     {
+        // 非阻塞模式要循环accept
         while (1)
         {
             int connfd = accept(m_listenfd, (struct sockaddr *)&client_address, &client_addrlength);
@@ -384,6 +389,7 @@ void WebServer::dealwithwrite(int sockfd)
     }
 }
 
+// 接收新链接, 处理
 void WebServer::eventLoop()
 {
     bool timeout = false;
@@ -391,6 +397,7 @@ void WebServer::eventLoop()
 
     while (!stop_server)
     {
+        // 循环等待epoll有事件到达
         int number = epoll_wait(m_epollfd, events, MAX_EVENT_NUMBER, -1);
         if (number < 0 && errno != EINTR)
         {
